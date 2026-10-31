@@ -45,37 +45,30 @@
       <div class="ss-stage">
         <div class="ss-canvas"></div>
         <div class="ss-labels"></div>
-        <div class="ss-top">
-          <div class="ss-title">
+
+        <!-- Xem trước trong trang -->
+        <div class="ss-intro">
+          <div>
             <p class="eyebrow">01 · Hệ Mặt Trời sống</p>
             <h2 id="ss-h">Vị trí thật, hôm nay</h2>
-            <p>Kéo để xoay, cuộn hoặc chụm hai ngón để phóng to. Bấm vào một hành tinh để bay tới gần; bấm vào Mặt Trời để phát một xung ánh sáng.</p>
-          </div>
-          <div class="ss-date" aria-live="polite">
-            <div class="d" data-ss="date">—</div>
-            <div class="live" data-ss="live">Hôm nay</div>
+            <p class="ss-intro-date"><span data-ss="date-intro">—</span> · tám hành tinh ở đúng vị trí của chúng lúc này</p>
+            <button class="ss-open" type="button" data-ss="open">Mở mô hình toàn màn hình <span aria-hidden="true">⤢</span></button>
+            <p class="ss-intro-hint">Trong mô hình: kéo để xoay, cuộn hoặc chụm hai ngón để phóng to, bấm vào tên một hành tinh để bay tới gần.</p>
           </div>
         </div>
-        <aside class="ss-focus ss-box" aria-live="polite" aria-label="Thông tin hành tinh đang xem">
-          <p class="en" data-f="en"></p>
-          <h3 data-f="name"></h3>
-          <dl>
-            <div><dt>Đường kính</dt><dd data-f="d"></dd></div>
-            <div><dt>Một vòng tự quay</dt><dd data-f="rot"></dd></div>
-            <div><dt>Một năm (vòng quanh Mặt Trời)</dt><dd data-f="year"></dd></div>
-          </dl>
-          <p class="note" data-f="light"></p>
-          <p class="note">Hình quay nhanh hơn thực tế để dễ quan sát; chiều quay và độ nghiêng trục là thật.</p>
-          <div class="actions">
-            <a class="btn" data-f="profile" href="#ho-so">Xem hồ sơ</a>
-            <button class="btn" type="button" data-ss="back">← Toàn cảnh</button>
+
+        <!-- Thanh trên cùng khi toàn màn hình -->
+        <div class="ss-bar">
+          <div class="ss-bar-title">
+            <span class="eyebrow">Hệ Mặt Trời sống</span>
+            <span class="ss-bar-date"><b data-ss="date">—</b> <em data-ss="live">Hôm nay</em></span>
           </div>
-        </aside>
-        <button class="ss-touch" type="button" data-ss="touch-on"><span aria-hidden="true">☝</span> Chạm để điều khiển mô hình<small>1 ngón: xoay · 2 ngón: phóng to</small></button>
-        <div class="ss-tools">
-          <button class="ss-tool ss-release" type="button" data-ss="touch-off">✓ Xong, cuộn tiếp</button>
-          <button class="ss-tool" type="button" data-ss="reset" aria-label="Đặt lại góc nhìn">⟲ Góc nhìn ban đầu</button>
+          <div class="ss-bar-actions">
+            <button class="ss-tool" type="button" data-ss="reset">⟲ <span>Toàn cảnh</span></button>
+            <button class="ss-tool ss-close" type="button" data-ss="close" aria-label="Đóng mô hình">✕ <span>Đóng</span></button>
+          </div>
         </div>
+
         <div class="ss-fallback">
           <div>
             <canvas data-ss="fallback" width="640" height="640" style="width:min(80vw,520px);margin:0 auto 1rem" role="img" aria-label="Sơ đồ vị trí các hành tinh hôm nay, nhìn từ cực bắc hoàng đạo"></canvas>
@@ -83,46 +76,79 @@
           </div>
         </div>
       </div>
-      <div class="ss-panel">
-        <div class="ss-box ss-time" role="group" aria-label="Điều khiển thời gian">
-          <h3>Thời gian</h3>
-          <div class="ss-time-row">
-            <input type="range" min="0" max="9" step="1" value="5" data-ss="speed" aria-label="Tốc độ thời gian" aria-describedby="ss-speed-label">
-            <span class="ss-speed" id="ss-speed-label" data-ss="speed-label">Thời gian thực</span>
-          </div>
-          <div class="ss-time-row">
-            <label class="sr-only" for="ss-date-input">Chọn một ngày</label>
-            <input type="date" id="ss-date-input" data-ss="date-input" min="0001-01-01" max="2999-12-31">
-            <button class="btn" type="button" data-ss="today">Về hôm nay</button>
-            <span class="ss-mobile-date" data-ss="date-m"></span>
-          </div>
+
+      <!-- Bảng điều khiển: thanh bên (máy tính) hoặc ngăn dưới (điện thoại) -->
+      <aside class="ss-side" aria-label="Bảng điều khiển mô hình">
+        <div class="ss-tabs" role="tablist" aria-label="Các nhóm điều khiển">
+          <button role="tab" type="button" id="sst-time" aria-controls="ssp-time" aria-selected="true" data-tab="time">Thời gian</button>
+          <button role="tab" type="button" id="sst-scale" aria-controls="ssp-scale" aria-selected="false" tabindex="-1" data-tab="scale">Tỉ lệ</button>
+          <button role="tab" type="button" id="sst-light" aria-controls="ssp-light" aria-selected="false" tabindex="-1" data-tab="light">Ánh sáng</button>
+          <button role="tab" type="button" id="sst-planet" aria-controls="ssp-planet" aria-selected="false" tabindex="-1" data-tab="planet">Hành tinh</button>
         </div>
-        <div class="ss-box" role="group" aria-label="Tỉ lệ">
-          <h3>Tỉ lệ</h3>
-          <div class="seg" data-ss="modes">
-            <button class="btn is-active" type="button" data-mode="easy" aria-pressed="true">Dễ nhìn</button>
-            <button class="btn" type="button" data-mode="dist" aria-pressed="false">Khoảng cách thật</button>
-            <button class="btn" type="button" data-mode="real" aria-pressed="false">Tỉ lệ thật hoàn toàn</button>
-          </div>
-          <p class="ss-caption" data-ss="caption" aria-live="polite"></p>
+
+        <div class="ss-panel-body">
+          <section role="tabpanel" id="ssp-time" aria-labelledby="sst-time" data-panel="time">
+            <p class="ss-big"><span data-ss="date-side">—</span></p>
+            <label class="ss-label-row" for="ss-speed">Tốc độ: <b id="ss-speed-label" data-ss="speed-label">Thời gian thực</b></label>
+            <input type="range" id="ss-speed" min="0" max="9" step="1" value="5" data-ss="speed" aria-describedby="ss-speed-label">
+            <div class="ss-scale-ticks" aria-hidden="true"><span>← lùi</span><span>dừng</span><span>tiến →</span></div>
+            <div class="ss-row">
+              <label class="sr-only" for="ss-date-input">Chọn một ngày</label>
+              <input type="date" id="ss-date-input" data-ss="date-input" min="0001-01-01" max="2999-12-31">
+              <button class="btn" type="button" data-ss="today">Về hôm nay</button>
+            </div>
+            <p class="ss-note">Chọn một ngày bất kỳ, ví dụ ngày sinh của bạn, để xem các hành tinh khi ấy ở đâu. Phạm vi: năm 1 tới năm 2999.</p>
+          </section>
+
+          <section role="tabpanel" id="ssp-scale" aria-labelledby="sst-scale" data-panel="scale" hidden>
+            <div class="ss-seg" data-ss="modes">
+              <button type="button" class="is-active" data-mode="easy" aria-pressed="true">Dễ nhìn</button>
+              <button type="button" data-mode="dist" aria-pressed="false">Khoảng cách thật</button>
+              <button type="button" data-mode="real" aria-pressed="false">Tỉ lệ thật hoàn toàn</button>
+            </div>
+            <p class="ss-caption" data-ss="caption" aria-live="polite"></p>
+          </section>
+
+          <section role="tabpanel" id="ssp-light" aria-labelledby="sst-light" data-panel="light" hidden>
+            <p class="ss-note" style="margin-top:0">Một xung ánh sáng rời Mặt Trời với vận tốc 299 792 km/s. Bộ đếm cho biết nó cần bao lâu để tới từng hành tinh ở vị trí hiện tại.</p>
+            <div class="ss-row">
+              <button class="btn ss-primary" type="button" data-ss="pulse">Phát xung từ Mặt Trời</button>
+              <label class="sr-only" for="ss-rate">Thang thời gian của xung</label>
+              <select id="ss-rate" data-ss="rate" class="btn">
+                <option value="1">Thời gian thực</option>
+                <option value="60" selected>Nhanh × 60</option>
+                <option value="600">Nhanh × 600</option>
+              </select>
+            </div>
+            <div data-ss="pulse-out" hidden>
+              <p class="ss-clock"><span data-ss="pulse-clock">0:00</span><small>ánh sáng đã đi được</small></p>
+              <ol class="ss-pulse-list" data-ss="pulse-list"></ol>
+            </div>
+          </section>
+
+          <section role="tabpanel" id="ssp-planet" aria-labelledby="sst-planet" data-panel="planet" hidden>
+            <div data-ss="planet-pick">
+              <p class="ss-note" style="margin-top:0">Chọn một hành tinh để bay tới gần.</p>
+              <div class="ss-pick" data-ss="pick"></div>
+            </div>
+            <div class="ss-focus" data-ss="planet-info" hidden aria-live="polite">
+              <p class="en" data-f="en"></p>
+              <h3 data-f="name"></h3>
+              <dl>
+                <div><dt>Đường kính</dt><dd data-f="d"></dd></div>
+                <div><dt>Một vòng tự quay</dt><dd data-f="rot"></dd></div>
+                <div><dt>Một năm</dt><dd data-f="year"></dd></div>
+              </dl>
+              <p class="ss-note" data-f="light"></p>
+              <p class="ss-note">Hình quay nhanh hơn thực tế để dễ quan sát; chiều quay và độ nghiêng trục là thật.</p>
+              <div class="ss-row">
+                <a class="btn" data-f="profile" href="#ho-so">Xem hồ sơ</a>
+                <button class="btn" type="button" data-ss="back">← Toàn cảnh</button>
+              </div>
+            </div>
+          </section>
         </div>
-        <div class="ss-box ss-pulse" role="group" aria-label="Xung ánh sáng">
-          <h3>Xung ánh sáng</h3>
-          <div class="ss-time-row">
-            <button class="btn" type="button" data-ss="pulse">Phát xung từ Mặt Trời</button>
-            <label class="sr-only" for="ss-rate">Thang thời gian của xung</label>
-            <select id="ss-rate" data-ss="rate" class="btn" style="padding:.45em .7em">
-              <option value="1">Thời gian thực</option>
-              <option value="60" selected>× 60</option>
-              <option value="600">× 600</option>
-            </select>
-          </div>
-          <div data-ss="pulse-out" hidden>
-            <p class="clock" style="margin:.6rem 0 0"><span data-ss="pulse-clock">0:00</span><small>ánh sáng đã đi được</small></p>
-            <ol data-ss="pulse-list"></ol>
-          </div>
-        </div>
-      </div>
+      </aside>
     </section>
 
     <section class="section" id="ho-so" aria-labelledby="hs-h">

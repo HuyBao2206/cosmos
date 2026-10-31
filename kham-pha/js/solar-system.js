@@ -105,28 +105,24 @@ export async function initSolarSystem(root, ui) {
   controls.minPolarAngle = 0.12;
   controls.maxPolarAngle = Math.PI - 0.12;
 
-  // Trên màn hình cảm ứng: chỉ điều khiển 3D sau khi người xem chủ động bật, để không chặn cuộn trang
+  // Hai trạng thái: XEM TRƯỚC trong trang (không điều khiển, camera tự quay chậm, không chặn cuộn trang)
+  // và TOÀN MÀN HÌNH (điều khiển đầy đủ). Trên cảm ứng: một ngón xoay, hai ngón chỉ phóng to (tắt kéo dịch).
   const coarse = matchMedia('(pointer: coarse)').matches;
-  const setTouchControl = (on) => {
-    controls.enabled = on;
-    renderer.domElement.style.touchAction = on ? 'none' : 'pan-y';
-    root.classList.toggle('is-interacting', on);
-  };
   if (coarse) {
-    // Cảm ứng: một ngón để xoay (chậm hơn), hai ngón chỉ để phóng to/thu nhỏ — tắt kéo dịch (pan)
     controls.enablePan = false;
     controls.rotateSpeed = 0.42;
     controls.zoomSpeed = 0.7;
     controls.dampingFactor = 0.12;
     controls.touches = { ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN };
-    setTouchControl(false);
   }
-  // Trên máy tính: con lăn chỉ phóng to sau khi người xem bấm vào mô hình (tránh "bẫy" cuộn trang)
-  if (!coarse) {
-    controls.enableZoom = false;
-    renderer.domElement.addEventListener('pointerdown', () => { controls.enableZoom = true; host.setAttribute('data-lenis-prevent', ''); root.classList.add('is-engaged'); });
-    root.addEventListener('pointerleave', () => { controls.enableZoom = false; host.removeAttribute('data-lenis-prevent'); root.classList.remove('is-engaged'); });
-  }
+  let interactive = false;
+  const setInteractive = (on) => {
+    interactive = on;
+    controls.enabled = on;
+    renderer.domElement.style.touchAction = on ? 'none' : 'pan-y';
+    if (on) host.setAttribute('data-lenis-prevent', ''); else host.removeAttribute('data-lenis-prevent');
+  };
+  setInteractive(false);
 
   // Ánh sáng: nguồn điểm tại Mặt Trời, gần như không có ánh sáng môi trường → phía đêm tối hẳn
   const sunLight = new THREE.PointLight(0xfff4e6, 2.6, 0, 0);
@@ -390,8 +386,7 @@ export async function initSolarSystem(root, ui) {
   const makeLabel = (id, text, cls = '') => {
     const b = document.createElement('button');
     b.type = 'button'; b.className = `ss-label ${cls}`; b.dataset.id = id;
-    b.innerHTML = `<i></i><span>${text}</span>`;
-    b.style.setProperty('--c', id === 'sun' ? '#ffd88a' : (PLANETS.find((p) => p.id === id)?.color || '#ece6d8'));
+    b.innerHTML = `<span>${text}</span>`;
     labelLayer.appendChild(b);
     return b;
   };
@@ -423,8 +418,8 @@ export async function initSolarSystem(root, ui) {
       el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
       el.classList.toggle('is-hidden', !vis);
       if (!vis) return;
-      const lw = (el.dataset.w ||= String(el.querySelector('span').offsetWidth + 28)) * 1;
-      const box = [x - 8, y - 12, x + lw, y + 12];
+      const lw = (el.dataset.w ||= String(el.querySelector('span').offsetWidth + 12)) * 1;
+      const box = [x + 4, y - 22, x + lw, y - 2];
       const hit = placed.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1]);
       el.classList.toggle('is-crowded', hit);
       if (!hit) placed.push(box);
@@ -439,6 +434,7 @@ export async function initSolarSystem(root, ui) {
   let downAt = null;
   renderer.domElement.addEventListener('pointerdown', (e) => { downAt = [e.clientX, e.clientY]; });
   renderer.domElement.addEventListener('pointerup', (e) => {
+    if (!interactive) return;
     if (!downAt || Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) > 6) return;
     const r = renderer.domElement.getBoundingClientRect();
     pointer.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
@@ -460,7 +456,7 @@ export async function initSolarSystem(root, ui) {
     const dir = pl.pos.clone().normalize().multiplyScalar(-1).applyAxisAngle(new THREE.Vector3(0, 1, 0), 0.7);
     dir.y += 0.25; dir.normalize();
     const extra = pl.ring ? 2.4 : 1;
-    const dist = Math.max(pl.r * 4.2 * extra, 0.0004);
+    const dist = Math.max(pl.r * 4.2 * extra * (camera.aspect < 1 ? 1.7 : 1), 0.0004);
     const endPos = pl.pos.clone().add(dir.multiplyScalar(dist));
     controls.minDistance = Math.max(pl.r * 1.3, 0.00005);
     const dur = reduced ? 0 : 1.8;
@@ -562,6 +558,9 @@ export async function initSolarSystem(root, ui) {
     corona.material.uniforms.uStrength.value = state.to === MODES.real ? 0.35 + 0.65 * (1 - state.mix) : 1;
     belt.mat.uniforms.uOpacity.value = state.to === MODES.real ? 0.5 : 1;
     updatePulse(pow);
+    if (!interactive && !reduced && !state.focus && !gsap.isTweening(camera.position)) {
+      camera.position.applyAxisAngle(new THREE.Vector3(0, 1, 0), dt * 0.03);
+    }
     controls.update();
     placeLabels();
     if (composer) composer.render(); else renderer.render(scene, camera);
@@ -587,7 +586,7 @@ export async function initSolarSystem(root, ui) {
     focusPlanet, unfocus, firePulse, stopPulse,
     resetView() { if (state.focus) unfocus(); fitCamera(state.to, true); },
     setPulseRate(r) { pulse.rate = r; },
-    setTouchControl,
+    setInteractive,
     planets: PLANETS,
   };
 }

@@ -86,8 +86,13 @@ raw.githubusercontent.com và `git clone` từ GitHub dùng được. Vì vậy:
 - `js/main.js` điều phối; C1 `solar-system.js` (+ `sun-shader.js`), C2 `profiles.js` (+ `profiles-content.js`),
   C3 `gods.js` (+ `gods-content.js`); số liệu chung `planets-data.js` (NSSDCA).
 - C1: Three.js. Ecliptic J2000 (x,y,z) → Three (x, z, −y). Khoảng cách ánh xạ d' = 12·r^pow (pow 0,5 = "Dễ nhìn",
-  1 = thật). Ba chế độ trong `MODES`. Nhãn hành tinh là `<button>` HTML (bàn phím). Con lăn chỉ phóng to sau khi bấm
-  vào mô hình; trên cảm ứng phải bấm "Chạm để điều khiển" (tránh chặn cuộn trang). `window.__cosmos` để kiểm thử.
+  1 = thật). Ba chế độ trong `MODES`. Hai trạng thái: xem trước trong trang (không điều khiển, camera tự quay chậm)
+  và toàn màn hình (`.ss.is-full`, `html.ss-fullscreen`, nút "Mở mô hình toàn màn hình"; Esc/nút Đóng/Back để thoát).
+  Toàn màn hình: thanh bên (máy tính) hoặc ngăn dưới (điện thoại) với 4 tab Thời gian · Tỉ lệ · Ánh sáng · Hành tinh —
+  thông tin không bao giờ đè lên nhau. Chặn pinch/double-tap zoom của trình duyệt khi ở toàn màn hình.
+  Nhãn hành tinh: chữ có viền (`-webkit-text-stroke` + `paint-order`), không có vòng tròn; tự ẩn khi chồng nhau.
+  Lưu ý: không đặt class trên `<html>` trùng tên class của phần tử khác (đã từng lỗi với `.ss-open`).
+  `window.__cosmos` để kiểm thử (có `open()`, `close()`).
 - C2: thẻ → `<dialog>` hồ sơ (lật 3D bằng GSAP, đường kẻ SVG tự vẽ, số đếm lên, quả cầu Three.js nhỏ).
   Ảnh tàu vũ trụ tải từ Wikimedia Commons `Special:FilePath`, lỗi thì thay bằng ảnh đĩa dựng từ texture.
 - C3: SVG `glyph` của ký hiệu (hộp 100×100) → sao rải theo `getPointAtLength` → nối nét → vẽ ký hiệu → quỹ đạo →
