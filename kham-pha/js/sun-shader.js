@@ -106,21 +106,23 @@ export function createAtmosphere(color, intensity = 1) {
     uniforms: { uColor: { value: new THREE.Color(color) }, uSun: { value: new THREE.Vector3() }, uIntensity: { value: intensity } },
     transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.BackSide,
     vertexShader: /* glsl */`
-      varying vec3 vN; varying vec3 vW; varying vec3 vView;
+      varying vec3 vN; varying vec3 vW; varying vec3 vView; varying vec3 vC;
       void main(){
         vec4 w = modelMatrix * vec4(position, 1.0);
+        vC = (modelMatrix * vec4(0.0, 0.0, 0.0, 1.0)).xyz;
         vW = w.xyz; vN = normalize(mat3(modelMatrix) * normal);
         vView = normalize(cameraPosition - w.xyz);
         gl_Position = projectionMatrix * viewMatrix * w;
       }`,
     fragmentShader: /* glsl */`
       uniform vec3 uColor; uniform vec3 uSun; uniform float uIntensity;
-      varying vec3 vN; varying vec3 vW; varying vec3 vView;
+      varying vec3 vN; varying vec3 vW; varying vec3 vView; varying vec3 vC;
       void main(){
-        float rim = pow(1.0 - abs(dot(-vN, vView)), 2.0);
-        float lit = clamp(dot(-vN, normalize(uSun - vW)) * 0.8 + 0.35, 0.0, 1.0);
-        float a = smoothstep(0.0, 1.0, rim) * lit * uIntensity;
-        gl_FragColor = vec4(uColor * a, 1.0);
+        vec3 n = normalize(vW - vC);                 // pháp tuyến hướng ra ngoài
+        float facing = abs(dot(n, vView));
+        float rim = pow(1.0 - facing, 1.6) * smoothstep(0.0, 0.25, facing);
+        float lit = smoothstep(-0.25, 0.6, dot(n, normalize(uSun - vW)));
+        gl_FragColor = vec4(uColor * rim * lit * uIntensity, 1.0);
       }`,
   });
 }

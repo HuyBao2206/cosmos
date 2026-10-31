@@ -275,12 +275,12 @@ export async function initPowers(section) {
     // 5. Đám mây Oort
     const oA = win(L, 15.2, 15.9, 17.4, 18.0);
     imageAt(oort, sunPos[0], sunPos[1], OORT_SPAN, k, oA, cx, cy, 'lighter');
-    if (oA > 0.01) label(X(sunPos[0]) + 100000 * AU * k * 0.7, Y(sunPos[1]) - 100000 * AU * k * 0.7, 'Đám mây Oort (ước tính)', oA * 0.9, '2 000 – 100 000 AU');
+    if (oA > 0.01) label(X(sunPos[0]) + 100000 * AU * k * 0.7, Y(sunPos[1]) - 100000 * AU * k * 0.7, 'Đám mây Oort (ước tính)', oA * 0.9, 'tới ~100 000 AU');
     // 4. Nhật quyển
     const hA = win(L, 13.6, 14.1, 15.6, 16.2);
     if (hA > 0.01) {
       ring(X(sunPos[0]), Y(sunPos[1]), 120 * AU * k, hA * 0.7, [4, 4]);
-      label(X(sunPos[0]) + 120 * AU * k * 0.72, Y(sunPos[1]) - 120 * AU * k * 0.72, 'Nhật quyển dừng', hA, '≈ 120 AU');
+      label(X(sunPos[0]) + 120 * AU * k * 0.72, Y(sunPos[1]) - 120 * AU * k * 0.72, 'Ranh giới nhật quyển', hA, 'heliopause · ≈ 120 AU');
       dot(X(voyager[0]), Y(voyager[1]), 1.6, `rgba(230,194,122,${hA})`, 4);
       label(X(voyager[0]), Y(voyager[1]), 'Voyager 1', hA, '≈ 172 AU');
     }

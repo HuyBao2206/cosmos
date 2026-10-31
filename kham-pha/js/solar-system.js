@@ -110,6 +110,12 @@ export async function initSolarSystem(root, ui) {
     root.classList.toggle('is-interacting', on);
   };
   if (coarse) setTouchControl(false);
+  // Trên máy tính: con lăn chỉ phóng to sau khi người xem bấm vào mô hình (tránh "bẫy" cuộn trang)
+  if (!coarse) {
+    controls.enableZoom = false;
+    renderer.domElement.addEventListener('pointerdown', () => { controls.enableZoom = true; host.setAttribute('data-lenis-prevent', ''); root.classList.add('is-engaged'); });
+    root.addEventListener('pointerleave', () => { controls.enableZoom = false; host.removeAttribute('data-lenis-prevent'); root.classList.remove('is-engaged'); });
+  }
 
   // Ánh sáng: nguồn điểm tại Mặt Trời, gần như không có ánh sáng môi trường → phía đêm tối hẳn
   const sunLight = new THREE.PointLight(0xfff4e6, 2.6, 0, 0);
