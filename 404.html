@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="vi" class="no-js" data-root="./" data-section="404">
+<head>
+  <script>
+    // 404.html được GitHub Pages trả về ở mọi độ sâu đường dẫn: đặt <base> về gốc site để mọi đường dẫn tương đối vẫn đúng.
+    (function () {
+      var p = location.pathname, m = p.match(/^\/cosmos(\/|$)/);
+      var b = m ? '/cosmos/' : '/';
+      document.write('<base href="' + b + '"><link rel="stylesheet" href="' + b + 'shared/css/tokens.css"><link rel="stylesheet" href="' + b + 'shared/css/base.css">');
+    })();
+  </script>
+  <title>Lạc vào khoảng không · Into the Cosmos</title>
+  <meta name="robots" content="noindex">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#05060b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/",
+      "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.15.0/index.js",
+      "gsap/": "https://cdn.jsdelivr.net/npm/gsap@3.15.0/",
+      "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.mjs"
+    }
+  }
+  </script>
+
+  <style>
+    .lost { min-height: 100vh; display: grid; place-items: center; text-align: center; position: relative; z-index: 1; padding: 6rem var(--gap) 3rem; }
+    .lost canvas { width: min(92vw, 760px); height: auto; aspect-ratio: 2.2 / 1; margin: 0 auto 1rem; }
+    .lost h1 { font-size: var(--fs-h2); }
+    .lost .lead { margin: 0 auto 2rem; }
+    .you { display:inline-flex; align-items:center; gap:.6rem; font-size: var(--fs-micro); letter-spacing:.2em; text-transform:uppercase; color: var(--ink-3); margin-bottom: 2rem; }
+    .you i { width:6px; height:6px; border-radius:50%; background: var(--gold); box-shadow: 0 0 10px 2px var(--gold); }
+  </style>
+</head>
+<body>
+  <main id="main" class="lost">
+    <div>
+      <canvas id="c404" width="1520" height="690" role="img" aria-label="Con số 404 được tạo thành từ các ngôi sao đang trôi xa dần"></canvas>
+      <p class="you"><i></i> Bạn đang ở đây — và trang này thì không</p>
+      <h1>Lạc vào khoảng không</h1>
+      <p class="lead">Ánh sáng từ ngôi sao gần Mặt Trời nhất, Proxima Centauri, cần khoảng 4,2 năm để tới Trái Đất. Trang bạn tìm thì không có ở đâu cả, dù đi xa đến đâu.</p>
+      <a class="btn" href="./">← Trở về trang chủ</a>
+    </div>
+  </main>
+  <script type="module">
+    import { initSite } from './shared/js/site.js';
+    import { prefersReducedMotion } from './shared/js/util.js';
+    initSite({ footer: false });
+    const c = document.getElementById('c404'), g = c.getContext('2d');
+    const W = c.width, H = c.height;
+    const off = document.createElement('canvas'); off.width = W; off.height = H;
+    const o = off.getContext('2d');
+    o.fillStyle = '#fff'; o.textAlign = 'center'; o.textBaseline = 'middle';
+    o.font = '500 ' + (H * 0.95) + 'px "Cormorant Garamond", Georgia, serif';
+    const pts = [];
+    const draw0 = () => {
+      o.clearRect(0, 0, W, H); o.fillText('404', W / 2, H * 0.54);
+      const d = o.getImageData(0, 0, W, H).data;
+      pts.length = 0;
+      for (let y = 0; y < H; y += 9) for (let x = 0; x < W; x += 9)
+        if (d[(y * W + x) * 4 + 3] > 128 && Math.random() < 0.55)
+          pts.push({ x, y, a: Math.random() * 6.28, v: 0.15 + Math.random() * 0.5, s: Math.random() < 0.08 ? 2.4 : 1 + Math.random() });
+    };
+    const still = prefersReducedMotion();
+    let t0 = performance.now();
+    function frame(now) {
+      const t = (now - t0) / 1000;
+      g.clearRect(0, 0, W, H);
+      // Các "ngôi sao" trôi rời nhau rất chậm, như một chòm sao đang tan rã
+      const k = still ? 0 : Math.min(60, t * 2.2);
+      for (const p of pts) {
+        const x = p.x + Math.cos(p.a) * p.v * k + (p.x - W / 2) * k * 0.0016;
+        const y = p.y + Math.sin(p.a) * p.v * k + (p.y - H / 2) * k * 0.0016;
+        g.globalAlpha = 0.55 + 0.35 * Math.sin(t * p.v * 2 + p.a);
+        g.fillStyle = p.s > 2 ? '#ffe2a8' : '#ece6d8';
+        g.beginPath(); g.arc(x, y, p.s, 0, 6.283); g.fill();
+      }
+      if (!still && !document.hidden) requestAnimationFrame(frame);
+    }
+    (document.fonts ? document.fonts.load(o.font) : Promise.resolve()).then(() => { draw0(); requestAnimationFrame(frame); });
+  </script>
+</body>
+</html>

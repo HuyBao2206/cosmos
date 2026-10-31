@@ -1,0 +1,52 @@
+/* Into the Cosmos — design tokens (dùng chung cho mọi trang) */
+:root {
+  /* Nền và chữ */
+  --bg: #05060b;            /* đen sâu, không đen tuyệt đối */
+  --bg-raise: #0b0d16;      /* bề mặt nổi (thẻ, bảng) */
+  --bg-raise-2: #11141f;
+  --line: rgba(236, 230, 216, 0.14);
+  --line-strong: rgba(236, 230, 216, 0.28);
+  --ink: #ece6d8;           /* trắng ngà — tương phản ~16:1 trên --bg */
+  --ink-2: #b9b3a6;         /* chữ phụ — ~9:1 */
+  --ink-3: #8a857b;         /* chú thích nhỏ — ~5:1, đạt AA */
+
+  /* Accent theo từng web con */
+  --gold: #e6c27a;          /* Khám phá — vàng ánh sao */
+  --ice: #9fd4e8;           /* Thấu hiểu — xanh băng */
+  --nebula: #b79be6;        /* Khảo luận — tím tinh vân */
+  --accent: var(--gold);
+
+  /* Font */
+  --font-display: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+  --font-body: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* Thang chữ (fluid) */
+  --fs-hero: clamp(3.2rem, 9vw, 9rem);
+  --fs-h1: clamp(2.6rem, 6vw, 5.6rem);
+  --fs-h2: clamp(2rem, 4.2vw, 3.6rem);
+  --fs-h3: clamp(1.4rem, 2.2vw, 1.9rem);
+  --fs-lead: clamp(1.08rem, 1.35vw, 1.3rem);
+  --fs-body: 1rem;
+  --fs-small: 0.84rem;
+  --fs-micro: 0.72rem;
+
+  /* Khoảng cách */
+  --gap: clamp(1rem, 2.4vw, 2rem);
+  --section-pad: clamp(5rem, 14vh, 11rem);
+  --maxw: 1240px;
+  --maxw-text: 42rem;
+  --nav-h: 64px;
+  --radius: 14px;
+
+  /* Chuyển động */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur: 0.7s;
+
+  color-scheme: dark;
+}
+
+html[data-section="kham-pha"] { --accent: var(--gold); }
+html[data-section="thau-hieu"] { --accent: var(--ice); }
+html[data-section="khao-luan"] { --accent: var(--nebula); }
