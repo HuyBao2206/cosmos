@@ -6,19 +6,19 @@ export const PROFILES = {
     hook: 'Từ lúc Mặt Trời mọc tới lần mọc kế tiếp trên Sao Thuỷ mất 176 ngày Trái Đất, dài bằng hai năm của chính hành tinh này.',
     points: [
       ['Cộng hưởng 3 : 2', 'Sao Thuỷ tự quay đúng ba vòng trong mỗi hai vòng quanh Mặt Trời. Quan sát radar từ đài Arecibo năm 1965 phát hiện điều này, xoá bỏ giả định cũ rằng hành tinh luôn quay một mặt về phía Mặt Trời.'],
-      ['Nhiệt độ chênh lệch lớn nhất', 'Gần như không có khí quyển giữ nhiệt, bề mặt nóng tới khoảng 430 °C vào ban ngày và xuống khoảng −180 °C vào ban đêm.'],
+      ['Chênh lệch nhiệt độ lớn nhất trong các hành tinh', 'Gần như không có khí quyển giữ nhiệt, bề mặt nóng tới khoảng 430 °C vào ban ngày và xuống khoảng −180 °C vào ban đêm.'],
       ['Băng nước gần Mặt Trời nhất', 'Năm 2012, tàu MESSENGER xác nhận có băng nước trong các hố va chạm ở vùng cực bắc, nơi đáy hố không bao giờ nhận ánh nắng.'],
       ['Một từ trường bất ngờ', 'Dù nhỏ và quay chậm, Sao Thuỷ có từ trường toàn cầu, do Mariner 10 phát hiện năm 1974. Điều này cho thấy lõi sắt của nó vẫn còn một phần nóng chảy.'],
     ],
     missions: [
       ['1974–1975', 'Mariner 10 (NASA)', 'Tàu đầu tiên tới Sao Thuỷ; ba lần bay ngang, chụp gần một nửa bề mặt.'],
       ['2011–2015', 'MESSENGER (NASA)', 'Tàu đầu tiên bay quanh Sao Thuỷ; lập bản đồ toàn cầu, tìm thấy băng ở cực.'],
-      ['2018 →', 'BepiColombo (ESA – JAXA)', 'Hai tàu quỹ đạo; dự kiến vào quỹ đạo tháng 11/2026.'],
+      ['2018 →', 'BepiColombo (ESA – JAXA)', 'Hai tàu quỹ đạo; dự kiến vào quỹ đạo ngày 21/11/2026 (thông tin tại 31/10/2026).'],
     ],
     photo: { file: 'Mercury_in_color_-_Prockter07_centered.jpg', credit: 'NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington', note: 'MESSENGER, màu tăng cường, 2008' },
   },
   venus: {
-    hook: 'Một ngày trên Sao Kim dài hơn một năm của nó: hành tinh tự quay ngược chiều một vòng mất 243 ngày Trái Đất, trong khi đi hết quỹ đạo chỉ mất 224,7 ngày.',
+    hook: 'Sao Kim tự quay một vòng (so với các sao) mất 243 ngày Trái Đất, lâu hơn cả thời gian nó đi hết một vòng quanh Mặt Trời: 224,7 ngày.',
     points: [
       ['Nóng nhất hệ Mặt Trời', 'Bề mặt nóng khoảng 464 °C, nóng hơn cả Sao Thuỷ dù xa Mặt Trời gấp gần hai lần. Nguyên nhân là hiệu ứng nhà kính của bầu khí quyển gồm khoảng 96 % CO₂.'],
       ['Áp suất 92 bar', 'Áp suất khí quyển ở bề mặt gấp khoảng 92 lần Trái Đất, tương đương áp suất ở độ sâu gần 900 m dưới mặt biển.'],
@@ -40,29 +40,30 @@ export const PROFILES = {
       ['Hành tinh đặc nhất', 'Với mật độ trung bình 5 514 kg/m³, Trái Đất là hành tinh đặc nhất hệ Mặt Trời.'],
       ['Nước lỏng trên bề mặt', 'Đại dương phủ khoảng 71 % bề mặt. Trái Đất là thiên thể duy nhất đã biết có nước lỏng ổn định trên bề mặt và có sự sống.'],
       ['Một vệ tinh lớn bất thường', 'Mặt Trăng có đường kính bằng khoảng 27 % đường kính Trái Đất, tỉ lệ lớn nhất giữa vệ tinh và hành tinh trong số các hành tinh.'],
-      ['Từ quyển che chắn', 'Lõi sắt lỏng tạo ra từ trường làm lệch hướng phần lớn gió Mặt Trời, giúp khí quyển không bị bào mòn.'],
+      ['Từ quyển che chắn', 'Lõi sắt lỏng tạo ra từ trường làm lệch hướng phần lớn gió Mặt Trời và được cho là góp phần hạn chế việc khí quyển bị bào mòn.'],
     ],
     missions: [
       ['1958', 'Explorer 1 (Hoa Kỳ)', 'Phát hiện các vành đai bức xạ Van Allen.'],
       ['1972', 'Apollo 17', 'Ảnh "The Blue Marble": Trái Đất nhìn trọn vẹn và được chiếu sáng đầy đủ.'],
-      ['1972 →', 'Landsat', 'Chuỗi ảnh vệ tinh quan sát mặt đất dài nhất.'],
+      ['1972 →', 'Landsat', 'Chuỗi ảnh vệ tinh liên tục dài nhất về bề mặt đất liền.'],
       ['1990', 'Voyager 1', 'Ảnh "Pale Blue Dot" từ khoảng 6 tỉ km.'],
     ],
     photo: { file: 'The_Earth_seen_from_Apollo_17.jpg', credit: 'NASA', note: 'Apollo 17, 7/12/1972 (AS17-148-22727)' },
   },
   mars: {
-    hook: 'Olympus Mons trên Sao Hoả cao khoảng 22 km so với mực chuẩn của hành tinh, gần gấp ba đỉnh Everest; chân núi rộng khoảng 600 km.',
+    hook: 'Olympus Mons trên Sao Hoả cao khoảng 22 km so với mực chuẩn của hành tinh, gấp khoảng 2,5 lần độ cao đỉnh Everest so với mực nước biển; chân núi rộng khoảng 600 km.',
     points: [
       ['Núi lửa và hẻm vực khổng lồ', 'Olympus Mons là núi lửa lớn nhất đã biết trong hệ Mặt Trời. Hệ hẻm vực Valles Marineris dài hơn 4 000 km, có đoạn sâu khoảng 7 km.'],
       ['Dấu vết của nước', 'Lòng sông cạn, châu thổ và khoáng vật sét cho thấy nước lỏng từng chảy trên bề mặt. Xe tự hành Curiosity xác định hố Gale từng là một hồ nước có điều kiện phù hợp cho sự sống vi sinh.'],
       ['Khí quyển rất mỏng', 'Áp suất bề mặt chỉ khoảng 0,6 % áp suất trên Trái Đất; khí quyển gồm chủ yếu CO₂.'],
-      ['Màu đỏ của gỉ sắt', 'Màu đỏ đến từ bụi chứa oxide sắt phủ khắp bề mặt.'],
+      ['Màu đỏ của gỉ sắt', 'Màu đỏ đến từ bụi chứa oxit sắt phủ khắp bề mặt.'],
     ],
     missions: [
       ['1965', 'Mariner 4 (NASA)', 'Những ảnh cận cảnh đầu tiên: một bề mặt đầy hố va chạm.'],
       ['1976', 'Viking 1 & 2 (NASA)', 'Hạ cánh, chụp ảnh bề mặt và làm thí nghiệm sinh học đầu tiên.'],
       ['2012 →', 'Curiosity (NASA)', 'Khảo sát hố Gale.'],
-      ['2021 →', 'Perseverance & Ingenuity (NASA)', 'Thu mẫu đá ở hố Jezero; Ingenuity là chuyến bay có động cơ đầu tiên trên hành tinh khác (72 chuyến).'],
+      ['2021 →', 'Perseverance (NASA)', 'Thu mẫu đá ở hố Jezero.'],
+      ['2021–2024', 'Ingenuity (NASA)', 'Chuyến bay có động cơ đầu tiên trên một hành tinh khác; 72 chuyến bay.'],
       ['2021', 'Thiên Vấn 1 & Chúc Dung (CNSA)', 'Trung Quốc đưa xe tự hành lên Sao Hoả.'],
     ],
     photo: { file: 'Mars_Valles_Marineris.jpeg', credit: 'NASA/JPL-Caltech/USGS', note: 'Ghép ảnh Viking Orbiter' },
@@ -73,13 +74,13 @@ export const PROFILES = {
       ['Lớn hơn tất cả cộng lại', 'Khối lượng Sao Mộc lớn gấp khoảng 2,5 lần tổng khối lượng của mọi hành tinh khác cộng lại.'],
       ['Ngày ngắn nhất', 'Sao Mộc tự quay một vòng chỉ trong khoảng 9,9 giờ, nhanh nhất trong các hành tinh, khiến nó phình ra ở xích đạo.'],
       ['Một lõi "loãng"', 'Dữ liệu trọng trường của tàu Juno cho thấy các nguyên tố nặng trải rộng tới khoảng một nửa bán kính hành tinh, thay vì tập trung thành một lõi đặc gọn.'],
-      ['Một thế giới của vệ tinh', 'Io có núi lửa hoạt động mạnh nhất hệ Mặt Trời; Europa và Ganymede có đại dương nước mặn dưới lớp băng.'],
+      ['Một thế giới của vệ tinh', 'Io có núi lửa hoạt động mạnh nhất hệ Mặt Trời; nhiều bằng chứng cho thấy Europa và Ganymede có đại dương nước mặn dưới lớp băng.'],
     ],
     missions: [
       ['1973', 'Pioneer 10 (NASA)', 'Tàu đầu tiên vượt vành đai tiểu hành tinh và bay ngang Sao Mộc.'],
       ['1979', 'Voyager 1 & 2 (NASA)', 'Phát hiện núi lửa đang hoạt động trên Io.'],
       ['1995–2003', 'Galileo (NASA)', 'Thả đầu dò khí quyển đầu tiên; bằng chứng đại dương dưới băng của Europa.'],
-      ['2016 →', 'Juno (NASA)', 'Bay quanh hai cực, đo cấu trúc bên trong.'],
+      ['2016 – ?', 'Juno (NASA)', 'Bay quanh hai cực, đo cấu trúc bên trong; đợt gia hạn chính thức kết thúc 9/2025, tương lai sứ mệnh chưa chắc chắn.'],
       ['2030–2031', 'Europa Clipper (NASA), JUICE (ESA)', 'Đang trên đường tới; nghiên cứu các vệ tinh băng.'],
     ],
     photo: { file: 'Jupiter_and_its_shrunken_Great_Red_Spot.jpg', credit: 'NASA, ESA, A. Simon (Goddard Space Flight Center)', note: 'Kính Hubble, 2014' },
@@ -103,7 +104,7 @@ export const PROFILES = {
   uranus: {
     hook: 'Trục quay của Sao Thiên Vương nghiêng khoảng 98°: hành tinh gần như lăn trên quỹ đạo, và mỗi cực lần lượt trải qua khoảng 42 năm ban ngày rồi 42 năm ban đêm.',
     points: [
-      ['Hành tinh băng khổng lồ', 'Bên dưới khí quyển hydro, heli và methane là một lớp dày gồm nước, amoniac và methane ở trạng thái đặc, nóng; methane hấp thụ ánh sáng đỏ nên hành tinh có màu xanh lục lam.'],
+      ['Hành tinh băng khổng lồ', 'Bên dưới khí quyển hydro, heli và methane là một lớp chất lưu đặc và nóng gồm nước, amoniac và methane; methane hấp thụ ánh sáng đỏ nên hành tinh có màu xanh lục lam.'],
       ['Lạnh nhất', 'Nhiệt độ khí quyển xuống tới khoảng −224 °C, thấp nhất trong các hành tinh, dù Sao Hải Vương ở xa hơn.'],
       ['Chỉ một lần bay ngang', 'Gần như mọi số liệu cận cảnh đến từ Voyager 2 năm 1986. Năm 2024, một nghiên cứu cho thấy lần bay ngang đó trùng với lúc gió Mặt Trời ép từ quyển, một trạng thái chỉ xảy ra dưới 5 % thời gian.'],
       ['Hành tinh đầu tiên tìm thấy qua kính thiên văn', 'William Herschel phát hiện Sao Thiên Vương ngày 13/3/1781.'],
@@ -134,7 +135,7 @@ export const PROFILES = {
     hook: '"Trái tim" trên Sao Diêm Vương là một đồng bằng băng nitơ rộng khoảng 1 000 km, Sputnik Planitia, và lớp băng ấy vẫn đang đối lưu chậm.',
     points: [
       ['Một thế giới còn hoạt động', 'Bề mặt Sputnik Planitia gần như không có hố va chạm, cho thấy nó rất trẻ về địa chất. Núi băng nước cao vài kilomét nổi lên quanh đồng bằng.'],
-      ['Hệ hành tinh đôi', 'Charon có đường kính khoảng 1 212 km, hơn một nửa Sao Diêm Vương (2 377 km); hai thiên thể quay quanh một khối tâm nằm ngoài Sao Diêm Vương.'],
+      ['Một hệ thiên thể đôi', 'Charon có đường kính khoảng 1 212 km, hơn một nửa Sao Diêm Vương (2 376 km); hai thiên thể quay quanh một khối tâm nằm ngoài Sao Diêm Vương.'],
       ['Khí quyển mỏng nhiều tầng', 'New Horizons thấy một khí quyển nitơ rất mỏng với nhiều lớp sương mù màu xanh.'],
     ],
     missions: [
@@ -149,10 +150,10 @@ export const PROFILES = {
 export const IAU_2006 = {
   title: 'Vì sao Sao Diêm Vương không còn là hành tinh?',
   text: [
-    'Ngày 24/8/2006, Đại hội đồng lần thứ 26 của Hiệp hội Thiên văn Quốc tế (IAU) tại Praha thông qua định nghĩa hành tinh. Một hành tinh phải (1) quay quanh Mặt Trời, (2) đủ khối lượng để lực hấp dẫn của chính nó kéo nó thành dạng gần cầu, và (3) đã dọn sạch vùng lân cận quỹ đạo.',
-    'Sao Diêm Vương thoả hai điều kiện đầu nhưng không thoả điều kiện thứ ba: quỹ đạo của nó nằm giữa vô số thiên thể băng của vành đai Kuiper. Theo Nghị quyết 6A, nó được xếp vào nhóm hành tinh lùn (dwarf planet). Trước đó một năm, việc phát hiện Eris, một thiên thể ở xa hơn và nặng hơn Sao Diêm Vương, đã buộc giới thiên văn phải trả lời câu hỏi "thế nào là một hành tinh".',
+    'Ngày 24/8/2006, Đại hội đồng lần thứ 26 của Liên đoàn Thiên văn Quốc tế (IAU) tại Praha thông qua định nghĩa hành tinh. Một hành tinh phải (1) quay quanh Mặt Trời, (2) đủ khối lượng để lực hấp dẫn của chính nó kéo nó thành dạng gần cầu, và (3) đã dọn sạch vùng lân cận quỹ đạo.',
+    'Sao Diêm Vương thoả hai điều kiện đầu nhưng không thoả điều kiện thứ ba: quỹ đạo của nó nằm giữa vô số thiên thể băng của vành đai Kuiper. Nghị quyết 5A định nghĩa nhóm hành tinh lùn (dwarf planet), và Nghị quyết 6A xếp Sao Diêm Vương vào nhóm này. Trước đó một năm, việc phát hiện Eris, một thiên thể ở xa hơn và nặng hơn Sao Diêm Vương, đã buộc giới thiên văn phải trả lời câu hỏi "thế nào là một hành tinh".',
   ],
-  source: 'IAU, Resolutions B5 & B6 (2006), thông cáo báo chí iau0603',
+  source: 'IAU, Nghị quyết 5A và 6A (bản thông qua đánh số B5, B6), Đại hội đồng 2006; thông cáo báo chí iau0603',
 };
 
 export const commonsUrl = (file, width = 800) =>

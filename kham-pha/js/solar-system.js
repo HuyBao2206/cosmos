@@ -37,7 +37,7 @@ export const MODES = {
   },
   real: {
     label: 'Tỉ lệ thật hoàn toàn', pow: 1, cam: 560,
-    caption: 'Mọi thứ đúng tỉ lệ, và các hành tinh gần như biến mất. Nếu Mặt Trời là một quả bóng đường kính 10 cm, Trái Đất là một hạt cát 0,9 mm cách nó 10,7 m, còn Sao Hải Vương là một hạt 3,6 mm cách 323 m.',
+    caption: 'Mọi thứ đúng tỉ lệ, và các hành tinh gần như biến mất. Nếu Mặt Trời là một quả bóng đường kính 10 cm, Trái Đất là một hạt cát 0,9 mm cách nó 10,7 m, còn Sao Hải Vương là một hạt 3,6 mm cách khoảng 324 m.',
     planetR: (p) => (p.diameter / 2) * R_UNIT,
     sunR: (SUN.diameter / 2) * R_UNIT,
   },
