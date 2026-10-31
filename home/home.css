@@ -1,0 +1,129 @@
+/* Trang chủ */
+
+/* ---------- Tỉ lệ của bạn ---------- */
+.powers { position: relative; height: 1100vh; }
+.powers.is-reduced { height: 900vh; }
+.pw-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.pw-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.pw-intro {
+  position: absolute; inset: 0; display: grid; place-items: end center; text-align: center;
+  padding: 0 var(--gap) clamp(2.5rem, 9vh, 6rem);
+  pointer-events: none;
+  background: radial-gradient(60% 50% at 50% 100%, rgba(5,6,11,.7), transparent 70%);
+}
+.pw-intro h1 { font-size: var(--fs-hero); line-height: .92; margin: .6rem 0 .8rem; text-shadow: 0 4px 40px rgba(0,0,0,.6); }
+.pw-intro h1 em { font-style: italic; color: var(--gold); }
+.pw-intro .lead { margin: 0 auto 1.6rem; color: var(--ink); text-shadow: 0 2px 20px #000; }
+.pw-cue { display: inline-flex; flex-direction: column; align-items: center; gap: .6rem; font-size: var(--fs-micro); letter-spacing: .26em; text-transform: uppercase; color: var(--ink-2); }
+.pw-cue i { width: 1px; height: 46px; background: linear-gradient(var(--ink-2), transparent); animation: cue 2.4s var(--ease-inout) infinite; transform-origin: top; }
+@keyframes cue { 0% { transform: scaleY(0); opacity: 1; } 60% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
+
+.pw-steps { list-style: none; margin: 0; padding: 0; }
+.pw-step {
+  position: absolute; left: max(var(--gap), calc((100vw - var(--maxw)) / 2)); bottom: clamp(5.5rem, 15vh, 9rem);
+  width: min(30rem, calc(100vw - 2 * var(--gap)));
+  opacity: 0; pointer-events: none;
+  will-change: opacity, transform;
+}
+.pw-step .eyebrow { margin-bottom: .6rem; }
+.pw-step h2 { font-size: clamp(1.9rem, 3.6vw, 3rem); margin-bottom: .5rem; text-shadow: 0 2px 30px #000; }
+.pw-step p { font-size: .98rem; color: var(--ink); margin: 0; text-shadow: 0 1px 14px #000, 0 0 4px #000; }
+.pw-step .src { display: block; margin-top: .6rem; font-size: var(--fs-micro); color: var(--ink-3); letter-spacing: .03em; }
+
+.pw-hud {
+  font-feature-settings: 'lnum' 1;
+  position: absolute; right: max(var(--gap), calc((100vw - var(--maxw)) / 2)); bottom: clamp(1.5rem, 5vh, 3rem);
+  text-align: right; font-variant-numeric: tabular-nums; pointer-events: none;
+}
+.pw-exp { font-variant-numeric: lining-nums tabular-nums; font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3.6rem); line-height: 1; color: var(--ink); }
+.pw-exp sup { font-size: .5em; vertical-align: .9em; color: var(--gold); margin-left: .03em; }
+.pw-span { font-size: var(--fs-small); color: var(--ink-2); margin-top: .35rem; }
+.pw-span small { color: var(--ink-3); font-size: var(--fs-micro); letter-spacing: .14em; text-transform: uppercase; display: block; }
+.pw-scale { display: flex; flex-direction: column; align-items: flex-end; gap: .3rem; margin-top: .8rem; font-size: var(--fs-micro); color: var(--ink-3); }
+.pw-scale i { display: block; height: 6px; border: 1px solid var(--ink-2); border-top: 0; transition: width .1s linear; }
+
+.pw-rail {
+  --p: 0;
+  position: absolute; right: clamp(.6rem, 2vw, 1.4rem); top: 50%; transform: translateY(-50%);
+  height: min(46vh, 380px); width: 1px; background: var(--line);
+}
+.pw-rail::after {
+  content: ""; position: absolute; left: -3px; top: calc(var(--p) * 100%); width: 7px; height: 7px; border-radius: 50%;
+  background: var(--gold); box-shadow: 0 0 10px var(--gold); transform: translateY(-50%);
+}
+@media (max-width: 720px) {
+  .pw-step { bottom: 9.5rem; }
+  .pw-step p { font-size: .9rem; }
+  .pw-hud { left: var(--gap); right: auto; text-align: left; bottom: 1.2rem; }
+  .pw-scale { align-items: flex-start; }
+  .pw-exp { font-size: 2rem; }
+}
+
+/* ---------- Lời mở đầu ---------- */
+.prologue { padding-block: clamp(7rem, 22vh, 14rem) var(--section-pad); }
+.prologue .eyebrow { margin-bottom: 2.5rem; }
+.prologue-text p {
+  font-family: var(--font-display); font-size: clamp(1.45rem, 2.5vw, 2.15rem); line-height: 1.45; font-weight: 400;
+  margin-bottom: 1.6em; max-width: 46rem;
+}
+.prologue-text .s { color: rgba(236, 230, 216, .16); transition: color 1.2s var(--ease-out), text-shadow 1.2s; }
+.prologue-text .s.is-lit { color: var(--ink); text-shadow: 0 0 30px rgba(230, 194, 122, .12); }
+.no-js .prologue-text .s, .is-reduced .prologue-text .s { color: var(--ink); }
+
+.quote-big { margin: clamp(5rem, 16vh, 10rem) auto 0; max-width: 62rem; text-align: center; }
+.quote-big blockquote { margin: 0; }
+.quote-big .en {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: clamp(2.1rem, 5.2vw, 4.6rem); line-height: 1.08; letter-spacing: -.01em; margin: 0;
+}
+.quote-big .vi { font-size: clamp(1rem, 1.4vw, 1.2rem); color: var(--ink-2); margin: 1.6rem auto 0; max-width: 38rem; }
+.quote-big figcaption { margin-top: 1.6rem; font-size: var(--fs-micro); letter-spacing: .3em; text-transform: uppercase; color: var(--gold); }
+.quote-big .mark { display: block; font-family: var(--font-display); font-size: 5rem; line-height: .4; color: var(--gold); opacity: .5; margin-bottom: 1.5rem; }
+
+/* ---------- Ba cửa vào ---------- */
+.portals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+.portal {
+  --pc: var(--gold);
+  position: relative; display: flex; flex-direction: column; min-height: clamp(460px, 62vh, 620px);
+  border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,.015), rgba(255,255,255,0)), var(--bg-raise);
+  text-decoration: none; isolation: isolate;
+  transition: border-color .5s, transform .8s var(--ease-out);
+}
+.portal[data-id="thau-hieu"] { --pc: var(--ice); }
+.portal[data-id="khao-luan"] { --pc: var(--nebula); }
+a.portal:hover, a.portal:focus-visible { border-color: color-mix(in srgb, var(--pc) 55%, transparent); transform: translateY(-4px); }
+.portal-visual { position: relative; flex: 1; min-height: 260px; }
+.portal-visual canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.portal-body { padding: 1.6rem 1.6rem 1.8rem; border-top: 1px solid var(--line); }
+.portal-num { font-size: var(--fs-micro); letter-spacing: .22em; color: var(--pc); }
+.portal h3 { font-size: clamp(1.8rem, 2.6vw, 2.4rem); margin: .4rem 0 .5rem; }
+.portal p { color: var(--ink-2); font-size: .95rem; margin: 0; }
+.portal-go { display: inline-flex; gap: .5rem; align-items: center; margin-top: 1.1rem; font-size: var(--fs-small); color: var(--pc); }
+.portal-go::after { content: "→"; transition: transform .4s var(--ease-out); }
+a.portal:hover .portal-go::after { transform: translateX(5px); }
+.portal .tag-soon { position: absolute; top: 1rem; right: 1rem; z-index: 2; background: rgba(5,6,11,.6); }
+.portal.is-soon { cursor: default; }
+.portal.is-soon .portal-visual { opacity: .75; }
+@media (max-width: 960px) { .portals-grid { grid-template-columns: 1fr; } .portal { min-height: 440px; } }
+
+/* Cửa "Thấu hiểu": phương trình và sơ đồ mờ ẩn hiện */
+.eqs { position: absolute; inset: 0; overflow: hidden; font-family: var(--font-display); color: var(--ice); }
+.eqs span { position: absolute; white-space: nowrap; opacity: 0; animation: eq 12s ease-in-out infinite; font-size: clamp(1rem, 1.5vw, 1.35rem); }
+.eqs svg { position: absolute; left: 50%; top: 50%; width: 62%; transform: translate(-50%, -50%); opacity: .55; overflow: visible; }
+.eqs svg * { vector-effect: non-scaling-stroke; }
+.eqs .cone { animation: spin 60s linear infinite; transform-origin: 50% 50%; transform-box: fill-box; }
+@keyframes eq { 0%, 100% { opacity: 0; filter: blur(4px); } 20%, 55% { opacity: .75; filter: blur(0); } 75% { opacity: 0; filter: blur(3px); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .eqs span { animation: none; opacity: .5; } .eqs .cone { animation: none; } }
+
+.home-sources { margin-top: 5rem; }
+
+/* Nền mờ sau chú thích để chữ luôn đọc được trên ảnh sáng */
+.pw-step::before {
+  content: ""; position: absolute; inset: -2.5rem -3rem -2rem -3rem; z-index: -1;
+  background: radial-gradient(closest-side, rgba(5, 6, 11, .82), rgba(5, 6, 11, .5) 60%, transparent);
+  filter: blur(6px);
+}
+.pw-step { isolation: isolate; }

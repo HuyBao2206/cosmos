@@ -11,7 +11,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { heliocentric, solveKepler, obliquity, lightSeconds } from '../kham-pha/js/kepler.js';
+import { heliocentric, solveKepler, obliquity, lightSeconds } from '../shared/js/astro/kepler.js';
 
 const fx = JSON.parse(readFileSync(new URL('./fixtures/de421.json', import.meta.url)));
 const MAX_ANGLE_DEG = 0.2;
