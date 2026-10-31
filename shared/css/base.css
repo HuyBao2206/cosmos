@@ -6,6 +6,7 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scroll-behavior: auto;
+  overflow-x: clip; /* không để phần tử nào tạo khoảng thừa bên phải trên điện thoại */
 }
 body {
   margin: 0;
@@ -16,12 +17,17 @@ body {
   line-height: 1.7;
   background: transparent;
   overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 img, svg, canvas, video { display: block; max-width: 100%; }
 a { color: inherit; }
 button { font: inherit; color: inherit; }
+/* Hộp chọn: danh sách mở ra dùng nền tối, chữ sáng (tránh nền trắng chữ trắng trên Windows) */
+select { color-scheme: dark; }
+select option, select optgroup { background-color: #0b0d16; color: #ece6d8; }
+select option:checked { background-color: #2a2414; color: #fff; }
 ::selection { background: color-mix(in srgb, var(--accent) 45%, transparent); color: #fff; }
 
 :focus-visible {

@@ -15,14 +15,23 @@
   position: absolute; left: 0; top: 0; pointer-events: auto;
   display: flex; align-items: center; gap: .45rem;
   background: none; border: 0; padding: 4px 6px 4px 0; margin: -10px 0 0 -6px; cursor: pointer;
-  font-size: .72rem; letter-spacing: .04em; color: var(--ink-2); white-space: nowrap;
+  font-size: .82rem; font-weight: 500; letter-spacing: .02em; color: var(--ink); white-space: nowrap;
   transition: opacity .3s, color .3s;
 }
-.ss-label i { width: 12px; height: 12px; border: 1px solid rgba(236,230,216,.45); border-radius: 50%; flex: none; transition: border-color .3s, transform .3s; }
+.ss-label span {
+  padding: .12rem .55rem; border-radius: 999px;
+  background: rgba(5, 6, 11, .62);
+  /* viền chữ tối để luôn đọc được trên nền sáng (Mặt Trời, vành đai, quỹ đạo) */
+  text-shadow: 0 0 2px #000, 0 0 4px #000, 0 1px 2px #000;
+  transition: opacity .25s;
+}
+.ss-label i { width: 14px; height: 14px; border: 1.5px solid var(--c, rgba(236,230,216,.7)); border-radius: 50%; flex: none; box-shadow: 0 0 0 1px rgba(0,0,0,.6), 0 0 8px rgba(0,0,0,.6); transition: border-color .3s, transform .3s; }
+.ss-label.is-crowded span { opacity: 0; }
+.ss-label.is-crowded:hover span, .ss-label.is-crowded:focus-visible span { opacity: 1; }
 .ss-label:hover, .ss-label:focus-visible { color: #fff; }
 .ss-label:hover i, .ss-label:focus-visible i { border-color: var(--gold); transform: scale(1.3); }
 .ss-label.is-sun i { border-color: rgba(255, 210, 130, .7); }
-.ss-label.is-dwarf span { color: var(--ink-3); }
+.ss-label.is-dwarf span { color: var(--ink-2); }
 .ss-label.is-hidden { opacity: 0; pointer-events: none; }
 .is-focused .ss-label span { opacity: 0; }
 
@@ -84,11 +93,29 @@
 .ss-focus .note { font-size: var(--fs-micro); color: var(--ink-3); margin: .9rem 0 0; }
 .ss-focus .actions { display: flex; gap: .4rem; margin-top: 1rem; flex-wrap: wrap; }
 
-.ss-touch { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: none; }
+/* Nút bật điều khiển trên cảm ứng: nền đặc, tương phản cao */
+.ss-touch {
+  position: absolute; left: 50%; bottom: 1.2rem; transform: translateX(-50%); z-index: 4;
+  display: none; flex-direction: column; align-items: center; gap: .15rem;
+  padding: .75rem 1.4rem; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--gold); color: #120d03; font-size: .95rem; font-weight: 600; white-space: nowrap;
+  box-shadow: 0 6px 30px rgba(0,0,0,.7), 0 0 0 6px rgba(230,194,122,.18);
+}
+.ss-touch span { display: none; }
+.ss-touch small { font-size: .7rem; font-weight: 500; opacity: .75; }
 .has-coarse .ss-touch { display: inline-flex; }
 .is-interacting .ss-touch { display: none; }
-.ss-release { display: none; position: absolute; top: calc(var(--nav-h) + 4.8rem); right: var(--gap); }
-.is-interacting .ss-release { display: inline-flex; }
+.ss-tools { position: absolute; right: var(--gap); bottom: 1rem; z-index: 4; display: flex; gap: .4rem; flex-wrap: wrap; justify-content: flex-end; }
+.ss-tool {
+  padding: .55rem 1rem; border-radius: 999px; cursor: pointer; font-size: .8rem; font-weight: 500;
+  background: rgba(8,10,18,.85); color: var(--ink); border: 1px solid var(--line-strong);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.ss-tool:hover { border-color: var(--gold); }
+.ss-release { display: none; background: var(--gold); color: #120d03; border-color: var(--gold); }
+.is-interacting .ss-release { display: inline-block; }
+.has-coarse:not(.is-interacting) .ss-tools { display: none; }
+@media (min-width: 961px) { .ss-tools { top: calc(var(--nav-h) + 6.5rem); bottom: auto; } }
 
 .ss-fallback { position: absolute; inset: 0; display: none; place-items: center; text-align: center; padding: 2rem; }
 .no-webgl .ss-fallback { display: grid; }
@@ -324,3 +351,10 @@ html.has-dossier { overflow: hidden; }
   .gd-stage { width: min(78vw, 340px); }
   .gd-ring { justify-content: flex-start; }
 }
+
+@media (max-width: 960px) {
+  .ss-label { font-size: .74rem; padding: 6px 6px 6px 0; }
+  .ss-label i { width: 16px; height: 16px; }
+  .ss-stage { overflow: hidden; }
+}
+.ss-labels { contain: paint; }

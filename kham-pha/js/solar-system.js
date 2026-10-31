@@ -101,6 +101,9 @@ export async function initSolarSystem(root, ui) {
   controls.maxDistance = 4000;
   controls.zoomSpeed = 0.9;
   controls.rotateSpeed = 0.6;
+  // Không cho camera lật qua cực (nguyên nhân chính của cảm giác "loạn" khi kéo)
+  controls.minPolarAngle = 0.12;
+  controls.maxPolarAngle = Math.PI - 0.12;
 
   // Trên màn hình cảm ứng: chỉ điều khiển 3D sau khi người xem chủ động bật, để không chặn cuộn trang
   const coarse = matchMedia('(pointer: coarse)').matches;
@@ -109,7 +112,15 @@ export async function initSolarSystem(root, ui) {
     renderer.domElement.style.touchAction = on ? 'none' : 'pan-y';
     root.classList.toggle('is-interacting', on);
   };
-  if (coarse) setTouchControl(false);
+  if (coarse) {
+    // Cảm ứng: một ngón để xoay (chậm hơn), hai ngón chỉ để phóng to/thu nhỏ — tắt kéo dịch (pan)
+    controls.enablePan = false;
+    controls.rotateSpeed = 0.42;
+    controls.zoomSpeed = 0.7;
+    controls.dampingFactor = 0.12;
+    controls.touches = { ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN };
+    setTouchControl(false);
+  }
   // Trên máy tính: con lăn chỉ phóng to sau khi người xem bấm vào mô hình (tránh "bẫy" cuộn trang)
   if (!coarse) {
     controls.enableZoom = false;
@@ -380,6 +391,7 @@ export async function initSolarSystem(root, ui) {
     const b = document.createElement('button');
     b.type = 'button'; b.className = `ss-label ${cls}`; b.dataset.id = id;
     b.innerHTML = `<i></i><span>${text}</span>`;
+    b.style.setProperty('--c', id === 'sun' ? '#ffd88a' : (PLANETS.find((p) => p.id === id)?.color || '#ece6d8'));
     labelLayer.appendChild(b);
     return b;
   };
@@ -397,16 +409,28 @@ export async function initSolarSystem(root, ui) {
   });
 
   const proj = new THREE.Vector3();
+  // thứ tự ưu tiên hiển thị chữ khi chật chỗ
+  const PRIORITY = ['earth', 'jupiter', 'saturn', 'mars', 'venus', 'uranus', 'neptune', 'mercury', 'pluto'];
+  const labelOrder = [...labels].sort((a, b) => PRIORITY.indexOf(a.pl.data.id) - PRIORITY.indexOf(b.pl.data.id));
   function placeLabels() {
     const w = host.clientWidth, h = host.clientHeight;
+    // Tránh chồng chữ: nhãn ưu tiên thấp bị ẩn chữ (vẫn giữ vòng tròn bấm được) nếu đè lên nhãn đã đặt
+    const placed = [];
     const place = (el, v, show) => {
       proj.copy(v).project(camera);
-      const vis = show && proj.z < 1 && Math.abs(proj.x) < 1.1 && Math.abs(proj.y) < 1.1;
-      el.style.transform = `translate(${((proj.x + 1) / 2 * w).toFixed(1)}px, ${((1 - proj.y) / 2 * h).toFixed(1)}px)`;
+      const x = (proj.x + 1) / 2 * w, y = (1 - proj.y) / 2 * h;
+      const vis = show && proj.z < 1 && x > -20 && x < w + 20 && y > -20 && y < h + 20;
+      el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
       el.classList.toggle('is-hidden', !vis);
+      if (!vis) return;
+      const lw = (el.dataset.w ||= String(el.querySelector('span').offsetWidth + 28)) * 1;
+      const box = [x - 8, y - 12, x + lw, y + 12];
+      const hit = placed.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1]);
+      el.classList.toggle('is-crowded', hit);
+      if (!hit) placed.push(box);
     };
     place(sunLabel, sun.position, !state.focus);
-    for (const { el, pl } of labels) place(el, pl.pos, !state.focus || state.focus === pl);
+    for (const { el, pl } of labelOrder) place(el, pl.pos, !state.focus || state.focus === pl);
   }
 
   // ---------- Chọn hành tinh: camera bay tới ----------
@@ -453,11 +477,13 @@ export async function initSolarSystem(root, ui) {
     ui.onFocus?.(null);
   }
 
-  function fitCamera(mode) {
+  function fitCamera(mode, canonical = false) {
     const dur = reduced ? 0 : 2;
-    const dir = camera.position.clone().sub(controls.target).normalize();
+    const dir = canonical ? new THREE.Vector3(0, 0.5, 0.866) : camera.position.clone().sub(controls.target).normalize();
     if (dir.y < 0.25) { dir.y = 0.45; dir.normalize(); }
-    const end = dir.multiplyScalar(mode.cam);
+    // màn hình dọc (điện thoại): lùi camera thêm để cả hệ vừa khung ngang
+    const k = camera.aspect < 1 ? Math.min(2.2, 1.1 / camera.aspect) : 1;
+    const end = dir.multiplyScalar(mode.cam * k);
     gsap.to(controls.target, { x: 0, y: 0, z: 0, duration: dur, ease: 'power3.inOut' });
     gsap.to(camera.position, { x: end.x, y: end.y, z: end.z, duration: dur, ease: 'power3.inOut' });
   }
@@ -548,6 +574,7 @@ export async function initSolarSystem(root, ui) {
   onVisibilityChange((v) => (v ? start() : stop()));
 
   buildOrbits(state.jd);
+  if (camera.aspect < 1) camera.position.multiplyScalar(Math.min(2.2, 1.1 / camera.aspect));
   updateBodies();
   renderer.render(scene, camera);
 
@@ -558,6 +585,7 @@ export async function initSolarSystem(root, ui) {
     setDate(date) { state.jd = clamp(julianDate(date), JD_MIN, JD_MAX); state.live = false; if (SPEEDS[state.speedIndex].v === 1 / 86400) state.speedIndex = SPEEDS.findIndex((s) => s.v === 0); },
     today() { state.jd = julianDate(new Date()); state.live = true; state.speedIndex = SPEEDS.findIndex((s) => s.label === 'Thời gian thực'); },
     focusPlanet, unfocus, firePulse, stopPulse,
+    resetView() { if (state.focus) unfocus(); fitCamera(state.to, true); },
     setPulseRate(r) { pulse.rate = r; },
     setTouchControl,
     planets: PLANETS,

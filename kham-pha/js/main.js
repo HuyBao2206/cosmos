@@ -94,6 +94,7 @@ async function initC1() {
   // Cảm ứng
   q('touch-on').addEventListener('click', () => sys.setTouchControl(true));
   q('touch-off').addEventListener('click', () => sys.setTouchControl(false));
+  q('reset').addEventListener('click', () => sys.resetView());
   window.__cosmos = sys; // tiện cho kiểm thử
 }
 

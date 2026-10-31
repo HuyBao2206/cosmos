@@ -71,8 +71,11 @@
             <button class="btn" type="button" data-ss="back">← Toàn cảnh</button>
           </div>
         </aside>
-        <button class="btn ss-touch" type="button" data-ss="touch-on">Chạm để điều khiển mô hình</button>
-        <button class="btn ss-release" type="button" data-ss="touch-off">Xong · cuộn tiếp</button>
+        <button class="ss-touch" type="button" data-ss="touch-on"><span aria-hidden="true">☝</span> Chạm để điều khiển mô hình<small>1 ngón: xoay · 2 ngón: phóng to</small></button>
+        <div class="ss-tools">
+          <button class="ss-tool ss-release" type="button" data-ss="touch-off">✓ Xong, cuộn tiếp</button>
+          <button class="ss-tool" type="button" data-ss="reset" aria-label="Đặt lại góc nhìn">⟲ Góc nhìn ban đầu</button>
+        </div>
         <div class="ss-fallback">
           <div>
             <canvas data-ss="fallback" width="640" height="640" style="width:min(80vw,520px);margin:0 auto 1rem" role="img" aria-label="Sơ đồ vị trí các hành tinh hôm nay, nhìn từ cực bắc hoàng đạo"></canvas>
