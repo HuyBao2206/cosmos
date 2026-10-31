@@ -116,3 +116,6 @@ initC1();
 
 // C2 — Hồ sơ các hành tinh
 import('./profiles.js').then(({ initProfiles }) => initProfiles($('#ho-so')));
+
+// C3 — Các vị thần trên bầu trời
+import('./gods.js').then(({ initGods }) => initGods($('#cac-vi-than')));

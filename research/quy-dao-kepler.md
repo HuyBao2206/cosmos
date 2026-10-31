@@ -100,3 +100,29 @@ https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND='<ID>'&EPHEM_TYPE=
 | JPL SBDB (Pluto 134340) | https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=134340 | — | Bị chặn (403) |
 
 Bất đồng giữa các nguồn: chưa đánh giá được vì chưa lấy được dữ liệu.
+
+---
+
+## Cập nhật 31/10/2026 — cách kiểm chứng bảng Standish khi không truy cập được JPL
+
+Môi trường xây dựng trang không mở được ssd.jpl.nasa.gov (Horizons API, approx_pos.html). Các phần tử
+quỹ đạo của Bảng 1, 2a, 2b trong `shared/js/astro/kepler.js` được nhập theo bản công bố của Standish và
+**kiểm chứng gián tiếp** bằng lịch thiên văn số JPL DE421 (gói PyPI `de421`, đọc bằng `jplephem`):
+
+- `tools/make_de421_fixture.py` tính toạ độ nhật tâm hoàng đạo J2000 của 8 hành tinh (Trái Đất = tâm khối
+  Trái Đất–Mặt Trăng) tại 7 thời điểm từ 1900 đến 2049 → `tests/fixtures/de421.json`.
+- `tests/kepler.test.mjs` so sánh: sai lệch góc lớn nhất Sao Thuỷ 18″, Sao Kim 15″, Trái Đất 18″, Sao Hoả 41″,
+  Sao Mộc 324″, Sao Thổ 545″, Sao Thiên Vương 594″, Sao Hải Vương 45″; sai lệch khoảng cách ≤ 0,13 %.
+  Các mức này khớp với độ chính xác JPL nêu cho Bảng 1 (sai số lớn nhất ở các hành tinh khí khổng lồ do bỏ qua
+  nhiễu loạn tương hỗ Sao Mộc–Sao Thổ). Một chữ số nhập sai sẽ gây lệch cỡ độ, không thể lọt qua kiểm thử.
+- Ngưỡng chấp nhận trong test: 0,2° (720″) về hướng, 0,5 % về khoảng cách.
+- DE421 (Folkner et al. 2009) là lịch thiên văn cùng họ với DE440/441 mà Horizons dùng; chênh lệch giữa chúng ở
+  mức kilômét, không đáng kể ở đây.
+
+Hướng cực quay: IAU WGCCRE 2015 (Archinal et al. 2018). Độ nghiêng trục tính được từ cực quay và pháp tuyến
+quỹ đạo khớp NSSDCA: Sao Kim 177,4°, Trái Đất 23,44°, Sao Hoả 25,19° (dùng cực IAU 2009: α0 = 317,681°,
+δ0 = 52,887°), Sao Thiên Vương 97,77°, Sao Diêm Vương 119,6° (NSSDCA ghi 122,5° — chênh do định nghĩa mặt phẳng
+tham chiếu; trang hiển thị giá trị NSSDCA).
+
+**Việc cần làm khi có mạng:** chép nguyên văn Bảng 1/2 từ approx_pos.html để đối chiếu từng chữ số; lấy vector
+Horizons cho các ngày trong fixture để bổ sung so sánh trực tiếp.

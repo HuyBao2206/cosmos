@@ -81,3 +81,13 @@ Ghi chú bất đồng:
 | ScienceAlert – hidden moons Neptune and Uranus | https://www.sciencealert.com/astronomers-detect-hidden-moons-orbiting-neptune-and-uranus | 2024 | Qua tìm kiếm |
 | NASA Exoplanet Archive – 2026 news | https://vmexoweb2.ipac.caltech.edu/docs/exonews_archive.html | 2026 | Bị chặn (chỉ thấy qua tìm kiếm) |
 | Live Science – 6,000 planets | https://www.livescience.com/space/exoplanets/its-official-humans-have-found-6-000-planets-beyond-our-solar-system | 2025 | Qua tìm kiếm |
+
+---
+
+## Cập nhật 31/10/2026 — giá trị đã dùng trên trang
+
+Giá trị trong `kham-pha/js/planets-data.js` theo bảng hệ mét của NSSDCA (D. R. Williams). Biên tập viên
+thẩm định (subagent) đã đối chiếu và xác nhận khớp với bảng NSSDCA cho cả 9 thiên thể; số vệ tinh Sao Mộc 101
+và Sao Thổ 285 khớp thông báo của IAU MPC ngày 16/3/2026 (qua WebSearch: iau.org/IAU/News/Ann2026/MPC-New-Moons-Saturn-Jupiter.aspx).
+Đường kính Mặt Trời dùng 1 392 700 km (giá trị NSSDCA cũ); trang NASA Sun Fact Sheet hiện cho bán kính 695 700 km
+(đường kính 1 391 400 km) — chênh 0,1 %, không ảnh hưởng các phép so sánh.

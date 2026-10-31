@@ -8,17 +8,18 @@ Trang khoa học về vũ trụ (tiếng Việt), chạy trên GitHub Pages tạ
 
 ```
 /                 index.html — trang chủ
-/home/            JS/CSS riêng của trang chủ
-/kham-pha/        Khám phá vũ trụ (accent vàng ánh sao)
+/home/            trang chủ: home.js, powers.js (Powers of Ten, canvas 2D), portals.js, home.css, assets/
+/kham-pha/        Khám phá vũ trụ (accent vàng ánh sao) — xem mục "Web Khám phá" bên dưới
 /thau-hieu/       Thấu hiểu vũ trụ (accent xanh băng) — hiện là trang "Sắp mở cửa"
 /khao-luan/       Khảo luận vũ trụ (accent tím tinh vân) — hiện là trang "Sắp mở cửa"
 /nguon-hinh-anh/  trang credit hình ảnh (toàn site)
 /nguon-tham-khao/ trang nguồn tham khảo (toàn site)
 /shared/          css/tokens.css, css/base.css, js/site.js, js/config.js, js/starfield.js,
-                  js/transition.js, js/util.js, content/ (văn bản chủ dự án tự sửa), head.txt (mẫu <head>)
+                  js/transition.js, js/util.js, js/astro/kepler.js (vị trí hành tinh, cực quay, thời gian ánh sáng),
+                  content/loi-mo-dau.js (lời mở đầu — chủ dự án tự sửa), head.txt (mẫu <head>)
 /research/        ghi chép nghiên cứu theo chủ đề: nguồn, số liệu, chỗ nguồn lệch nhau
 /tests/           node --test tests/*.test.mjs
-/tools/           serve-test.mjs (Playwright), make_de421_fixture.py
+/tools/           serve-test.mjs (Playwright), make_de421_fixture.py, make_home_assets.py, make_disks.py
 404.html          tự đặt <base> theo /cosmos/ hoặc / (GitHub Pages trả 404 ở mọi độ sâu)
 .nojekyll
 ```
@@ -80,3 +81,22 @@ raw.githubusercontent.com và `git clone` từ GitHub dùng được. Vì vậy:
 - Kiểm thử cục bộ chuyển hướng jsDelivr sang npm cục bộ (`tools/serve-test.mjs`, biến `VENDOR`).
 - Đối chiếu quỹ đạo dùng lịch thiên văn JPL DE421 (gói PyPI `de421` + `jplephem`) thay cho Horizons API.
 - Texture hành tinh Solar System Scope lấy từ repo `qt/qt3d` (tests/manual/planets-qml/images/solarsystemscope).
+
+## Web Khám phá (`/kham-pha/`) — đã xong
+- `js/main.js` điều phối; C1 `solar-system.js` (+ `sun-shader.js`), C2 `profiles.js` (+ `profiles-content.js`),
+  C3 `gods.js` (+ `gods-content.js`); số liệu chung `planets-data.js` (NSSDCA).
+- C1: Three.js. Ecliptic J2000 (x,y,z) → Three (x, z, −y). Khoảng cách ánh xạ d' = 12·r^pow (pow 0,5 = "Dễ nhìn",
+  1 = thật). Ba chế độ trong `MODES`. Nhãn hành tinh là `<button>` HTML (bàn phím). Con lăn chỉ phóng to sau khi bấm
+  vào mô hình; trên cảm ứng phải bấm "Chạm để điều khiển" (tránh chặn cuộn trang). `window.__cosmos` để kiểm thử.
+- C2: thẻ → `<dialog>` hồ sơ (lật 3D bằng GSAP, đường kẻ SVG tự vẽ, số đếm lên, quả cầu Three.js nhỏ).
+  Ảnh tàu vũ trụ tải từ Wikimedia Commons `Special:FilePath`, lỗi thì thay bằng ảnh đĩa dựng từ texture.
+- C3: SVG `glyph` của ký hiệu (hộp 100×100) → sao rải theo `getPointAtLength` → nối nét → vẽ ký hiệu → quỹ đạo →
+  hành tinh. Ba tab (role=tablist) mỗi tab một hiệu ứng; lật trang bằng lá `.gd-leaf`.
+- Texture: `assets/textures/<id>.webp` (2k) và `<id>-1k.webp`; đĩa: `assets/disks/<id>.webp`.
+- Dữ kiện có hạn dùng cần cập nhật: BepiColombo (vào quỹ đạo dự kiến 21/11/2026), Juno (tương lai chưa rõ),
+  Voyager 1 cách 1 ngày ánh sáng (dự báo giữa 11/2026, trang chủ nấc 05), số vệ tinh (03/2026).
+
+## Thẩm định nội dung
+Mỗi phần lớn đã được một subagent "biên tập viên khoa học" đối chiếu với `research/` và sửa trước khi push.
+Làm tương tự cho Thấu hiểu và Khảo luận. Màu accent dùng sẵn: `html[data-section="thau-hieu"]` → xanh băng,
+`khao-luan` → tím tinh vân. Mở cửa: `shared/js/config.js`.

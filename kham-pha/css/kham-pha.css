@@ -246,3 +246,81 @@ html.has-dossier { overflow: hidden; }
 .cmp-stage figcaption span { font-size: var(--fs-small); color: var(--ink-3); }
 .cmp-text { color: var(--ink-2); margin: 1.4rem 0 0; max-width: 44rem; }
 .cmp-text b { color: var(--ink); font-weight: 500; }
+
+/* ---------- C3: Các vị thần trên bầu trời ---------- */
+.gd-ring {
+  --on: 0;
+  display: flex; justify-content: center; gap: clamp(.2rem, 1vw, .8rem); flex-wrap: nowrap; overflow-x: auto;
+  padding: 1rem .5rem 2.2rem; margin-bottom: 1rem; scrollbar-width: none;
+}
+.gd-ring::-webkit-scrollbar { display: none; }
+.gd-ring button {
+  position: relative; flex: none; display: flex; flex-direction: column; align-items: center; gap: .3rem;
+  background: none; border: 0; cursor: pointer; color: var(--ink-3); padding: .4rem .5rem;
+  /* xếp theo một cung tròn: các nút xa tâm thấp dần như vòng cột của một ngôi đền */
+  transform: translateY(calc(pow(calc(var(--k) - 5), 2) * 2.2px));
+  transition: color .5s, transform .6s var(--ease-out);
+}
+@supports not (transform: translateY(calc(pow(2, 2) * 1px))) { .gd-ring button { transform: none; } }
+.gd-ring button span { font-size: clamp(1.4rem, 2.4vw, 2rem); line-height: 1; font-family: "Segoe UI Symbol", "Noto Sans Symbols", "Apple Symbols", var(--font-display); transition: text-shadow .5s, transform .5s var(--ease-out); }
+.gd-ring button em { font-style: normal; font-size: .6rem; letter-spacing: .08em; white-space: nowrap; opacity: 0; transition: opacity .4s; }
+.gd-ring button:hover, .gd-ring button:focus-visible { color: var(--ink); }
+.gd-ring button:hover em, .gd-ring button:focus-visible em, .gd-ring button.is-on em { opacity: 1; }
+.gd-ring button.is-on { color: var(--gold); }
+.gd-ring button.is-on span { text-shadow: 0 0 18px rgba(230,194,122,.8), 0 0 40px rgba(230,194,122,.4); transform: scale(1.25) translateY(-4px); }
+
+.gd-book {
+  position: relative; display: grid; grid-template-columns: 1fr 1fr; min-height: 560px;
+  border: 1px solid rgba(230,194,122,.22); border-radius: 6px; perspective: 2200px;
+  background:
+    radial-gradient(120% 90% at 50% 50%, rgba(230,194,122,.05), transparent 70%),
+    linear-gradient(90deg, #0d0b10 0%, #12100f 48%, #070608 50%, #12100f 52%, #0d0b10 100%);
+  box-shadow: 0 30px 80px rgba(0,0,0,.6), inset 0 0 60px rgba(0,0,0,.6);
+}
+.gd-book::after { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(230,194,122,.18); }
+.gd-left { position: relative; padding: clamp(1rem, 3vw, 2.5rem); display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; }
+.gd-stage { position: relative; width: min(100%, 460px); aspect-ratio: 1; }
+.gd-svg { width: 100%; height: 100%; overflow: visible; }
+.gd-left > .gd-svg { position: relative; }
+.gd-glyph { fill: none; stroke: #f1d9a6; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 2px rgba(241,217,166,.6)); }
+.gd-cline { fill: none; stroke: rgba(236,230,216,.55); stroke-width: .35; }
+.gd-star { fill: #fff6e0; }
+.gd-star.big { fill: #ffe9b8; filter: drop-shadow(0 0 1.5px #ffd889); }
+.gd-orbit { fill: none; stroke: rgba(230,194,122,.55); stroke-width: .4; }
+.gd-compass { fill: none; stroke: rgba(230,194,122,.25); stroke-width: .3; stroke-dasharray: 1 2; }
+.gd-el { font-family: var(--font-body); font-size: 4.2px; fill: var(--ink-3); letter-spacing: .3px; }
+.gd-el.on { fill: var(--gold); font-weight: 500; }
+.gd-han-big { font-size: 15px; fill: #f1e6cf; font-family: "Noto Serif CJK TC", "Noto Serif TC", "Songti TC", "PMingLiU", serif; letter-spacing: 1px; }
+.gd-planet { position: absolute; width: 15%; aspect-ratio: 1; pointer-events: none; filter: drop-shadow(0 0 12px rgba(0,0,0,.8)); }
+.gd-left .gd-planet { left: 50%; top: 50%; }
+.gd-left { --svg: min(100%, 460px); }
+.gd-caption { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; color: var(--ink-2); margin: .6rem 0 0; text-align: center; }
+.gd-caption span { font-style: normal; color: var(--gold); margin-right: .3rem; }
+
+.gd-right { position: relative; padding: clamp(1.4rem, 3.5vw, 3rem); transform-style: preserve-3d; }
+.gd-head .gd-name { font-size: clamp(2.4rem, 4vw, 3.6rem); margin: .5rem 0 .4rem; }
+.gd-names { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .5rem; margin: 0 0 1.4rem; font-family: var(--font-display); font-size: 1.2rem; }
+.gd-names i { font-style: normal; font-family: var(--font-body); font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin-right: .6rem; }
+.gd-han { font-family: "Noto Serif CJK TC", "Noto Serif TC", "Songti TC", serif; }
+.gd-tabs { display: flex; gap: .2rem; border-bottom: 1px solid var(--line); margin-bottom: 1.4rem; overflow-x: auto; }
+.gd-tabs button { background: none; border: 0; border-bottom: 1px solid transparent; margin-bottom: -1px; padding: .7rem .9rem; cursor: pointer; color: var(--ink-3); font-size: .86rem; white-space: nowrap; transition: color .3s, border-color .3s; }
+.gd-tabs button span { font-size: .6rem; color: var(--ink-3); margin-right: .4rem; letter-spacing: .1em; }
+.gd-tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--gold); }
+.gd-panel p { color: var(--ink-2); font-size: 1rem; line-height: 1.75; }
+.gd-panel p:first-child { color: var(--ink); }
+.gd-glyph-big { font-size: 3.6rem !important; line-height: 1; color: var(--gold) !important; margin: 0 0 .8rem; font-family: "Segoe UI Symbol", "Noto Sans Symbols", "Apple Symbols", serif; }
+.gd-hv { font-family: var(--font-display); font-size: 1.6rem !important; color: var(--ink) !important; }
+.gd-hv span { font-family: "Noto Serif CJK TC", "Noto Serif TC", "Songti TC", serif; color: var(--gold); margin-right: .3rem; }
+.gd-hv small { display: block; font-family: var(--font-body); font-size: .8rem; color: var(--ink-3); margin-top: .3rem; }
+.gd-leaf { position: absolute; inset: 0; transform-style: preserve-3d; z-index: 5; pointer-events: none; }
+.gd-leaf > div { position: absolute; inset: 0; backface-visibility: hidden; padding: clamp(1.4rem, 3.5vw, 3rem); background: linear-gradient(90deg, #100e0e, #14110f); border-radius: 0 6px 6px 0; overflow: hidden; }
+.gd-leaf-back { transform: rotateY(180deg); background: linear-gradient(270deg, #0c0a0b, #16130f) !important; box-shadow: inset 30px 0 60px rgba(0,0,0,.6); }
+.gd-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 1.2rem; gap: 1rem; }
+.gd-count { font-size: var(--fs-micro); letter-spacing: .2em; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+@media (max-width: 860px) {
+  .gd-book { grid-template-columns: 1fr; }
+  .gd-book::after { display: none; }
+  .gd-left { border-bottom: 1px solid rgba(230,194,122,.18); padding-bottom: 1.2rem; }
+  .gd-stage { width: min(78vw, 340px); }
+  .gd-ring { justify-content: flex-start; }
+}
