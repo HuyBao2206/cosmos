@@ -3,6 +3,10 @@ Mẫu <head> dùng chung — chép vào mỗi trang mới, sửa data-root / dat
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#05060b">
+  <link rel="icon" href="{ROOT}shared/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="{ROOT}shared/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="{ROOT}shared/img/apple-touch-icon.png">
+  <!-- Thẻ chia sẻ (og:*): xem index.html; og:image dùng URL tuyệt đối https://huybao2206.github.io/cosmos/shared/img/og-image.jpg -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
