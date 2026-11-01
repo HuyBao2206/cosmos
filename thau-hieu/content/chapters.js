@@ -7,7 +7,7 @@
 export const CHAPTERS = [
   {
     id: 'thuoc-do', num: 1, title: 'Thước đo vũ trụ', en: 'Measuring the cosmos', color: '#9fd4e8',
-    question: 'Làm sao biết một ngôi sao cách ta bao xa?', status: 'draft',
+    question: 'Làm sao biết một ngôi sao cách ta bao xa?', status: 'ready',
     concepts: [
       { id: 'don-vi-thien-van', title: 'Đơn vị thiên văn', en: 'Astronomical unit', aka: ['au', 'ua', 'dvtv'], links: ['nam-anh-sang', 'thi-sai-parsec'] },
       { id: 'nam-anh-sang', title: 'Năm ánh sáng', en: 'Light-year', aka: ['ly', 'nam anh sang'], links: ['nhin-ve-qua-khu', 'thi-sai-parsec'] },
@@ -108,4 +108,4 @@ export const CONCEPTS = {};
 for (const ch of CHAPTERS) for (const c of ch.concepts) CONCEPTS[c.id] = { ...c, chapter: ch };
 
 export const chapterById = (id) => CHAPTERS.find((c) => c.id === id);
-export const contentFile = (ch) => `./content/ch${String(ch.num).padStart(2, '0')}.js`;
+export const contentFile = (ch) => new URL(`./ch${String(ch.num).padStart(2, '0')}.js`, import.meta.url).href;

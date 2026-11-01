@@ -143,11 +143,17 @@ a.term:hover, a.term:focus-visible { color: var(--accent); text-decoration-color
 /* Minh hoạ: vị trí trung tâm, rộng hơn cột chữ */
 .kc-viz { margin: clamp(2.2rem, 6vh, 3.5rem) auto; width: 100%; }
 .kc-viz-stage { position: relative; min-height: var(--h, 440px); border: 1px solid var(--line); border-radius: 18px; background: radial-gradient(120% 90% at 50% 0%, rgba(159, 212, 232, .05), transparent 60%), #070911; overflow: hidden; }
-@media (max-width: 700px) { .kc-viz-stage { min-height: min(var(--h, 440px), 520px); } }
+@media (max-width: 700px) {
+  /* Điện thoại: vùng vẽ có chiều cao riêng, bảng điều khiển xếp bên dưới (khung tự giãn) */
+  .kc-viz-stage { min-height: var(--hm, 340px); }
+  .kc-viz-stage .vz { position: relative; inset: auto; display: block; }
+  .kc-viz-stage .vz-canvas { height: var(--hm, 340px); }
+}
 .kc-viz figcaption { width: min(100%, 40rem); margin: .9rem auto 0; font-size: var(--fs-small); color: var(--ink-3); line-height: 1.6; }
 .kc-viz-loading { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; color: var(--ink-3); font-size: var(--fs-small); }
 
 /* Bộ điều khiển dùng chung cho minh hoạ */
+.kc-sym-note { grid-column: 1 / -1; margin: .4rem 0 0; font-size: var(--fs-small); color: var(--ink-3); }
 .vz { position: absolute; inset: 0; display: grid; grid-template-rows: 1fr auto; }
 .vz-canvas { position: relative; min-height: 0; }
 .vz-canvas canvas, .vz-canvas svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }

@@ -111,7 +111,8 @@ export async function openConcept(id, origin) {
   const mod = await loadChapter(ch);
   const c = mod?.CONCEPTS?.[id];
   if (!c) return;
-  const needMath = [c.definition?.vi, ...(c.body || []), ...(c.numbers || []).map((n) => n.value), ...(c.formulas || [])].some(hasMath);
+  const needMath = [c.definition?.vi, ...(c.body || []), ...(c.after || []), ...(c.formulas || []), ...(c.symbols || []).flat(),
+    ...(c.numbers || []).flatMap((n) => [n.value, n.label]), ...(c.myths || []).flatMap((m) => [m.myth, m.truth])].some(hasMath);
   if (needMath) await loadKatex();
   teardownViz();
   current = id;
@@ -134,11 +135,11 @@ export async function openConcept(id, origin) {
 
   const bodyHTML = (c.body || []).map((p) => `<p class="kc-reveal">${R(p)}</p>`).join('');
   const formulaHTML = (c.formulas || []).length ? `<div class="kc-formulas kc-reveal">${c.formulas.map((f) => `<div class="kc-formula">${R(f)}</div>`).join('')}</div>` : '';
-  const symbolsHTML = c.symbols?.length ? `<dl class="kc-symbols kc-reveal">${c.symbols.map((s) => `<div><dt>${R(s[0])}</dt><dd>${R(s[1])}</dd></div>`).join('')}</dl>` : '';
+  const symbolsHTML = c.symbols?.length ? `<dl class="kc-symbols kc-reveal">${c.symbols.map((s) => (s[0] ? `<div><dt>${R(s[0])}</dt><dd>${R(s[1])}</dd></div>` : `<p class="kc-sym-note">${R(s[1])}</p>`)).join('')}</dl>` : '';
 
   const vizList = c.viz ? (Array.isArray(c.viz) ? c.viz : [c.viz]) : [];
   const vizHTML = vizList.map((v, i) => `<figure class="kc-viz kc-reveal" data-viz="${esc(v.module)}" data-i="${i}">
-      <div class="kc-viz-stage" style="--h:${v.height || 440}px"><p class="kc-viz-loading">Đang tải minh hoạ…</p></div>
+      <div class="kc-viz-stage" style="--h:${v.height || 440}px;--hm:${v.mobileHeight || 340}px"><p class="kc-viz-loading">Đang tải minh hoạ…</p></div>
       ${v.caption ? `<figcaption>${R(v.caption)}</figcaption>` : ''}
     </figure>`).join('');
 

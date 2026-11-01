@@ -297,3 +297,15 @@ Hai loại "thước" để làm rõ trong sơ đồ:
 - MoM-z14: https://arxiv.org/abs/2505.11263 ; NASA/AURA: https://www.aura-astronomy.org/blog/2026/01/28/nasa-webb-pushes-boundaries-of-observable-universe-closer-to-big-bang/
 - JADES-GS-z14-0: https://arxiv.org/abs/2405.20370 ; ALMA: https://arxiv.org/abs/2409.20549
 - Planck 2018 VI: https://arxiv.org/abs/1807.06209
+
+---
+
+## Bổ sung khi viết thẻ (01/11/2026)
+- **δ Cephei:** chu kỳ 5,366 ngày; cấp sao biểu kiến 3,48–4,37 (trung bình ~3,95) ⚠️ (Wikipedia). Thị sai HST/FGS (Benedict et al. 2002, *AJ* 124, 1695; arXiv:astro-ph/0206214): **~273 pc (~890 ly), sai số ~4 %** ✅; phân tích lại Hipparcos cho 244 ± 10 pc; một bài 2015 (arXiv:1503.04116) cho p = 4,09 ± 0,16 mas (~245 pc) ✅ trích đoạn. → Viết "các phép đo thị sai cho khoảng 800–900 năm ánh sáng".
+- Minh hoạ dùng ⟨M_V⟩ = −2,77 log P − 1,44 (Lanoix, Paturel & Garnier 1999, arXiv:astro-ph/9904298) cho δ Cep ra ~300 pc (~990 ly) khi bỏ qua bụi: chênh ~10–20 % – dùng làm ví dụ về ảnh hưởng của bụi và sai số hiệu chuẩn (tự tính ⚠️).
+- Tốc độ ánh sáng 299 792 458 m/s là giá trị chính xác theo định nghĩa SI (BIPM) ✅ kiến thức chuẩn.
+- Gaia phóng 19/12/2013 (ESA) ✅ kiến thức chuẩn.
+- **Tinh vân Orion:** các phép đo hiện đại ~390–414 pc → viết "~1 300 năm ánh sáng" (≈ 400 pc) ⚠️ (tổng hợp, theo góp ý thẩm định).
+- **Sao Mộc 5,2 au; Sao Hải Vương 30,07 au:** bán trục lớn theo NASA NSSDC Planetary Fact Sheet (xem `thong-so-hanh-tinh.md`) ✅.
+- **Bức xạ nền vi sóng phát ra ~380 000 năm sau Big Bang; Mặt Trời hình thành ~4,6 tỷ năm trước:** giá trị chuẩn của NASA (WMAP, NASA Solar System) ⚠️ chưa trích đoạn trong phiên này.
+- **Thẩm định 01/11/2026 (biên tập viên độc lập):** đã sửa mâu thuẫn số bậc của bậc thang, cơ chế SN Ia (kịch bản kinh điển + sub-Chandrasekhar), câu thoại Star Wars ("less than twelve parsecs"), phạm vi thị sai Gaia, bổ sung quan điểm CCHP (~70) về căng thẳng Hubble, nguồn SH0ES 2022 & H0DN 2026.
