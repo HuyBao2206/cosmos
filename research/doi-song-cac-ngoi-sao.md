@@ -385,3 +385,12 @@ tổng hợp hạt nhân (nucleosynthesis); tổng hợp hạt nhân Vụ Nổ L
 6. Ngưỡng CNO **~1,3 M☉** trong giáo trình bình duyệt (hiện chỉ có preprint và Wikipedia).
 7. Thuật ngữ tiếng Việt: đối chiếu với từ điển thuật ngữ thiên văn (ví dụ của Hội Thiên văn học Việt Nam hoặc sách giáo khoa Vật lý 12 hiện hành).
 8. Ngày 4/7/1054, Breakthrough Prize 2018 của Bell Burnell, khoảng cách NGC 4993 (~130 triệu năm ánh sáng), Great Dimming của Betelgeuse: kiến thức chung, chưa đối chiếu trong phiên.
+
+---
+
+## Bổ sung khi viết thẻ (01/11/2026)
+- **Quan hệ khối lượng – bán kính sao lùn trắng** dùng trong minh hoạ: Nauenberg 1972, ApJ 175, 417 — R/R☉ ≈ 0,0112 (M/M₃)^{−1/3}[1 − (M/M₃)^{4/3}]^{1/2}, M₃ = 5,816/μₑ² M☉ (≈ 1,454 với μₑ = 2) ⚠️ (công thức giáo trình, hệ số theo trí nhớ; kiểm chứng: Sirius B 1,018 M☉ → 0,0078 R☉, gần 0,0081–0,0084 quan sát).
+- **Ước lượng năng lượng sụp lõi** E ~ GM²/R với 1,4 M☉, 12 km → ~4 × 10⁴⁶ J (tự tính ⚠️), khớp bậc 10⁴⁶ J ở §6.
+- **Nguồn gốc theo nguyên tố trong minh hoạ "bụi sao"** (theo bảng Johnson, định tính): O — chủ yếu sao nặng nổ; C — sao khối lượng thấp lúc chết + sao nặng; N — chủ yếu sao khối lượng thấp lúc chết; Ca, P, K, S, Na, Cl, Mg — chủ yếu sao nặng nổ (Fe có phần lớn từ SN Ia) ⚠️ cần đối chiếu hình gốc.
+- **Thành phần cơ thể** dùng bộ ICRP (O 61,4 %, C 22,9 %, H 10,0 %, N 2,6 %, còn lại ~3,1 %) ⚠️ thứ cấp; theo số nguyên tử, H ≈ 62 % (tự tính từ bộ số này, khớp nguồn thứ cấp).
+- **Thẩm định 01/11/2026 (biên tập viên độc lập):** sửa đơn vị mật độ trong minh hoạ sao lùn trắng; cân bằng phương trình pp (26,7 MeV tính theo khối lượng nguyên tử, gồm huỷ positron); bỏ "sáng ngang thiên hà" cho siêu tân tinh sụp lõi; nguồn khối lượng 2,08 M☉ là đo vô tuyến (Cromartie 2020; Fonseca 2021), không phải NICER; "hợp hạch sắt thành nguyên tố nặng hơn không toả năng lượng"; sắt chủ yếu từ SN Ia; thêm TOV ~2,2–2,3 M☉.

@@ -67,7 +67,7 @@ export function mount(host, opts = {}) {
       }
     });
     // photon chạy về phía bạn (trên thang log)
-    const k = opts.reduced ? 1 : Math.min(1, (now - t0) / 1800);
+    const k = opts.reduced ? 1 : Math.max(0, Math.min(1, (now - t0) / 1800));
     const e = 1 - Math.pow(1 - k, 3);
     const xs = X(sel.s), xe = 44;
     const xp = xs + (xe - xs) * e;

@@ -78,3 +78,25 @@ test('vật thể đặc: r_s Mặt Trời ≈ 2,95 km; vận tốc thoát Trái
   // mật độ trung bình Mặt Trời ≈ 1 410 kg/m³
   near(P.meanDensity(P.M_SUN, P.R_SUN), 1410, 0.005);
 });
+
+test('khối lượng Jeans: lõi phân tử 10 K, n = 10⁴ cm⁻³ ⇒ cỡ 5 M☉; nóng hơn ⇒ lớn hơn, đặc hơn ⇒ nhỏ hơn', () => {
+  const mj = P.jeansMass(10, 1e4) / P.M_SUN;
+  assert.ok(mj > 4 && mj < 7, String(mj));
+  near(P.jeansMass(40, 1e4) / P.jeansMass(10, 1e4), 8, 1e-9);        // ∝ T^{3/2}
+  near(P.jeansMass(10, 4e4) / P.jeansMass(10, 1e4), 0.5, 1e-9);      // ∝ n^{-1/2}
+  const tff = P.freeFallTime(1e4) / (365.25 * 86400);                // ~ vài trăm nghìn năm
+  assert.ok(tff > 2e5 && tff < 6e5, String(tff));
+});
+
+test('sao lùn trắng: Sirius B (1,018 M☉) ≈ 0,008 R☉; 0,6 M☉ to hơn Trái Đất; tiến tới 0 gần giới hạn', () => {
+  const r = P.wdRadius(1.018);
+  assert.ok(r > 0.0072 && r < 0.0088, String(r));
+  assert.ok(P.wdRadius(0.6) * P.R_SUN > P.R_EARTH);
+  assert.ok(P.wdRadius(0.6) > P.wdRadius(1.0));
+  assert.equal(P.wdRadius(1.5), 0);
+});
+
+test('pulsar 716 Hz, bán kính 12 km: xích đạo quay ~ 18 % tốc độ ánh sáng', () => {
+  const v = P.equatorialSpeed(12_000, 1 / 716);
+  near(v / P.C, 0.18, 0.01);
+});

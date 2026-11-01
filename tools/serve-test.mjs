@@ -48,7 +48,7 @@ for (const w of widths) {
     const page = await ctx.newPage();
     const errs = [];
     page.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') errs.push(`[${m.type()}] ${m.text()}`); });
-    page.on('pageerror', (e) => errs.push(`[pageerror] ${e.message}`));
+    page.on('pageerror', (e) => errs.push(`[pageerror] ${e.message} ${(e.stack||'').split('\n').slice(1,3).join(' | ')}`));
     page.on('requestfailed', (r) => { if (!/fonts\.g/.test(r.url())) errs.push(`[reqfail] ${r.url()} ${r.failure()?.errorText}`); });
     await page.goto('http://localhost:8123' + path, { waitUntil: 'load' });
     await page.waitForTimeout(+(process.env.WAIT || 1500));

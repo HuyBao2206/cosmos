@@ -45,7 +45,7 @@ export const M_V_SUN = 4.83;
 export const magToLsun = (M) => Math.pow(10, (M_V_SUN - M) / 2.5);
 
 /* ——— Sao trên dãy chính (xấp xỉ giáo khoa, dùng cho minh hoạ) ———
- * L ∝ M^3,5 và t ∝ M^-2,5 chỉ đúng khoảng 0,5–20 M☉; ngoài khoảng đó ta dùng quan hệ từng đoạn quen thuộc. */
+ * Quan hệ từng đoạn quen thuộc (số mũ 2,3 / 4 / 3,5 / 1); L ∝ M^3,5 chỉ đúng khoảng 2–55 M☉. */
 export function msLuminosity(mSun) {
   if (mSun < 0.43) return 0.23 * Math.pow(mSun, 2.3);
   if (mSun < 2) return Math.pow(mSun, 4);
@@ -78,3 +78,29 @@ export const schwarzschildRadius = (M) => (2 * G * M) / (C * C);
 export const escapeVelocity = (M, r) => Math.sqrt((2 * G * M) / r);
 /** Vận tốc quỹ đạo tròn (m/s) ở bán kính r */
 export const circularVelocity = (M, r) => Math.sqrt((G * M) / r);
+
+/* ——— Hình thành sao ——— */
+export const K_B = 1.380_649e-23;                 // J/K — hằng số Boltzmann (SI, chính xác)
+export const M_H = 1.673_533e-27;                 // kg — khối lượng nguyên tử hydro
+/** Khối lượng Jeans (kg): M_J = (5kT / (G μ m_H))^{3/2} · (3 / (4πρ))^{1/2}, với ρ = n μ m_H.
+ *  T (K), n (hạt/cm³), μ khối lượng hạt trung bình (≈ 2,33 cho khí phân tử). Dạng giáo trình (Carroll & Ostlie, ch. 12). */
+export function jeansMass(T, nPerCm3, mu = 2.33) {
+  const rho = nPerCm3 * 1e6 * mu * M_H;
+  return Math.pow((5 * K_B * T) / (G * mu * M_H), 1.5) * Math.sqrt(3 / (4 * Math.PI * rho));
+}
+/** Thời gian rơi tự do (s): t_ff = √(3π / (32 G ρ)) — thang thời gian co sụp của đám mây không có áp suất cản */
+export const freeFallTime = (nPerCm3, mu = 2.33) => Math.sqrt((3 * Math.PI) / (32 * G * nPerCm3 * 1e6 * mu * M_H));
+
+/* ——— Sao lùn trắng ——— */
+/** Quan hệ khối lượng – bán kính sao lùn trắng (Nauenberg 1972, ApJ 175, 417), μ_e = 2 (carbon–oxy):
+ *  R/R☉ ≈ 0,0112 (M/M₃)^{−1/3} [1 − (M/M₃)^{4/3}]^{1/2}, M₃ = 5,816/μ_e² ≈ 1,454 M☉. Nặng hơn ⇒ nhỏ hơn. */
+export const WD_M3 = 5.816 / 4;
+export function wdRadius(mSun) {
+  const x = mSun / WD_M3;
+  if (x >= 1) return 0;
+  return 0.0112 * Math.pow(x, -1 / 3) * Math.sqrt(1 - Math.pow(x, 4 / 3));
+}
+
+/* ——— Sao neutron ——— */
+/** Vận tốc dài tại xích đạo (m/s) của vật bán kính r (m) quay với chu kỳ P (s) */
+export const equatorialSpeed = (r, P) => (2 * Math.PI * r) / P;

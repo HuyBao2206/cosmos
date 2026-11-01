@@ -51,7 +51,7 @@ export const CHAPTERS = [
   },
   {
     id: 'doi-song-sao', num: 5, title: 'Đời sống của các ngôi sao', en: 'The lives of stars', color: '#ffb07c',
-    question: 'Một ngôi sao sinh ra, sống và chết như thế nào?', status: 'draft',
+    question: 'Một ngôi sao sinh ra, sống và chết như thế nào?', status: 'ready',
     concepts: [
       { id: 'hinh-thanh-sao', title: 'Tinh vân và sự hình thành sao', en: 'Nebulae & star formation', aka: ['tinh van', 'dam may phan tu', 'tien sao'], links: ['tong-hop-hat-nhan'] },
       { id: 'tong-hop-hat-nhan', title: 'Phản ứng tổng hợp hạt nhân', en: 'Stellar nucleosynthesis', aka: ['nhiet hach', 'proton-proton', 'cno'], links: ['bieu-do-hr'] },
