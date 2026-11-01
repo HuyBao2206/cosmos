@@ -39,7 +39,8 @@ for (const w of widths) {
   if (VENDOR) {
     await ctx.route('https://cdn.jsdelivr.net/npm/**', async (route) => {
       const m = route.request().url().match(/npm\/([^@/]+)@[^/]+\/(.*)$/);
-      try { route.fulfill({ body: await readFile(join(VENDOR, m[1], m[2])), contentType: 'text/javascript' }); }
+      const type = { '.css': 'text/css', '.woff2': 'font/woff2', '.woff': 'font/woff', '.ttf': 'font/ttf' }[extname(m[2])] || 'text/javascript';
+      try { route.fulfill({ body: await readFile(join(VENDOR, m[1], m[2])), contentType: type }); }
       catch { route.fulfill({ status: 404 }); }
     });
   }
