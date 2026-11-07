@@ -29,7 +29,7 @@ export function mount(host, opts = {}) {
     t = 0;
     say(`<span>Khối lượng chirp <b>${fmt(chirpMass(m1, m2), 1)} M☉</b></span>
       <span>Từ ${F_START} Hz tới lúc hợp nhất: <b>${tau0 < 1 ? fmt(tau0 * 1000, 0) + ' ms' : fmt(tau0, 1) + ' s'}</b>${slow > 1.5 ? ` (hoạt ảnh chậm ${fmt(slow, 0)} lần)` : ''}</span>
-      <span>Tần số cuối khoảng <b>${fmt(fMax, 0)} Hz</b> — trong dải nghe được, nên tín hiệu thường được chuyển thành âm thanh “chíp”</span>`);
+      <span>Cuối pha xoắn ốc (quỹ đạo tròn bền trong cùng) sóng đạt khoảng <b>${fmt(fMax, 0)} Hz</b>, rồi còn tăng trong lúc hợp nhất — nằm trong dải tai người nghe được</span>`);
     L.kick();
   }
 

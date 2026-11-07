@@ -280,3 +280,12 @@ test('lịch sử hệ số tỉ lệ: mô hình Planck có a = 1 lúc t ≈ 13,
   // vũ trụ chỉ có vật chất (Ωm = 1): tuổi = 2/(3H0)
   near(Cos.ageAtA(1, { Om: 1, OL: 0, Or: 0 }), (2 / 3) * Cos.hubbleTimeGyr(67.66), 1e-4);
 });
+
+test('dò tia hố đen (thau-hieu/js/viz/black-hole.js): tia có b < √27 GM/c² bị nuốt, b > √27 thoát ra', async () => {
+  const { traceRay } = await import('../thau-hieu/js/viz/black-hole.js');
+  assert.equal(traceRay(5.15, 100, 1).captured, true);
+  assert.equal(traceRay(5.25, 100, 1).captured, false);
+  // tia xa (b = 100) gần như thẳng: cắt mặt phẳng đĩa ở φ = π/2 tại r ≈ b
+  const r = traceRay(100, Math.PI / 2, 1).hits[0];
+  near(r, 100, 2e-2);
+});

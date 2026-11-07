@@ -41,7 +41,7 @@ export const CHAPTERS = [
   },
   {
     id: 'khong-thoi-gian', num: 4, title: 'Không-thời gian', en: 'Spacetime', color: '#c4a8ff',
-    question: 'Thời gian có trôi như nhau với mọi người không?', status: 'draft',
+    question: 'Thời gian có trôi như nhau với mọi người không?', status: 'ready',
     concepts: [
       { id: 'tuong-doi-hep', title: 'Tương đối hẹp và giãn nở thời gian', en: 'Special relativity & time dilation', aka: ['einstein', 'gian no thoi gian'], links: ['tuong-doi-tong-quat'] },
       { id: 'tuong-doi-tong-quat', title: 'Thuyết tương đối tổng quát', en: 'General relativity', aka: ['khong thoi gian cong'], links: ['thau-kinh-hap-dan', 'song-hap-dan'] },
