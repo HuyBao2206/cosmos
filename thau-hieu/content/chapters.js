@@ -20,7 +20,7 @@ export const CHAPTERS = [
   },
   {
     id: 'anh-sang', num: 2, title: 'Ánh sáng, nguồn thông tin duy nhất', en: 'Light, the only messenger', color: '#f4e19c',
-    question: 'Chỉ từ ánh sáng, ta biết được gì về một ngôi sao?', status: 'draft',
+    question: 'Chỉ từ ánh sáng, ta biết được gì về một ngôi sao?', status: 'ready',
     concepts: [
       { id: 'pho-dien-tu', title: 'Phổ điện từ', en: 'Electromagnetic spectrum', aka: ['buoc song', 'tan so'], links: ['quang-pho'] },
       { id: 'quang-pho', title: 'Quang phổ và vạch hấp thụ', en: 'Spectra & absorption lines', aka: ['vach pho', 'fraunhofer'], links: ['dich-chuyen-do'] },
@@ -30,7 +30,7 @@ export const CHAPTERS = [
   },
   {
     id: 'hap-dan', num: 3, title: 'Lực hấp dẫn và chuyển động', en: 'Gravity & motion', color: '#8fb3ff',
-    question: 'Vì sao các hành tinh không rơi vào Mặt Trời?', status: 'draft',
+    question: 'Vì sao các hành tinh không rơi vào Mặt Trời?', status: 'ready',
     concepts: [
       { id: 'dinh-luat-kepler', title: 'Ba định luật Kepler', en: "Kepler's laws", aka: ['kepler', 'quy dao elip'], links: ['van-vat-hap-dan'] },
       { id: 'van-vat-hap-dan', title: 'Định luật vạn vật hấp dẫn', en: 'Universal gravitation', aka: ['newton', 'hap dan'], links: ['van-toc-vu-tru', 'luc-thuy-trieu'] },

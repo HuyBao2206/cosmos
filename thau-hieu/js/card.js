@@ -125,7 +125,7 @@ export async function openConcept(id, origin) {
   </nav>`;
 
   const def = c.definition;
-  const defHTML = def ? `<figure class="kc-def kc-reveal">
+  const defHTML = def ? `<figure class="kc-def kc-reveal${def.paraphrase ? ' is-paraphrase' : ''}">
       <blockquote><p>${R(def.vi)}</p></blockquote>
       <figcaption>
         <span class="kc-def-src">— ${esc(def.source)}${def.url ? ` · <a href="${esc(def.url)}" target="_blank" rel="noopener">nguồn ↗</a>` : ''}</span>

@@ -242,3 +242,4 @@ a.kd-node:hover text { fill: var(--c); }
   .kc-reveal { opacity: 1; transform: none; transition: none; }
   .kc-scroll { scroll-behavior: auto; }
 }
+.kc-def.is-paraphrase blockquote p { font-style: normal; }

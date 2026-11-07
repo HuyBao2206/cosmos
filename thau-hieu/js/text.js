@@ -50,7 +50,7 @@ export async function loadKatex() {
 
 function math(tex, display) {
   if (katex) {
-    try { return katex.renderToString(tex, { displayMode: display, throwOnError: false, output: 'htmlAndMathml' }); } catch { /* rơi xuống dưới */ }
+    try { return katex.renderToString(tex, { displayMode: display, throwOnError: false, strict: 'ignore', output: 'htmlAndMathml' }); } catch { /* rơi xuống dưới */ }
   }
   return display ? `<code class="tex tex-block">${esc(tex)}</code>` : `<code class="tex">${esc(tex)}</code>`;
 }

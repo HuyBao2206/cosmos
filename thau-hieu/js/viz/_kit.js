@@ -131,3 +131,49 @@ export function fmtKm(m) {
 /** Chữ trên canvas dùng font của site */
 export const FONT = (px, w = 400) => `${w} ${px}px "Be Vietnam Pro", system-ui, sans-serif`;
 export const SERIF = (px, w = 500) => `${w} ${px}px "Cormorant Garamond", Georgia, serif`;
+
+/** Màu xấp xỉ của ánh sáng đơn sắc bước sóng nm (380–750 nm), theo cách xấp xỉ quen thuộc của Dan Bruton. Trả [r,g,b] 0–255. */
+export function wavelengthRGB(nm) {
+  let r = 0, g = 0, b = 0;
+  if (nm >= 380 && nm < 440) { r = -(nm - 440) / 60; b = 1; }
+  else if (nm < 490) { g = (nm - 440) / 50; b = 1; }
+  else if (nm < 510) { g = 1; b = -(nm - 510) / 20; }
+  else if (nm < 580) { r = (nm - 510) / 70; g = 1; }
+  else if (nm < 645) { r = 1; g = -(nm - 645) / 65; }
+  else if (nm <= 750) { r = 1; }
+  let k = 1;
+  if (nm < 380 || nm > 750) k = 0;
+  else if (nm < 420) k = 0.3 + (0.7 * (nm - 380)) / 40;
+  else if (nm > 700) k = 0.3 + (0.7 * (750 - nm)) / 50;
+  const f = (c) => Math.round(255 * Math.pow(c * k, 0.8));
+  return [f(r), f(g), f(b)];
+}
+
+/** Kéo bằng con trỏ trên canvas: onDrag(x, y, e) với toạ độ CSS px trong canvas; onDown trả false để bỏ qua. */
+export function drag(canvas, { onDown, onDrag, onUp } = {}) {
+  let active = false;
+  const pos = (e) => { const r = canvas.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+  const down = (e) => {
+    const [x, y] = pos(e);
+    if (onDown && onDown(x, y, e) === false) return;
+    active = true; canvas.setPointerCapture?.(e.pointerId); onDrag?.(x, y, e); e.preventDefault();
+  };
+  const move = (e) => { if (!active) return; const [x, y] = pos(e); onDrag?.(x, y, e); };
+  const up = (e) => { if (!active) return; active = false; onUp?.(e); };
+  canvas.style.touchAction = 'none';
+  canvas.addEventListener('pointerdown', down);
+  canvas.addEventListener('pointermove', move);
+  canvas.addEventListener('pointerup', up);
+  canvas.addEventListener('pointercancel', up);
+  return () => { canvas.removeEventListener('pointerdown', down); canvas.removeEventListener('pointermove', move); canvas.removeEventListener('pointerup', up); canvas.removeEventListener('pointercancel', up); };
+}
+
+/** Phép đổi thang log cho trục: trả hàm x(v) và v(x) */
+export function logAxis(vMin, vMax, x0, x1) {
+  const a = Math.log10(vMin), b = Math.log10(vMax);
+  return { X: (v) => x0 + ((Math.log10(v) - a) / (b - a)) * (x1 - x0), V: (x) => Math.pow(10, a + ((x - x0) / (x1 - x0)) * (b - a)) };
+}
+
+/** Viết số mũ cơ số 10 dạng "10⁻⁹" */
+const SUPS = { '-': '⁻', 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴', 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹' };
+export const pow10 = (e) => `10${String(e).split('').map((c) => SUPS[c] ?? c).join('')}`;
