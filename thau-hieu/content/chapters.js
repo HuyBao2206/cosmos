@@ -84,7 +84,7 @@ export const CHAPTERS = [
   },
   {
     id: 'lich-su', num: 8, title: 'Lịch sử vũ trụ', en: 'History of the universe', color: '#e8e4da',
-    question: 'Vũ trụ bắt đầu từ đâu và đang đi về đâu?', status: 'draft',
+    question: 'Vũ trụ bắt đầu từ đâu và đang đi về đâu?', status: 'ready',
     concepts: [
       { id: 'vu-no-lon', title: 'Vụ Nổ Lớn', en: 'Big Bang', aka: ['big bang'], links: ['phong-vi-song'] },
       { id: 'phong-vi-song', title: 'Bức xạ phông vi sóng vũ trụ', en: 'Cosmic microwave background', aka: ['cmb', 'phong vi song'], links: ['dinh-luat-hubble'] },
