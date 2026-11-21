@@ -94,7 +94,7 @@ export const CHAPTERS = [
   },
   {
     id: 'su-song', num: 9, title: 'Hành tinh và sự sống', en: 'Planets & life', color: '#7fe0d4',
-    question: 'Ngoài Trái Đất, sự sống có thể tồn tại ở đâu?', status: 'draft',
+    question: 'Ngoài Trái Đất, sự sống có thể tồn tại ở đâu?', status: 'ready',
     concepts: [
       { id: 'ngoai-hanh-tinh', title: 'Ngoại hành tinh và cách phát hiện', en: 'Exoplanets', aka: ['exoplanet', 'quang trac', 'van toc xuyen tam'], links: ['vung-song-duoc'] },
       { id: 'vung-song-duoc', title: 'Vùng có thể sống được', en: 'Habitable zone', aka: ['goldilocks', 'habitable zone'], links: ['sinh-hoc-vu-tru'] },

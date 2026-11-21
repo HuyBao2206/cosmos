@@ -1,5 +1,7 @@
 // C2 — Hồ sơ các hành tinh: lưới thẻ → mở thành "hồ sơ quan sát" (lật 3D, kẻ đường kỹ thuật, số đếm lên,
 // hành tinh 3D kéo xoay được) và công cụ so sánh hai hành tinh đúng tỉ lệ kích thước.
+import { PLANET_CONCEPTS } from '../../shared/content/lien-ket.js';
+import { CONCEPTS } from '../../thau-hieu/content/chapters.js';
 import { gsap } from 'gsap';
 import { PLANETS, byId, EARTH } from './planets-data.js';
 import { PROFILES, IAU_2006, commonsUrl, commonsPage } from './profiles-content.js';
@@ -53,6 +55,13 @@ function compareBars(p) {
   ];
 }
 
+function thauHieu(id) {
+  const ids = (PLANET_CONCEPTS[id] || []).filter((k) => CONCEPTS[k]);
+  if (!ids.length) return '';
+  return `<h3 class="pf-h">Hiểu sâu hơn bên Thấu hiểu vũ trụ</h3>
+        <p class="pf-th">${ids.map((k) => `<a class="pf-th-chip" href="../thau-hieu/#k/${k}">${esc(CONCEPTS[k].title)} <span aria-hidden="true">↗</span></a>`).join('')}</p>`;
+}
+
 function dossierHTML(p, idx, total) {
   const c = PROFILES[p.id];
   const rows = dataRows(p).map(([l, v, d, u, note]) => `<div class="pf-row"><dt>${l}</dt><dd><span class="pf-count" data-to="${v}" data-dec="${d}">${fmt(v, d)}</span> <span class="u">${u}</span><small>${note}</small></dd></div>`).join('');
@@ -95,6 +104,7 @@ function dossierHTML(p, idx, total) {
         <ol class="pf-points">${pts}</ol>
         <h3 class="pf-h">Các sứ mệnh</h3>
         <ol class="pf-missions">${ms}</ol>
+        ${thauHieu(p.id)}
         <p class="pf-src">Nguồn số liệu: <a href="${FACT(p.id)}" target="_blank" rel="noopener">NASA NSSDCA, ${p.en} Fact Sheet</a>; số vệ tinh theo Trung tâm Tiểu hành tinh của IAU và NASA. Chi tiết ở ngăn Nguồn tham khảo cuối trang.</p>
         <nav class="pf-nav" aria-label="Chuyển hồ sơ">
           <button class="btn" type="button" data-act="prev">← Hành tinh trước</button>

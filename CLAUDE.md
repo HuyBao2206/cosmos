@@ -10,16 +10,18 @@ Trang khoa học về vũ trụ (tiếng Việt), chạy trên GitHub Pages tạ
 /                 index.html — trang chủ
 /home/            trang chủ: home.js, powers.js (Powers of Ten, canvas 2D), portals.js, home.css, assets/
 /kham-pha/        Khám phá vũ trụ (accent vàng ánh sao) — xem mục "Web Khám phá" bên dưới
-/thau-hieu/       Thấu hiểu vũ trụ (accent xanh băng) — hiện là trang "Sắp mở cửa"
+/thau-hieu/       Thấu hiểu vũ trụ (accent xanh băng) — xem mục "Web Thấu hiểu" bên dưới
 /khao-luan/       Khảo luận vũ trụ (accent tím tinh vân) — hiện là trang "Sắp mở cửa"
 /nguon-hinh-anh/  trang credit hình ảnh (toàn site)
 /nguon-tham-khao/ trang nguồn tham khảo (toàn site)
 /shared/          css/tokens.css, css/base.css, js/site.js, js/config.js, js/starfield.js,
                   js/transition.js, js/util.js, js/astro/kepler.js (vị trí hành tinh, cực quay, thời gian ánh sáng),
-                  content/loi-mo-dau.js (lời mở đầu — chủ dự án tự sửa), head.txt (mẫu <head>)
+                  js/astro/physics.js (hằng số + hàm vật lý cho minh hoạ, có test), js/astro/cosmology.js (ΛCDM Planck 2018),
+                  content/loi-mo-dau.js (lời mở đầu — chủ dự án tự sửa), content/lien-ket.js (liên kết Khám phá ↔ Thấu hiểu),
+                  head.txt (mẫu <head>)
 /research/        ghi chép nghiên cứu theo chủ đề: nguồn, số liệu, chỗ nguồn lệch nhau
 /tests/           node --test tests/*.test.mjs
-/tools/           serve-test.mjs (Playwright), make_de421_fixture.py, make_home_assets.py, make_disks.py
+/tools/           serve-test.mjs (Playwright), shoot-cards.mjs (chụp thẻ Thấu hiểu), make_de421_fixture.py, make_home_assets.py, make_disks.py
 404.html          tự đặt <base> theo /cosmos/ hoặc / (GitHub Pages trả 404 ở mọi độ sâu)
 .nojekyll
 ```
@@ -100,6 +102,33 @@ raw.githubusercontent.com và `git clone` từ GitHub dùng được. Vì vậy:
 - Texture: `assets/textures/<id>.webp` (2k) và `<id>-1k.webp`; đĩa: `assets/disks/<id>.webp`.
 - Dữ kiện có hạn dùng cần cập nhật: BepiColombo (vào quỹ đạo dự kiến 21/11/2026), Juno (tương lai chưa rõ),
   Voyager 1 cách 1 ngày ánh sáng (dự báo giữa 11/2026, trang chủ nấc 05), số vệ tinh (03/2026).
+
+## Web Thấu hiểu (`/thau-hieu/`) — đã xong 9/9 chương, 42 thẻ
+- `content/chapters.js`: danh mục 9 chương (id, màu chòm sao, câu hỏi lớn, `status: 'ready' | 'draft'`) và các khái niệm
+  (id dùng trong URL `#k/<id>`, title, en, aka cho tìm kiếm, `links` = đường nối trên bản đồ). Chương `draft` → sao mờ, nhãn
+  "Đang biên soạn". `content/chNN.js` (nạp lười khi mở): `UPDATED`, `CHAPTER` (intro, `diagram` sơ đồ liên hệ, sources) và
+  `CONCEPTS[id]` theo cấu trúc thẻ bắt buộc.
+- `js/main.js` điều phối (bản đồ/danh sách, tìm kiếm có dấu/không dấu `text.js#fold`, định tuyến `#k/…`, `#c/…`, "đã đọc" trong
+  `sessionStorage`, chú thích thuật ngữ); `js/map3d.js` bản đồ tri thức Three.js; `js/card.js` dựng thẻ & trang tổng quan trong
+  `<dialog>`; `js/text.js` cú pháp chữ (`[[id|chữ]]`, `$…$` KaTeX, `**đậm**`, `_nghiêng_`); `js/viz/*.js` mỗi minh hoạ một module,
+  `export function mount(host, opts) → { destroy }`, dùng bộ khung `js/viz/_kit.js` (frame, slider, buttons, readout, loop, drag…).
+- Mọi phép tính vật lý của minh hoạ nằm trong `shared/js/astro/physics.js` / `cosmology.js` và có test trong `tests/physics.test.mjs`.
+  Hình chỉ mang tính minh hoạ (vị trí chấm, bản đồ gợn…) phải ghi rõ trong chú thích.
+- `window.__thauHieu.go('#k/<id>')` để kiểm thử. Chụp thẻ: `IDS=a,b VIZWAIT=2000 ACTIONS=../tools/shoot-cards.mjs VENDOR=… node tools/serve-test.mjs /cosmos/thau-hieu/`.
+
+### Thêm một khái niệm mới
+1. Nghiên cứu → ghi vào `research/<chu-de>.md` (nguồn, URL, ✅/⚠️, chỗ nguồn lệch nhau, ngày tra cứu).
+2. Thêm mục vào `concepts` của chương trong `content/chapters.js` (id không dấu, gạch nối; `links` tới id khác).
+3. Thêm `CONCEPTS['<id>']` trong `content/chNN.js`: `short`, `certainty {level, label}`, `definition {vi, en?, source, url, paraphrase?}`
+   (không có câu nguyên văn kiểm được thì `paraphrase: true`, **không** bịa trích dẫn), `body[]`, `formulas[]`, `symbols[]`,
+   `viz {module, height, mobileHeight, caption}`, `after[]`, `numbers[]` (1–3, có nguồn), `myths[]` (1–2), `khamPha[]` (`#ho-so-<hành tinh>`
+   hoặc `#he-mat-troi`), `khaoLuan[]` (nhãn; tự thành liên kết khi Khảo luận mở), `sources[]`.
+4. Minh hoạ mới: `js/viz/<ten>.js`; hàm tính → `physics.js` + test. Bàn phím/kéo thả qua `_kit.js#drag`; tôn trọng `opts.reduced`.
+5. Nếu khái niệm gắn với hành tinh: thêm vào `shared/content/lien-ket.js` để hồ sơ bên Khám phá hiện liên kết ngược.
+6. Thẩm định bằng subagent biên tập viên → `node --test tests/*.test.mjs` → chụp thử 1440 và 390 → commit, push.
+- Dữ kiện có hạn dùng trong Thấu hiểu (11/2026): số ngoại hành tinh (6 451, 15/10/2026), số ứng viên sóng hấp dẫn (390, GWTC-5.0),
+  bảng H₀, Roman (phóng 30/8/2026, chưa tới L2), Gaia DR4 (2/12/2026), PLATO (4/2027), Euclid DR1, Europa Clipper (4/2030),
+  hố đen gần nhất (Gaia BH1), K2-18 b/DMS, LZ.
 
 ## Thẩm định nội dung
 Mỗi phần lớn đã được một subagent "biên tập viên khoa học" đối chiếu với `research/` và sửa trước khi push.

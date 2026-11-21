@@ -114,7 +114,7 @@ export const CONCEPTS = {
       { myth: 'Ảnh Ngân Hà nhìn từ trên xuống là ảnh chụp thật.', truth: 'Chưa tàu nào ra khỏi đĩa; xa nhất là Voyager 1, tới giữa tháng 11/2026 mới cách Trái Đất khoảng một ngày ánh sáng, trong khi đĩa dày cỡ 1 000 năm ánh sáng. Mọi ảnh toàn cảnh là hình minh hoạ dựng từ số liệu hoặc ảnh của thiên hà khác.' },
       { myth: 'Mặt Trời nằm ở tâm Ngân Hà.', truth: 'Mặt Trời cách tâm khoảng 27 000 năm ánh sáng, trên một nhánh phụ. Năm 1918, Harlow Shapley dựa vào phân bố các cụm sao cầu để chỉ ra rằng Mặt Trời không ở tâm, dù khoảng cách tới tâm ông ước tính lớn hơn nhiều so với số đo ngày nay.' },
     ],
-    khamPha: [{ href: '#ho-so-sun', label: 'Hồ sơ Mặt Trời' }],
+    khamPha: [{ href: '#he-mat-troi', label: 'Hệ Mặt Trời sống' }],
     sources: [
       { text: 'ESA — The asymmetric Milky Way in motion (Gaia DR3)', url: 'https://www.esa.int/ESA_Multimedia/Videos/2022/06/The_asymmetric_Milky_Way_in_motion' },
       { text: 'ESA — Gaia EDR3 in numbers', url: 'https://sci.esa.int/web/gaia/-/gaia-s-early-data-release-3-in-numbers' },

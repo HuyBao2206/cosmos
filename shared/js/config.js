@@ -8,6 +8,6 @@ export const SITE = {
 
 export const SECTIONS = [
   { id: 'kham-pha',  label: 'Khám phá vũ trụ',  short: 'Khám phá',  open: true },
-  { id: 'thau-hieu', label: 'Thấu hiểu vũ trụ', short: 'Thấu hiểu', open: false },
+  { id: 'thau-hieu', label: 'Thấu hiểu vũ trụ', short: 'Thấu hiểu', open: true },
   { id: 'khao-luan', label: 'Khảo luận vũ trụ', short: 'Khảo luận', open: false },
 ];

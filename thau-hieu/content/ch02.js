@@ -123,7 +123,7 @@ export const CONCEPTS = {
       { myth: 'Vạch tối là chỗ hoàn toàn không có ánh sáng.', truth: 'Vạch tối chỉ là chỗ ánh sáng yếu hơn phần phổ xung quanh: khí hấp thụ photon ở bước sóng đó rồi phát lại theo mọi hướng, nên theo hướng nhìn của ta còn ít hơn.' },
       { myth: 'Quang phổ chỉ cho biết ngôi sao làm bằng gì.', truth: 'Quang phổ còn cho biết nhiệt độ, mật độ (qua độ rộng vạch), từ trường, và vận tốc theo hướng nhìn (qua [[dich-chuyen-do|độ lệch của vạch]]).' },
     ],
-    khamPha: [{ href: '#ho-so-sun', label: 'Hồ sơ Mặt Trời' }],
+    khamPha: [{ href: '#he-mat-troi', label: 'Hệ Mặt Trời sống' }],
     sources: [
       { text: 'Đài thiên văn McDonald — Glossary: absorption line', url: 'https://mcdonaldobservatory.org/glossary/term/32' },
       { text: 'IAU (2015), Nghị quyết B3 — các giá trị danh định của Mặt Trời (T = 5 772 K)', url: 'https://www.iau.org/static/resolutions/IAU2015_English.pdf' },
