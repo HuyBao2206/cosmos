@@ -186,7 +186,7 @@ export const CONCEPTS = {
       caption: 'Kích thước tương đối của vũ trụ theo thời gian, tích phân phương trình Friedmann với lượng vật chất Ωm = 0,31 (Planck 2018) và lượng năng lượng tối chỉnh được. Không có năng lượng tối, đường cong luôn cong xuống (giãn nở chậm dần); với lượng đo được, nó cong lên từ khoảng 6 tỷ năm trước.',
     },
     after: [
-      'Năng lượng tối là gì thì chưa ai biết. Năm 2025, bản đồ ba chiều của DESI (Dark Energy Spectroscopic Instrument) gợi ý năng lượng tối có thể đang yếu dần theo thời gian thay vì là một hằng số — ở mức 2,8–4,2σ tuỳ tổ hợp dữ liệu, chưa đạt ngưỡng phát hiện, và một số nhà khoa học cho rằng kết quả nhạy với sai số của mẫu siêu tân tinh. Kính thiên văn không gian Euclid của ESA và các bản dữ liệu sau của DESI sẽ kiểm tra điều này (tính tới 11/2026).',
+      'Năng lượng tối là gì thì chưa ai biết. Năm 2025, bản đồ ba chiều của DESI (Dark Energy Spectroscopic Instrument) gợi ý năng lượng tối có thể đang yếu dần theo thời gian thay vì là một hằng số — ở mức 2,8–4,2σ tuỳ tổ hợp dữ liệu, chưa đạt ngưỡng phát hiện, và một số nhà khoa học cho rằng kết quả nhạy với sai số của mẫu siêu tân tinh. Kính thiên văn không gian Euclid của ESA (đợt dữ liệu đầu tiên DR1-Foundation công bố 11/2026, bản đầy đủ dự kiến giữa năm 2027) và các bản dữ liệu sau của DESI sẽ kiểm tra điều này.',
     ],
     numbers: [
       { value: '~68 %', label: 'phần năng lượng tối trong tổng mật độ năng lượng hiện nay (Ω_Λ ≈ 0,685)', source: 'NASA; Planck 2018' },

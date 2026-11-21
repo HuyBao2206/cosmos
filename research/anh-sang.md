@@ -178,3 +178,6 @@ kính thiên văn không gian (space telescope); hấp thụ khí quyển (atmos
 9. Kỷ lục thiên hà xa nhất sau MoM-z14 — không thấy, nhưng cần kiểm lại ngay trước khi đăng.
 10. Nhiệt độ vận hành JWST: "< 50 K / −223 °C" (NASA) so với "40 K / −233 °C"; cần trang NASA Webb gốc.
 11. Hằng số Wien, c, h: giá trị chuẩn CODATA/SI, chưa tra trực tiếp trong phiên.
+
+## Bổ sung 21/11/2026
+- ✅ NASA Imagine the Universe (https://imagine.gsfc.nasa.gov/science/toolbox/spectra1.html): "A spectrum is simply a chart or a graph that shows the intensity of light being emitted over a range of energies." — định nghĩa thẻ 2.2.

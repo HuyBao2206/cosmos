@@ -151,7 +151,7 @@ export const CONCEPTS = {
       caption: 'Kéo thiên hà nền (đường viền đứt) quanh thấu kính. Ảnh được dựng bằng cách dò ngược từng tia sáng theo phương trình thấu kính điểm, đơn vị là bán kính Einstein θ_E. Khi thẳng hàng, ảnh thành vành; lệch ít thành cung; lệch nhiều thành hai ảnh ở hai phía.',
     },
     after: [
-      'Thấu kính hấp dẫn đã thành công cụ. Vì ánh sáng bị bẻ theo **toàn bộ** khối lượng, kể cả phần không phát sáng, nó là một trong những cách trực tiếp nhất để “cân” [[vat-chat-toi|vật chất tối]]; kính Euclid của ESA đo những méo dạng rất nhỏ (thấu kính yếu) của rất nhiều thiên hà trên khoảng một phần ba bầu trời cho mục đích này. Thấu kính còn phóng đại những thiên hà quá xa và quá mờ để thấy được, như trong ảnh trường sâu đầu tiên của kính James Webb (JWST; SMACS 0723, 7/2022). Khi thấu kính chỉ là một ngôi sao, ảnh không tách ra được, chỉ thấy độ sáng tăng rồi giảm (vi thấu kính, microlensing) — một cách tìm [[ngoai-hanh-tinh|ngoại hành tinh]].',
+      'Thấu kính hấp dẫn đã thành công cụ. Vì ánh sáng bị bẻ theo **toàn bộ** khối lượng, kể cả phần không phát sáng, nó là một trong những cách trực tiếp nhất để “cân” [[vat-chat-toi|vật chất tối]]; kính Euclid của ESA đo những méo dạng rất nhỏ (thấu kính yếu) của rất nhiều thiên hà trên khoảng một phần ba bầu trời cho mục đích này; bản dữ liệu đầu tiên của nó (DR1-Foundation, 11/2026) đã chứa khoảng 15 000 ứng viên thấu kính mạnh — trong khi trước đó, qua nhiều thập niên, người ta mới tìm được vài trăm. Thấu kính còn phóng đại những thiên hà quá xa và quá mờ để thấy được, như trong ảnh trường sâu đầu tiên của kính James Webb (JWST; SMACS 0723, 7/2022). Khi thấu kính chỉ là một ngôi sao, ảnh không tách ra được, chỉ thấy độ sáng tăng rồi giảm (vi thấu kính, microlensing) — một cách tìm [[ngoai-hanh-tinh|ngoại hành tinh]].',
     ],
     numbers: [
       { value: '1979', label: 'phát hiện thấu kính hấp dẫn đầu tiên ngoài Ngân Hà (chuẩn tinh đôi Q0957+561)', source: 'Walsh, Carswell & Weymann, Nature 279' },
@@ -168,6 +168,7 @@ export const CONCEPTS = {
       { text: 'Walsh, Carswell & Weymann (1979), Nature 279, 381', url: 'https://ned.ipac.caltech.edu/uri/NED::Refcode/1979Nat...279..381W' },
       { text: 'Kelly và cộng sự — SN Refsdal, arXiv:1504.05953', url: 'https://arxiv.org/abs/1504.05953' },
       { text: 'ESA/Webb — Webb’s first deep field (weic2209a)', url: 'https://esawebb.org/images/weic2209a/' },
+      { text: 'Euclid DR1 — Strong lens catalogue overview (ECLIPSE), arXiv:2611.15883', url: 'https://arxiv.org/abs/2611.15883' },
     ],
   },
 
@@ -176,10 +177,10 @@ export const CONCEPTS = {
     short: 'Gợn sóng của chính không-thời gian, lan đi với tốc độ ánh sáng khi những khối lượng lớn chuyển động mạnh; được ghi nhận trực tiếp lần đầu năm 2015.',
     certainty: { level: 'established', label: 'Đã xác lập · số sự kiện cập nhật 5/2026' },
     definition: {
-      vi: 'Sóng hấp dẫn là những gợn sóng của không-thời gian, sinh ra từ một số quá trình dữ dội và giàu năng lượng nhất trong vũ trụ, như hai hố đen quay quanh nhau rồi hợp nhất.',
-      source: 'Diễn giải theo LIGO Caltech — What are gravitational waves?',
+      vi: 'Sóng hấp dẫn là những “gợn sóng” của không-thời gian, sinh ra từ một số quá trình dữ dội và giàu năng lượng nhất trong vũ trụ.',
+      en: "Gravitational waves are 'ripples' in space-time caused by some of the most violent and energetic processes in the Universe.",
+      source: 'LIGO Caltech — What are gravitational waves?',
       url: 'https://www.ligo.caltech.edu/page/what-are-gw',
-      paraphrase: true,
     },
     body: [
       'Năm 1916, Einstein suy ra từ thuyết tương đối tổng quát rằng khối lượng chuyển động có gia tốc phải phát ra sóng: độ cong không-thời gian lan đi với tốc độ ánh sáng. Khi một sóng như vậy đi qua, khoảng cách theo một hướng dài ra trong khi hướng vuông góc ngắn lại, rồi ngược lại. Nhưng theo chính tính toán của ông, hiệu ứng nhỏ tới mức gần như không đáng kể.',

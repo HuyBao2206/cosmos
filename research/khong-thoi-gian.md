@@ -183,3 +183,7 @@ sóng hấp dẫn (gravitational wave) — phân biệt với sóng trọng lự
 11. Lời trao giải Nobel 1993 (nguyên văn) và năm phát hiện PSR B1913+16 (1974 quan sát / 1975 công bố).
 12. Kết quả khoa học của ACES (chưa thấy công bố).
 13. Nguồn có tên phê bình mô hình tấm cao su (hiện chỉ có diễn đàn).
+
+## Bổ sung 21/11/2026
+- ✅ Câu nguyên văn LIGO Caltech (https://www.ligo.caltech.edu/page/what-are-gw): "Gravitational waves are 'ripples' in space-time caused by some of the most violent and energetic processes in the Universe." — đã dùng làm định nghĩa thẻ 4.4.
+- Euclid DR1-Foundation (11/2026): ~15 000 ứng viên thấu kính mạnh (ECLIPSE, arXiv:2611.15883) — xem thien-ha-cau-truc-lon.md.

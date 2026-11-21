@@ -192,3 +192,10 @@ SINH HỌC VŨ TRỤ: nguồn gốc, tiến hóa, phân bố, tương lai của 
 9. Số tự tính (độ sâu transit 84 ppm / 1,01%; K = 12,5 m/s / 8,9 cm/s; T_eq ≈ 255 K; vùng sống được TRAPPIST-1 ~0,023–0,040 au) — nên đối chiếu với một nguồn NASA/giáo trình.
 
 **Nguồn tìm kiếm chính đã dùng:** exoplanetarchive.ipac.caltech.edu (trang chủ, tin tức 2026, GaiaMission), heasarc.gsfc.nasa.gov (TESS 1000), science.data.nasa.gov (10/2026), science.nasa.gov (habitable zone; Europa Clipper), esa.int/PLATO, cosmos.esa.int/web/gaia/news, hal.sorbonne-universite.fr/hal-03631543, arxiv.org (1301.6674, 2501.18477, 2505.13407, 2603.19803, 2506.19898), nature.com (s41586-023-05987-9; s41586-021-03804-9), sciencedaily.com/releases/2025/09/250916032210.htm, astrobiology.nasa.gov/nai/about/, cfa.harvard.edu/news/habitable-zones, astro4edu.org/resources/glossary/term-detail/106.
+
+## Bổ sung 21/11/2026
+- ✅ NASA (exoplanets.nasa.gov / science.nasa.gov/exoplanets): "An exoplanet is any planet beyond our solar system." — định nghĩa thẻ 9.1.
+- ✅ Wolszczan & Frail, Nature 355, 145–147 (1992), PSR B1257+12 — hành tinh xác nhận đầu tiên (Penn State, Nature).
+- ✅ 51 Peg b: công bố 6/10/1995 (ESO ann19049), chu kỳ ~4,2 ngày, ELODIE/Haute-Provence; Nobel 2019 (một nửa giải, Peebles nửa còn lại).
+- ✅ TRAPPIST-1: NASA 22/2/2017, 7 hành tinh cỡ Trái Đất, ~40 năm ánh sáng, e/f/g trong vùng sống được (NASA SVS 30871; Spitzer ssc2017-01h).
+- Số ngoại hành tinh: tìm kiếm 21/11/2026 không thấy số mới hơn 6 451 (15/10/2026).

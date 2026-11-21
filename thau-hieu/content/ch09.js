@@ -40,10 +40,10 @@ export const CONCEPTS = {
     short: 'Hành tinh quay quanh một ngôi sao khác ngoài Mặt Trời; hơn 6 400 đã được xác nhận (10/2026), phần lớn nhờ phương pháp quá cảnh.',
     certainty: { level: 'established', label: 'Đã xác lập · số lượng cập nhật 15/10/2026' },
     definition: {
-      vi: 'Ngoại hành tinh, hay hành tinh ngoài hệ, là một hành tinh nằm ngoài Hệ Mặt Trời. Những ngoại hành tinh đầu tiên được xác nhận vào thập niên 1990.',
-      source: `Diễn giải theo ${IAU_OAE}: Exoplanet`,
-      url: 'https://astro4edu.org/resources/glossary/term-detail/106',
-      paraphrase: true,
+      vi: 'Ngoại hành tinh là bất kỳ hành tinh nào nằm ngoài Hệ Mặt Trời của chúng ta.',
+      en: 'An exoplanet is any planet beyond our solar system.',
+      source: 'NASA Science — Exoplanets',
+      url: 'https://science.nasa.gov/exoplanets/',
     },
     body: [
       'Ngoại hành tinh (exoplanet) gần như không thể nhìn thấy trực tiếp: nó mờ hơn ngôi sao của nó hàng triệu tới hàng tỷ lần và ở rất sát ngôi sao trên bầu trời. Vì thế hầu hết được phát hiện **gián tiếp**, qua tác động lên ngôi sao. Những hành tinh đầu tiên được xác nhận (1992) lại quay quanh một sao chết — sao xung (pulsar) PSR B1257+12 — và lộ ra qua những sai lệch nhỏ trong nhịp xung của nó. Năm 1995, Michel Mayor và Didier Queloz tìm ra 51 Pegasi b, hành tinh đầu tiên quanh một ngôi sao giống Mặt Trời, và nhận giải Nobel Vật lý 2019.',

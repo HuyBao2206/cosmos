@@ -127,7 +127,7 @@ raw.githubusercontent.com và `git clone` từ GitHub dùng được. Vì vậy:
 5. Nếu khái niệm gắn với hành tinh: thêm vào `shared/content/lien-ket.js` để hồ sơ bên Khám phá hiện liên kết ngược.
 6. Thẩm định bằng subagent biên tập viên → `node --test tests/*.test.mjs` → chụp thử 1440 và 390 → commit, push.
 - Dữ kiện có hạn dùng trong Thấu hiểu (11/2026): số ngoại hành tinh (6 451, 15/10/2026), số ứng viên sóng hấp dẫn (390, GWTC-5.0),
-  bảng H₀, Roman (phóng 30/8/2026, chưa tới L2), Gaia DR4 (2/12/2026), PLATO (4/2027), Euclid DR1, Europa Clipper (4/2030),
+  bảng H₀, Roman (phóng 30/8/2026, chưa xác nhận tới L2 tính tới 21/11), Gaia DR4 (2/12/2026), PLATO (4/2027), Euclid DR1 đầy đủ (giữa 2027; DR1-Foundation đã ra 11/2026), Europa Clipper (4/2030),
   hố đen gần nhất (Gaia BH1), K2-18 b/DMS, LZ.
 
 ## Thẩm định nội dung

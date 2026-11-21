@@ -181,3 +181,15 @@ mạng lưới vũ trụ (cosmic web) · sợi (filament) · tường / tấm (w
 9. **Gaia "1,8 tỷ nguồn"** vs "~2 tỷ sao" trong `thang-bac-vu-tru.md` — thống nhất cách gọi.
 10. **Boötes void** 250 hay 330 triệu nas; câu Shapley "lá thư phá huỷ vũ trụ"; ngày chụp V1 (4 hay 5–6/10/1923); kích thước Ngân Hà theo Curtis (10 000 hay 30 000 nas).
 11. **LZ 1/9/2026**: sự kiện 2,6σ — theo dõi kết quả mới, ghi ngày khi viết.
+
+## Bổ sung 21/11/2026 — Euclid DR1-Foundation đã công bố
+- ESA và Euclid Consortium công bố **DR1-Foundation** khoảng 11–12/11/2026 (Đài thiên văn Paris ghi 12/11; thông cáo Đại học Portsmouth đề ngày 11/11 — lệch một ngày, viết "11/2026").
+  ~1 900–2 000 độ vuông, ~13 tháng quan sát, **>900 triệu thiên hà**, **~15 000 ứng viên thấu kính hấp dẫn mạnh** (ECLIPSE: 15 072 ứng viên độ tin cao,
+  arXiv:2611.15883), >60 triệu ứng viên quasar. Bản DR1 đầy đủ (có sản phẩm thấu kính yếu, phân bố thiên hà) dự kiến **giữa 2027**. ✅ (trích đoạn:
+  https://observatoiredeparis.psl.eu/euclid-dr1-foundation-first.html ; https://www.port.ac.uk/news-events-and-blogs/news/portsmouth-astronomers-help-build-the-universes-biggest-ever-gravitational-lens-catalogue ; https://www.cosmos.esa.int/web/euclid/dr1-timeline)
+- Trước Euclid: chỉ vài trăm thấu kính mạnh được biết (theo bài tường thuật, ⚠️ thứ cấp).
+- Roman: tính tới 21/11/2026 chưa thấy NASA thông báo đã vào quỹ đạo L2 (hành trình ~3 tháng từ 30/8/2026).
+- Số ngoại hành tinh: không tìm thấy số mới hơn 6 451 (15/10/2026).
+- Đã đối chiếu (✅): Wolszczan & Frail, Nature 355, 145 (1992) — hành tinh xác nhận đầu tiên, quanh pulsar PSR B1257+12; 51 Peg b công bố 6/10/1995,
+  chu kỳ ~4,2 ngày (ESO ann19049); TRAPPIST-1: 7 hành tinh cỡ Trái Đất, công bố 22/2/2017, ~40 năm ánh sáng, e, f, g trong vùng sống được (NASA SVS 30871, Spitzer).
+- ✅ Định nghĩa vật chất tối, NASA Space Place (https://spaceplace.nasa.gov/dark-matter/): "Because dark matter does not emit, absorb, or reflect light, we mostly know it is there because of its gravitational pull on visible matter in space." — đã dùng cho thẻ 7.3. science.nasa.gov diễn đạt tương đương ("doesn't absorb, reflect, or emit any light").

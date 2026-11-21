@@ -91,10 +91,10 @@ export const CONCEPTS = {
     short: 'Ánh sáng tách theo bước sóng; các vạch tối hay sáng ở những bước sóng xác định là “vân tay” của từng nguyên tố.',
     certainty: { level: 'established', label: 'Đã xác lập' },
     definition: {
-      vi: 'Vạch hấp thụ là một vạch tối trong quang phổ, cho thấy năng lượng bị hấp thụ ở một bước sóng nhất định. Đo các vạch này cho phép xác định những nguyên tố có mặt.',
-      source: 'Diễn giải theo bảng thuật ngữ của Đài thiên văn McDonald (Đại học Texas)',
-      url: 'https://mcdonaldobservatory.org/glossary/term/32',
-      paraphrase: true,
+      vi: 'Quang phổ đơn giản là một biểu đồ cho thấy cường độ của ánh sáng được phát ra trên một dải năng lượng.',
+      en: 'A spectrum is simply a chart or a graph that shows the intensity of light being emitted over a range of energies.',
+      source: 'NASA Imagine the Universe — Spectra',
+      url: 'https://imagine.gsfc.nasa.gov/science/toolbox/spectra1.html',
     },
     body: [
       'Năm 1814, Joseph von Fraunhofer cho ánh sáng mặt trời qua lăng kính và thấy dải cầu vồng bị cắt bởi hàng trăm vạch tối mảnh; ông đo vị trí của hơn 500 vạch. Bốn mươi lăm năm sau (1859), Gustav Kirchhoff và Robert Bunsen chỉ ra rằng vạch tối của Mặt Trời nằm **đúng** ở bước sóng mà natri nung nóng phát sáng trong phòng thí nghiệm. Kết luận: khí quyển Mặt Trời có natri. Lần đầu tiên, con người biết thành phần hoá học của một vật không bao giờ chạm tới được.',

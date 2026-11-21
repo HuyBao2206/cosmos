@@ -129,9 +129,10 @@ export const CONCEPTS = {
     short: 'Dạng vật chất không phát và không hấp thụ ánh sáng, chỉ được biết qua lực hấp dẫn; nặng hơn vật chất thường khoảng 5 lần.',
     certainty: { level: 'strong', label: 'Bằng chứng hấp dẫn đã xác lập · bản chất hạt chưa biết' },
     definition: {
-      vi: 'Vật chất tối là thành phần vật chất không phát ra, không hấp thụ và không phản xạ ánh sáng một cách đáng kể; sự có mặt của nó chỉ được suy ra từ tác dụng hấp dẫn lên vật chất nhìn thấy và lên ánh sáng.',
-      source: 'Định nghĩa làm việc theo các giáo trình vũ trụ học (chưa có câu nguyên văn của IAU/NASA được đối chiếu)',
-      paraphrase: true,
+      vi: 'Vì vật chất tối không phát ra, không hấp thụ và không phản xạ ánh sáng, chúng ta biết nó tồn tại chủ yếu nhờ lực hấp dẫn của nó lên vật chất nhìn thấy trong không gian.',
+      en: 'Because dark matter does not emit, absorb, or reflect light, we mostly know it is there because of its gravitational pull on visible matter in space.',
+      source: 'NASA Space Place — What is dark matter?',
+      url: 'https://spaceplace.nasa.gov/dark-matter/',
     },
     body: [
       'Năm 1933, Fritz Zwicky đo vận tốc các thiên hà trong đám Coma và thấy chúng chạy quá nhanh: nếu chỉ có khối lượng nhìn thấy, đám thiên hà đáng lẽ đã tan rã. Ông gọi phần khối lượng thiếu là _dunkle Materie_ — vật chất tối. Ý tưởng ít được chú ý cho tới thập niên 1970, khi Vera Rubin và Kent Ford đo vận tốc quay của thiên hà Andromeda: các sao và khí ở xa tâm vẫn quay nhanh như ở gần, trong khi theo định luật [[van-vat-hap-dan|hấp dẫn]] với khối lượng nhìn thấy, chúng phải chậm dần như các hành tinh ở xa Mặt Trời.',
@@ -205,8 +206,9 @@ export const CONCEPTS = {
     short: 'Ở quy mô lớn nhất, thiên hà xếp thành mạng lưới gồm sợi, tường và nút bao quanh những khoảng trống mênh mông.',
     certainty: { level: 'established', label: 'Đã xác lập · chi tiết hình thành mô tả bằng mô phỏng' },
     definition: {
-      vi: 'Mạng lưới vũ trụ là cách vật chất phân bố ở quy mô lớn nhất: các sợi và tường của thiên hà nối với nhau tại những nút dày đặc là các đám thiên hà, bao quanh những khoảng trống có rất ít thiên hà.',
-      source: 'Định nghĩa làm việc theo các khảo sát dịch chuyển đỏ (chưa có câu nguyên văn của IAU/NASA được đối chiếu)',
+      vi: 'Thiên hà, các nhóm và đám thiên hà, siêu đám và những “bức tường” thiên hà được sắp xếp thành những cấu trúc dạng sợi xoắn bện gọi là mạng lưới vũ trụ — một thứ giàn giáo nâng đỡ mọi thứ trong vũ trụ.',
+      source: 'Diễn giải theo NASA Science — Large-scale structures',
+      url: 'https://science.nasa.gov/universe/galaxies/large-scale-structures',
       paraphrase: true,
     },
     body: [
