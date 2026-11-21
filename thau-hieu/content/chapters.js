@@ -73,7 +73,7 @@ export const CHAPTERS = [
   },
   {
     id: 'thien-ha', num: 7, title: 'Thiên hà và cấu trúc lớn', en: 'Galaxies & large-scale structure', color: '#a6e8b8',
-    question: 'Chúng ta đang ở đâu trong vũ trụ?', status: 'draft',
+    question: 'Chúng ta đang ở đâu trong vũ trụ?', status: 'ready',
     concepts: [
       { id: 'phan-loai-thien-ha', title: 'Các loại thiên hà', en: 'Galaxy types', aka: ['hubble tuning fork', 'xoan oc', 'elip'], links: ['ngan-ha'] },
       { id: 'ngan-ha', title: 'Ngân Hà và vị trí của Hệ Mặt Trời', en: 'The Milky Way', aka: ['milky way', 'dai ngan ha'], links: ['vat-chat-toi', 'nhom-sieu-dam'] },
