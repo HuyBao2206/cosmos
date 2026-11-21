@@ -64,7 +64,7 @@ export const CHAPTERS = [
   },
   {
     id: 'ho-den', num: 6, title: 'Hố đen', en: 'Black holes', color: '#ff8fa8',
-    question: 'Điều gì xảy ra khi vật chất bị nén đến mức ánh sáng không thoát ra được?', status: 'draft',
+    question: 'Điều gì xảy ra khi vật chất bị nén đến mức ánh sáng không thoát ra được?', status: 'ready',
     concepts: [
       { id: 'chan-troi-su-kien', title: 'Chân trời sự kiện và bán kính Schwarzschild', en: 'Event horizon & Schwarzschild radius', aka: ['schwarzschild', 'event horizon'], links: ['dia-boi-tu'] },
       { id: 'dia-boi-tu', title: 'Đĩa bồi tụ', en: 'Accretion disk', aka: ['quasar', 'boi tu'], links: ['anh-ho-den'] },

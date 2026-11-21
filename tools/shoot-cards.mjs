@@ -12,7 +12,9 @@ export default async function (page, name) {
       f.scrollIntoView({ block: 'center' });
       return f.querySelector('.kc-viz-loading') ? 'minh hoạ chưa tải/lỗi' : 'ok';
     });
-    await page.waitForTimeout(900);
+    await page.waitForTimeout(+(process.env.VIZWAIT || 900));
+    await page.evaluate(() => document.querySelector('dialog.kc .kc-viz')?.scrollIntoView({ block: 'center' }));
+    await page.waitForTimeout(400);
     await page.screenshot({ path: `/tmp/shots/${name}_${id}.png` });
     const vizCount = await page.evaluate(() => document.querySelectorAll('dialog.kc .kc-viz').length);
     for (let i = 1; i < vizCount; i++) {

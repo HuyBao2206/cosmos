@@ -8,8 +8,8 @@
 import { frame, slider, buttons, readout, loop, FONT, fmt } from './_kit.js';
 import { isLowPower } from '../../../shared/js/util.js';
 
-const R_IN = 6, R_OUT = 20;          // ISCO và mép ngoài đĩa (đơn vị GM/c²)
-const FOV = 26;                      // nửa bề rộng trường nhìn (GM/c²)
+const R_IN = 6, R_OUT = 17;          // ISCO và mép ngoài đĩa (đơn vị GM/c²)
+const FOV = 17;                      // nửa bề rộng trường nhìn (GM/c²)
 
 /** Dò một tia: trả về danh sách các bán kính r tại những lần cắt mặt phẳng đĩa, và có bị nuốt không */
 export function traceRay(b, phiCross0, maxCross = 3) {
@@ -96,7 +96,7 @@ export function mount(host, opts = {}) {
         for (const r of hits) {
           const s = shade(r, alpha, si, beam);
           if (!s) continue;
-          const v = Math.min(1.6, s.I * 900) * transmit;
+          const raw = s.I * 9000, v = (raw / (1 + raw)) * 1.5 * transmit;   // nén dải sáng
           // màu: nóng → trắng xanh, nguội → cam đỏ
           const t = Math.min(1.4, s.T * 1.15);
           R += v * 255 * Math.min(1, 0.55 + 0.6 * t);
@@ -108,7 +108,7 @@ export function mount(host, opts = {}) {
         else if (!hits.some((r) => r >= R_IN && r <= R_OUT)) {
           // nền sao mờ (giả lập) để thấy chỗ tối
           const n = Math.sin(alpha * 12.9898 + beta * 78.233) * 43758.5453;
-          const st = (n - Math.floor(n)) > 0.996 ? 120 : 6;
+          const st = (n - Math.floor(n)) > 0.9985 ? 70 : 5;
           R += st; G += st; B += st + 4;
         }
         const p = (y * W + x) * 4;
