@@ -5,12 +5,12 @@ export const DOSSIER = {
   kicker: 'Nơi thuyết tương đối tổng quát và cơ học lượng tử buộc phải gặp nhau — và chưa đồng ý với nhau.',
   certainty: { level: 'speculative', label: 'Bên ngoài chân trời: đã xác lập · bên trong: suy luận lý thuyết, chưa thể quan sát' },
   intro: [
-    'Bên ngoài [[chan-troi-su-kien|chân trời sự kiện]], hố đen đã được chụp ảnh, “nghe” qua sóng hấp dẫn và cân bằng quỹ đạo các ngôi sao. Bên trong thì khác: theo đúng định nghĩa, không tín hiệu nào từ đó thoát ra được. Mọi điều nói về bên trong là suy luận từ lý thuyết.',
+    'Bên ngoài [[chan-troi-su-kien|chân trời sự kiện]], hố đen đã được chụp ảnh, “nghe” qua sóng hấp dẫn và được cân qua quỹ đạo các ngôi sao quanh nó. Bên trong thì khác: theo đúng định nghĩa, không tín hiệu nào từ đó thoát ra được. Mọi điều nói về bên trong là suy luận từ lý thuyết.',
     'Chính ở đây hai lý thuyết thành công nhất của vật lý mâu thuẫn. [[tuong-doi-tong-quat|Thuyết tương đối tổng quát]] dự đoán một điểm kỳ dị; cơ học lượng tử dự đoán hố đen bốc hơi và đặt ra câu hỏi thông tin rơi vào đi đâu.',
   ],
   known: [
     'Hố đen tồn tại, và mô tả bên ngoài chân trời của thuyết tương đối tổng quát khớp với mọi quan sát (EHT, quỹ đạo sao S2, sóng hấp dẫn).',
-    'Định lý của Penrose (1965, Nobel 2020): khi đã hình thành một “bề mặt bẫy”, thuyết tương đối tổng quát nhất định dẫn tới điểm kỳ dị, bất kể hình dạng ban đầu.',
+    'Định lý của Penrose (1965, Nobel 2020): khi đã hình thành một “bề mặt bẫy” (trapped surface), thuyết tương đối tổng quát nhất định dẫn tới điểm kỳ dị, bất kể hình dạng ban đầu.',
     'Định lý diện tích của Hawking — diện tích chân trời không giảm — được kiểm chứng với sự kiện sóng hấp dẫn GW250114 ở độ tin cậy 99,999 % (2025).',
   ],
   hypotheses: [
@@ -23,12 +23,12 @@ export const DOSSIER = {
     {
       name: 'Bức xạ Hawking', en: 'Hawking radiation', level: 'strong',
       idea: 'Hiệu ứng lượng tử gần chân trời khiến hố đen phát ra bức xạ nhiệt, nhiệt độ tỉ lệ nghịch với khối lượng (Hawking 1974–1975), nên nó mất dần khối lượng và cuối cùng bốc hơi.',
-      for: ['Được suy ra bằng nhiều cách độc lập về lý thuyết.', 'Trong hệ tương tự bằng chất ngưng tụ Bose–Einstein, nhóm Steinhauer (2019) đo được phổ nhiệt đúng dự đoán.'],
+      for: ['Được suy ra bằng nhiều cách độc lập về lý thuyết.', 'Trong hệ tương tự bằng chất ngưng tụ Bose–Einstein (Bose–Einstein condensate), nhóm Steinhauer (2019) đo được phổ nhiệt đúng dự đoán.'],
       against: ['Chưa quan sát được từ hố đen thật: một hố đen cỡ Mặt Trời chỉ ấm khoảng 6 × 10⁻⁸ K, lạnh hơn phông vi sóng hàng chục triệu lần.', 'Hệ tương tự không chứng minh được hố đen thật cũng bức xạ, vì vật lý nền khác nhau.'],
     },
     {
       name: 'Thông tin được bảo toàn', en: 'information paradox', level: 'debated',
-      idea: 'Năm 1976, Hawking chỉ ra rằng nếu bức xạ hoàn toàn ngẫu nhiên, thông tin về những gì rơi vào sẽ mất vĩnh viễn — trái với cơ học lượng tử. Năm 2004, chính ông đổi ý. Các tính toán 2019–2020 (“đảo lượng tử”, “lỗ sâu bản sao”) lần đầu tái tạo được “đường cong Page” — dấu hiệu thông tin thoát ra dần.',
+      idea: 'Năm 1976, Hawking chỉ ra rằng nếu bức xạ hoàn toàn ngẫu nhiên, thông tin về những gì rơi vào sẽ mất vĩnh viễn — trái với cơ học lượng tử. Năm 2004, chính ông đổi ý. Các tính toán 2019–2020 (“đảo lượng tử” — islands, “lỗ sâu bản sao” — replica wormholes) lần đầu tái tạo được “đường cong Page” (Page curve, Page 1993) — đường cong mà entropy của bức xạ phải theo nếu thông tin thoát ra dần.',
       for: ['Các tính toán 2019–2020 cho kết quả nhất quán với việc bảo toàn thông tin trong một số mô hình.'],
       against: ['Cơ chế cụ thể thông tin thoát ra vẫn chưa rõ; nhiều tính toán dựa trên mô hình đơn giản hoá.'],
     },

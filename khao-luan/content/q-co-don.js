@@ -2,15 +2,15 @@
 export const UPDATED = '11/2026';
 
 export const DOSSIER = {
-  kicker: 'Hàng nghìn ngoại hành tinh, hàng trăm tỷ ngôi sao — và chưa một tín hiệu nào.',
+  kicker: 'Hàng nghìn ngoại hành tinh, hàng trăm tỷ ngôi sao — và chưa một tín hiệu nào đứng vững.',
   certainty: { level: 'speculative', label: 'Chưa có bằng chứng sự sống ngoài Trái Đất (11/2026) · mọi lời giải nghịch lý Fermi: suy đoán' },
   intro: [
-    'Mùa hè năm 1950, trong một bữa trưa ở Los Alamos, Enrico Fermi hỏi đồng nghiệp một câu đại ý: “Mọi người đâu cả rồi?” Nếu sự sống trí tuệ phổ biến, một nền văn minh biết du hành giữa các vì sao có thể lan khắp Ngân Hà trong thời gian ngắn hơn nhiều so với tuổi của nó. Vậy sao ta không thấy ai? Lập luận chặt chẽ do Michael Hart công bố năm 1975; cái tên “nghịch lý Fermi” ra đời sau.',
+    'Mùa hè năm 1950, trong một bữa trưa ở Los Alamos, Enrico Fermi hỏi đồng nghiệp một câu đại ý: “Mọi người đâu cả rồi?” Nếu sự sống trí tuệ phổ biến, một nền văn minh biết du hành giữa các vì sao có thể lan khắp Ngân Hà trong thời gian ngắn hơn nhiều so với tuổi Trái Đất. Vậy sao ta không thấy ai? Lập luận chặt chẽ do Michael Hart công bố năm 1975; cái tên “nghịch lý Fermi” ra đời sau.',
     'Ngày nay, ta biết [[ngoai-hanh-tinh|ngoại hành tinh]] là phổ biến và nhiều hành tinh nằm trong [[vung-song-duoc|vùng có thể sống được]]. Nhưng giữa “có thể sống được” và “có sự sống” là một khoảng trống mà [[sinh-hoc-vu-tru|sinh học vũ trụ]] chưa vượt qua được.',
   ],
   known: [
     'Tính tới 11/2026, chưa có bằng chứng nào về sự sống ngoài Trái Đất — dù đơn giản hay có trí tuệ — được giới khoa học chấp nhận.',
-    'Hơn 6 400 ngoại hành tinh đã được xác nhận; sự sống trên Trái Đất xuất hiện sớm, ít nhất khoảng 3,5 tỷ năm trước.',
+    'Hơn 6 400 ngoại hành tinh đã được xác nhận (10/2026); sự sống trên Trái Đất xuất hiện sớm, ít nhất khoảng 3,5 tỷ năm trước.',
     'Mọi cuộc tìm kiếm tín hiệu có chủ đích từ năm 1960 tới nay chưa tìm thấy tín hiệu nào đứng vững sau kiểm tra.',
   ],
   hypotheses: [
@@ -49,17 +49,17 @@ export const DOSSIER = {
     caption: 'Phương trình Drake (1961) như một khung suy luận: chỉ hai thừa số đầu đã được đo khá tốt; các thừa số còn lại hoàn toàn chưa biết. Kéo chúng để thấy câu trả lời trải từ “chỉ có ta” tới “hàng triệu nền văn minh”.',
   },
   after: [
-    'Lịch sử tìm kiếm có nhiều “ứng viên” rồi lại tắt: tín hiệu “Wow!” năm 1977 không bao giờ lặp lại (một giải thích năm 2024 bằng đám mây hydro bừng sáng vẫn chỉ là giả thuyết); tín hiệu BLC1 năm 2019 từ hướng Proxima Centauri hoá ra là nhiễu từ máy phát trên Trái Đất; thiên thạch ALH84001 (1996) và khí phosphine trên Sao Kim (2020) đều không đứng vững như bằng chứng sự sống.',
+    'Lịch sử tìm kiếm có nhiều “ứng viên” rồi lại tắt: tín hiệu “Wow!” năm 1977 không bao giờ lặp lại (một giải thích năm 2024 bằng đám mây hydro bừng sáng vẫn chỉ là giả thuyết); tín hiệu BLC1 năm 2019 từ hướng Proxima Centauri hoá ra là nhiễu từ máy phát trên Trái Đất; dấu vết trong thiên thạch ALH84001 (1996) không được đa số giới khoa học chấp nhận là bằng chứng sự sống; khí phosphine trên Sao Kim (2020) vẫn đang tranh luận, sau khi tín hiệu được hiệu chỉnh giảm mạnh và bị nhiều nhóm phản bác.',
   ],
   next: [
     { when: 'đang chạy', name: 'Breakthrough Listen', what: 'Tìm tín hiệu vô tuyến và laser từ hàng triệu ngôi sao (từ 2015).' },
     { when: '4/2030', name: 'Europa Clipper', what: 'Đánh giá khả năng có sự sống của đại dương dưới băng trên Europa.' },
     { when: '2034', name: 'Dragonfly', what: 'Máy bay không người lái trên Titan (phóng dự kiến 7/2028).' },
     { when: '3/2029', name: 'ELT (ESO, gương 39 m)', what: 'Ánh sáng đầu tiên; quan sát khoa học từ 12/2030, có thể đọc khí quyển hành tinh đá gần.' },
-    { when: 'khoảng 2040s', name: 'Habitable Worlds Observatory (NASA)', what: 'Kính chụp trực tiếp hành tinh giống Trái Đất; chưa có ngày phóng chính thức.' },
+    { when: 'khoảng thập niên 2040', name: 'Habitable Worlds Observatory (NASA)', what: 'Kính chụp trực tiếp hành tinh giống Trái Đất; chưa có ngày phóng chính thức.' },
   ],
   myths: [
-    { myth: 'Tín hiệu “Wow!” đã được giải mã: đó là khí hydro.', truth: 'Đó là một giả thuyết trên một bài chưa bình duyệt năm 2024; chính các tác giả còn dè dặt.' },
+    { myth: 'Tín hiệu “Wow!” đã được giải mã: đó là khí hydro.', truth: 'Đó là một giả thuyết đề xuất năm 2024 trên một tiền ấn phẩm (arXiv); chính các tác giả còn dè dặt, và hiện tượng maser hydro như vậy chưa từng được quan sát trong không gian.' },
     { myth: 'Không thấy ai nghĩa là đã chứng minh không có ai.', truth: 'Không gian tìm kiếm — tần số, hướng, thời gian, kiểu tín hiệu — mới được quét một phần rất nhỏ.' },
   ],
   sources: [

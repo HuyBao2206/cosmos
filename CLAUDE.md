@@ -11,7 +11,7 @@ Trang khoa học về vũ trụ (tiếng Việt), chạy trên GitHub Pages tạ
 /home/            trang chủ: home.js, powers.js (Powers of Ten, canvas 2D), portals.js, home.css, assets/
 /kham-pha/        Khám phá vũ trụ (accent vàng ánh sao) — xem mục "Web Khám phá" bên dưới
 /thau-hieu/       Thấu hiểu vũ trụ (accent xanh băng) — xem mục "Web Thấu hiểu" bên dưới
-/khao-luan/       Khảo luận vũ trụ (accent tím tinh vân) — hiện là trang "Sắp mở cửa"
+/khao-luan/       Khảo luận vũ trụ (accent tím tinh vân) — xem mục "Web Khảo luận" bên dưới
 /nguon-hinh-anh/  trang credit hình ảnh (toàn site)
 /nguon-tham-khao/ trang nguồn tham khảo (toàn site)
 /shared/          css/tokens.css, css/base.css, js/site.js, js/config.js, js/starfield.js,
@@ -129,6 +129,24 @@ raw.githubusercontent.com và `git clone` từ GitHub dùng được. Vì vậy:
 - Dữ kiện có hạn dùng trong Thấu hiểu (11/2026): số ngoại hành tinh (6 451, 15/10/2026), số ứng viên sóng hấp dẫn (390, GWTC-5.0),
   bảng H₀, Roman (phóng 30/8/2026, chưa xác nhận tới L2 tính tới 21/11), Gaia DR4 (2/12/2026), PLATO (4/2027), Euclid DR1 đầy đủ (giữa 2027; DR1-Foundation đã ra 11/2026), Europa Clipper (4/2030),
   hố đen gần nhất (Gaia BH1), K2-18 b/DMS, LZ.
+
+## Web Khảo luận (`/khao-luan/`) — 8 hồ sơ câu hỏi mở
+- `content/questions.js`: `LEVELS` (5 mức: refuted · speculative · debated · strong · established, màu và định nghĩa) và
+  `QUESTIONS` (id → URL `#q/<id>` và file `content/q-<id>.js`; `labels` = nhãn mà thẻ Thấu hiểu dùng trong `khaoLuan`;
+  `thauHieu` = thẻ nền tảng). `content/q-<id>.js`: `UPDATED`, `DOSSIER` = { kicker, certainty, intro[], known[],
+  hypotheses[{name, en, level, idea, for[], against[]}], viz{module (đường dẫn tương đối từ khao-luan/js/), caption}, after[],
+  next[{when, name, what}], myths[], sources[] }. Chữ dùng cú pháp của Thấu hiểu; `[[id]]` trỏ sang thẻ bên /thau-hieu/.
+- `content/river.js`: dữ liệu "Dòng chảy của chắc chắn" — mỗi ý tưởng `keys: [[năm, mức, sự kiện], …]`, `q` = hồ sơ liên quan.
+  Mức tại mỗi mốc là tóm lược biên tập, phải có căn cứ trong `research/kl-*.md` (và các file research khác).
+- `js/main.js` (điều phối, định tuyến), `js/river.js` (canvas; tạm dừng khi có hồ sơ mở — `html.kc-open`), `js/dossier.js`
+  (dialog, dùng CSS `.kc-*` của Thấu hiểu — trang nạp `../thau-hieu/css/thau-hieu.css`), `js/viz/*.js` (h0-plot, future-fate,
+  curvature, hawking); một số hồ sơ dùng lại minh hoạ của Thấu hiểu. `window.__khaoLuan.go('#q/<id>')` để kiểm thử.
+- Thẻ Thấu hiểu: nhãn trong `khaoLuan[]` tự thành liên kết sang hồ sơ khi hồ sơ `ready` và Khảo luận `open` (thau-hieu/js/card.js).
+- Thêm hồ sơ: nghiên cứu → `research/kl-<chu-de>.md`; thêm vào `QUESTIONS`; viết `content/q-<id>.js`; thêm mốc vào `river.js`;
+  thẩm định bằng subagent; test; chụp 1440/390. Lưu ý kiểm thử: chụp màn hình khi hồ sơ mở có thể mất 10–30 giây trong
+  Chromium phần mềm (swiftshader) — đặt timeout chụp dài.
+- Dữ kiện có hạn dùng (11/2026): LZ (sự kiện 2,6σ 9/2026), DESI DR3 (chưa ra), Euclid DR1 đầy đủ (6/2027), LiteBIRD (dự kiến 2036),
+  CMB-S4 (đã dừng 7/2025), Rubin LSST (bắt đầu 29/6/2026), ELT (ánh sáng đầu 3/2029), Mars Sample Return (mất ngân sách 1/2026).
 
 ## Thẩm định nội dung
 Mỗi phần lớn đã được một subagent "biên tập viên khoa học" đối chiếu với `research/` và sửa trước khi push.

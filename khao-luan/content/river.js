@@ -22,9 +22,9 @@ export const IDEAS = [
     keys: [
       [1927, 'speculative', 'Lemaître suy ra vũ trụ giãn nở từ thuyết tương đối tổng quát.'],
       [1931, 'speculative', 'Lemaître đề xuất vũ trụ bắt đầu từ một “nguyên tử nguyên thuỷ”.'],
-      [1948, 'debated', 'Alpher, Gamow (và Herman) tính tổng hợp hạt nhân nguyên thuỷ, dự đoán bức xạ nền vài kelvin.'],
-      [1965, 'strong', 'Penzias và Wilson công bố bức xạ phông vi sóng.'],
-      [1992, 'established', 'COBE đo phổ vật đen gần hoàn hảo và các gợn nhiệt độ cỡ 10⁻⁵.'],
+      [1948, 'debated', 'Alpher và Gamow tính tổng hợp hạt nhân nguyên thuỷ; Alpher và Herman dự đoán bức xạ nền còn lại khoảng 5 K.'],
+      [1965, 'established', 'Penzias và Wilson công bố bức xạ phông vi sóng; đa số giới khoa học chấp nhận mô hình Vụ Nổ Lớn.'],
+      [1992, 'established', 'COBE: phổ vật đen gần hoàn hảo (1990) và các gợn nhiệt độ cỡ 10⁻⁵ (1992).'],
     ],
   },
   {
@@ -74,7 +74,7 @@ export const IDEAS = [
     keys: [
       [1998, 'debated', 'Hai nhóm đo siêu tân tinh Ia: vũ trụ giãn nở ngày càng nhanh.'],
       [2003, 'strong', 'WMAP kết hợp siêu tân tinh: vũ trụ phẳng, khoảng 70 % là năng lượng tối.'],
-      [2011, 'established', 'Giải Nobel Vật lý; dao động âm baryon xác nhận độc lập.'],
+      [2011, 'established', 'Giải Nobel Vật lý; dao động âm baryon (phát hiện 2005) và phông vi sóng đã xác nhận độc lập.'],
     ],
   },
   {
@@ -90,7 +90,7 @@ export const IDEAS = [
     keys: [
       [1981, 'speculative', 'Guth đề xuất một giai đoạn giãn nở cực nhanh ở thời điểm rất sớm.'],
       [1992, 'debated', 'COBE thấy các gợn nhiệt độ phù hợp dự đoán.'],
-      [2013, 'strong', 'Planck: phổ gợn gần bất biến thang (n_s ≈ 0,965), vũ trụ rất phẳng.'],
+      [2013, 'strong', 'Planck: phổ gợn gần bất biến thang nhưng không hoàn toàn (n_s ≈ 0,960), vũ trụ rất phẳng.'],
       [2014, 'strong', 'BICEP2 công bố dấu vết sóng hấp dẫn nguyên thuỷ — về sau được xác định là do bụi.'],
     ],
   },
@@ -106,7 +106,7 @@ export const IDEAS = [
       [1916, 'speculative', 'Schwarzschild tìm ra lời giải có “bán kính đặc biệt”.'],
       [1939, 'speculative', 'Oppenheimer và Snyder: sao đủ nặng co sụp không giới hạn.'],
       [1972, 'debated', 'Cygnus X-1: một vật đặc quá nặng để là sao neutron.'],
-      [1990, 'strong', 'Nhiều hệ tia X và nhân thiên hà hoạt động củng cố bằng chứng.'],
+      [1973, 'strong', 'Cuối năm 1973, cộng đồng thiên văn nói chung chấp nhận Cygnus X-1 là hố đen.'],
       [2016, 'established', 'LIGO ghi sóng hấp dẫn từ hai hố đen hợp nhất; EHT chụp bóng M87* năm 2019.'],
     ],
   },
@@ -136,8 +136,9 @@ export const IDEAS = [
   {
     id: 'kenh-dao-sao-hoa', name: 'Kênh đào trên Sao Hoả', short: 'Kênh đào Sao Hoả', color: '#d9805a', q: 'co-don',
     keys: [
-      [1900, 'debated', 'Percival Lowell cho rằng các đường thẳng trên Sao Hoả là kênh đào nhân tạo.'],
-      [1965, 'refuted', 'Ảnh của Mariner 4: bề mặt đầy hố va chạm, không có kênh đào.'],
+      [1900, 'speculative', 'Percival Lowell cho rằng các đường thẳng trên Sao Hoả là kênh đào nhân tạo; nhiều nhà thiên văn khác không thấy chúng.'],
+      [1965, 'speculative', 'Ảnh của Mariner 4: bề mặt đầy hố va chạm, không có kênh đào.'],
+      [1971, 'refuted', 'Mariner 9 lập bản đồ toàn bề mặt: không có mạng kênh; “kênh đào” là ảo giác quang học.'],
     ],
   },
   {

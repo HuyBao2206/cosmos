@@ -21,7 +21,7 @@ export const QUESTIONS = [
   { id: 'so-phan-vu-tru', num: 5, title: 'Vũ trụ sẽ kết thúc thế nào?', short: 'Nguội dần mãi mãi, bị xé toạc, hay co lại — câu trả lời nằm ở năng lượng tối.', color: '#ff8fa8', labels: ['Số phận cuối cùng của vũ trụ'], thauHieu: ['nang-luong-toi', 'sao-lun-trang', 'chan-troi-su-kien'], status: 'ready' },
   { id: 'vu-tru-vo-han', num: 6, title: 'Vũ trụ có vô hạn không?', short: 'Ta chỉ thấy được một vùng bán kính khoảng 46 tỷ năm ánh sáng. Bên ngoài là gì?', color: '#a6e8b8', labels: [], thauHieu: ['dinh-luat-hubble', 'phong-vi-song'], status: 'ready' },
   { id: 'ben-trong-ho-den', num: 7, title: 'Bên trong hố đen có gì?', short: 'Điểm kỳ dị, bức xạ Hawking và nghịch lý thông tin — nơi hai lý thuyết lớn nhất của vật lý va nhau.', color: '#c4a8ff', labels: [], thauHieu: ['chan-troi-su-kien', 'tuong-doi-tong-quat'], status: 'ready' },
-  { id: 'co-don', num: 8, title: 'Chúng ta có cô đơn trong vũ trụ?', short: 'Hàng nghìn ngoại hành tinh, hàng trăm tỷ ngôi sao — và chưa một tín hiệu nào. Nghịch lý Fermi.', color: '#7fe0d4', labels: ['Chúng ta có cô đơn trong vũ trụ?'], thauHieu: ['sinh-hoc-vu-tru', 'vung-song-duoc', 'ngoai-hanh-tinh'], status: 'ready' },
+  { id: 'co-don', num: 8, title: 'Chúng ta có cô đơn trong vũ trụ?', short: 'Hàng nghìn ngoại hành tinh, hàng trăm tỷ ngôi sao — và chưa một tín hiệu nào đứng vững. Nghịch lý Fermi.', color: '#7fe0d4', labels: ['Chúng ta có cô đơn trong vũ trụ?'], thauHieu: ['sinh-hoc-vu-tru', 'vung-song-duoc', 'ngoai-hanh-tinh'], status: 'ready' },
 ];
 export const questionById = (id) => QUESTIONS.find((q) => q.id === id);
 /** Tra hồ sơ theo nhãn mà bên Thấu hiểu dùng */

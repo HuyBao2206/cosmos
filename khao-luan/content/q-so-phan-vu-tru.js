@@ -10,14 +10,14 @@ export const DOSSIER = {
   known: [
     'Giãn nở hiện đang tăng tốc (đã xác lập, Nobel 2011).',
     'Với mô hình chuẩn ΛCDM ($w = -1$ không đổi), vũ trụ giãn nở mãi mãi.',
-    'Dữ liệu DESI gợi ý năng lượng tối có thể đang yếu dần, nhưng mức ý nghĩa đã giảm từ 4,2σ xuống 3,2σ khi hiệu chuẩn lại siêu tân tinh (DES-Dovekie, 2026) — câu hỏi đang được tranh luận.',
+    'Dữ liệu DESI gợi ý năng lượng tối có thể đang yếu dần, nhưng khi kết hợp với mẫu siêu tân tinh DES, mức lệch khỏi ΛCDM đã giảm từ 4,2σ xuống 3,2σ sau khi mẫu này được hiệu chuẩn lại (DES-Dovekie, 2026) — câu hỏi đang được tranh luận.',
   ],
   hypotheses: [
     {
       name: 'Nguội dần mãi mãi', en: 'heat death / Big Freeze', level: 'strong',
       idea: 'Thiên hà xa dần khuất khỏi tầm nhìn; sao thôi hình thành và tắt dần sau khoảng 100 nghìn tỷ năm; cuối cùng chỉ còn sao chết, hố đen, rồi hố đen cũng bốc hơi qua [[chan-troi-su-kien|bức xạ Hawking]]: khoảng 10⁶⁷ năm cho một hố đen cỡ Mặt Trời, khoảng 10¹⁰⁰ năm cho hố đen lớn nhất.',
       for: ['Là hệ quả trực tiếp của mô hình chuẩn, vốn khớp hầu hết dữ liệu.'],
-      against: ['Các mốc rất xa (phân rã proton, bốc hơi hố đen) dựa trên vật lý chưa quan sát được.', 'Bức tranh “năm kỷ nguyên” của Adams và Laughlin (1997) được viết trước khi phát hiện năng lượng tối.'],
+      against: ['Các mốc rất xa (phân rã proton, bốc hơi hố đen) dựa trên vật lý chưa quan sát được.', 'Bức tranh các kỷ nguyên tương lai của Adams và Laughlin (1997) được viết trước khi phát hiện năng lượng tối.'],
     },
     {
       name: 'Xé toạc lớn', en: 'Big Rip', level: 'speculative',
@@ -34,7 +34,7 @@ export const DOSSIER = {
       name: 'Phân rã chân không', en: 'vacuum decay', level: 'speculative',
       idea: 'Với khối lượng boson Higgs (khoảng 125 GeV) và quark top đo được, chân không của Mô hình Chuẩn có vẻ “siêu bền” (metastable): bền trong thời gian cực dài nhưng không tuyệt đối.',
       for: ['Tính toán dựa trên các khối lượng hạt đã đo (Degrassi và cộng sự 2012; Buttazzo và cộng sự 2013).'],
-      against: ['Kết luận giả định không có vật lý mới tới thang năng lượng Planck.', 'Thời gian sống ước tính lớn tới mức vô nghĩa với mọi thang thời gian khác (các bản tính lệch nhau: 10¹³⁹ hay 10¹⁶¹ năm).'],
+      against: ['Kết luận giả định không có vật lý mới tới thang năng lượng Planck.', 'Thời gian sống ước tính lớn hơn tuổi vũ trụ (khoảng 10¹⁰ năm) rất nhiều bậc độ lớn; các bản tính còn lệch nhau (10¹³⁹ hay 10¹⁶¹ năm).'],
     },
   ],
   viz: {
@@ -43,7 +43,7 @@ export const DOSSIER = {
   },
   next: [
     { when: 'đang chạy', name: 'DESI', what: 'Đo lịch sử giãn nở qua hàng chục triệu thiên hà; bản dữ liệu DR3 chưa công bố (11/2026).' },
-    { when: '6/2027', name: 'Euclid DR1 đầy đủ', what: 'Kết quả vũ trụ học đầu tiên của Euclid.' },
+    { when: 'giữa 2027', name: 'Euclid DR1 đầy đủ', what: 'Kết quả vũ trụ học đầu tiên của Euclid.' },
     { when: 'từ 2026', name: 'Rubin, Roman', what: 'Siêu tân tinh và thấu kính yếu ở quy mô lớn.' },
   ],
   myths: [

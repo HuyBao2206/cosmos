@@ -40,10 +40,10 @@ export const DOSSIER = {
       against: ['Phụ thuộc vào một lý thuyết lượng tử hấp dẫn chưa hoàn chỉnh; chưa có dự đoán quan sát được.'],
     },
     {
-      name: 'Vũ trụ tuần hoàn của Penrose', en: 'conformal cyclic cosmology', level: 'refuted',
+      name: 'Vũ trụ tuần hoàn của Penrose', en: 'conformal cyclic cosmology', level: 'speculative',
       idea: 'Vũ trụ trải qua vô số “kỷ nguyên” nối tiếp; dấu vết của kỷ nguyên trước có thể hiện trong phông vi sóng như những “điểm Hawking”.',
       for: ['Một nhóm (An, Meissner, Penrose 2018) báo cáo những đốm như vậy trong dữ liệu Planck.'],
-      against: ['Các phân tích độc lập (2020) cho thấy những đốm đó phù hợp với mô hình chuẩn khi tính đúng xác suất xuất hiện ngẫu nhiên; tín hiệu được tuyên bố không đứng vững.'],
+      against: ['Các phân tích độc lập (2020) cho thấy những đốm đó phù hợp với mô hình chuẩn khi tính đúng xác suất xuất hiện ngẫu nhiên; tín hiệu được tuyên bố không đứng vững. Bản thân mô hình chưa bị bác bỏ, nhưng không còn dấu hiệu quan sát nào ủng hộ.'],
     },
   ],
   after: [
@@ -55,7 +55,7 @@ export const DOSSIER = {
   },
   next: [
     { when: 'đang chạy', name: 'Đài Simons (Chile)', what: 'Kính khẩu độ lớn có ánh sáng đầu tiên tháng 2/2025; đo phân cực phông vi sóng.' },
-    { when: 'đang chạy', name: 'BICEP/Keck', what: 'Tiếp tục siết giới hạn sóng hấp dẫn nguyên thuỷ (tổng hợp cuối 2025: $r < 0{,}034$).' },
+    { when: 'đang chạy', name: 'BICEP/Keck', what: 'Tiếp tục siết giới hạn sóng hấp dẫn nguyên thuỷ (kết hợp với Planck, SPT và ACT, cuối 2025: $r < 0{,}034$).' },
     { when: 'dự kiến 2036', name: 'LiteBIRD (JAXA)', what: 'Vệ tinh đo phân cực “mode B” để tìm sóng hấp dẫn nguyên thuỷ; qua vòng thẩm định tháng 8/2026.' },
   ],
   myths: [

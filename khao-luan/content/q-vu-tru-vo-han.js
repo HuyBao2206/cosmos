@@ -18,13 +18,13 @@ export const DOSSIER = {
       name: 'Phẳng và vô hạn', en: 'flat, infinite', level: 'debated',
       idea: 'Giả định đơn giản nhất phù hợp với số liệu: không gian phẳng và kéo dài vô hạn.',
       for: ['Khớp với độ cong đo được.', 'Lạm phát dự đoán không gian rất gần phẳng.'],
-      against: ['“Vô hạn” không thể kiểm chứng: dù đo độ cong chính xác đến đâu, ta chỉ đặt được giới hạn dưới cho kích thước.', 'Không gian phẳng vẫn có thể hữu hạn nếu nó “quấn lại” như mặt một chiếc phao ba chiều.'],
+      against: ['“Vô hạn” không thể kiểm chứng: dù đo độ cong chính xác đến đâu, ta chỉ đặt được giới hạn dưới cho kích thước.', 'Không gian phẳng vẫn có thể hữu hạn nếu nó “quấn lại” thành một xuyến ba chiều (3-torus), giống mặt một chiếc phao nhưng thêm một chiều.'],
     },
     {
       name: 'Cong dương, hữu hạn', en: 'closed', level: 'speculative',
       idea: 'Vũ trụ khép kín với bán kính cong rất lớn: đi mãi theo một hướng sẽ quay về chỗ cũ.',
       for: ['Năm 2019, một nhóm (Di Valentino, Melchiorri, Silk) cho rằng riêng phổ phông vi sóng của Planck ưa độ cong dương.'],
-      against: ['Phân tích lại (Efstathiou và Gratton 2020) cho thấy Planck nhất quán với không gian phẳng; khi thêm dao động âm baryon, độ cong gần như bằng không.', 'Nếu vũ trụ hữu hạn, nó phải rất lớn: một phân tích dữ liệu thời WMAP (2011) cho thể tích ít nhất khoảng 250 lần “khối cầu Hubble”.'],
+      against: ['Phân tích lại (Efstathiou và Gratton 2020) cho thấy Planck nhất quán với không gian phẳng; khi thêm dao động âm baryon, độ cong gần như bằng không.', 'Nếu vũ trụ cong dương và hữu hạn, nó phải rất lớn: một phân tích dữ liệu thời WMAP (2011) cho thể tích ít nhất khoảng 250 lần “khối cầu Hubble”.'],
     },
     {
       name: 'Không gian quấn lại', en: 'non-trivial topology', level: 'speculative',
