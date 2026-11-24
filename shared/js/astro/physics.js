@@ -264,3 +264,10 @@ export function hzDistance(kind, teffK, lSun) {
 }
 /** Phương trình Drake: N = R* · f_p · n_e · f_l · f_i · f_c · L (khung suy luận, các thừa số sau còn chưa biết) */
 export const drake = (R, fp, ne, fl, fi, fc, L) => R * fp * ne * fl * fi * fc * L;
+
+/* ═════════════ Khảo luận — hố đen lượng tử ═════════════ */
+export const HBAR = H_PLANCK / (2 * Math.PI);       // J·s
+/** Nhiệt độ Hawking (K) của hố đen Schwarzschild khối lượng M (kg): T = ħc³/(8πGMk_B) */
+export const hawkingTemperature = (M) => (HBAR * C ** 3) / (8 * Math.PI * G * M * K_B_);
+/** Thời gian bốc hơi (s), gần đúng chỉ tính photon: t = 5120 π G² M³ / (ħ c⁴) */
+export const evaporationTime = (M) => (5120 * Math.PI * G * G * M ** 3) / (HBAR * C ** 4);

@@ -289,3 +289,24 @@ test('dò tia hố đen (thau-hieu/js/viz/black-hole.js): tia có b < √27 GM/c
   const r = traceRay(100, Math.PI / 2, 1).hits[0];
   near(r, 100, 2e-2);
 });
+
+test('Hawking: T(1 M☉) ≈ 6,2 × 10⁻⁸ K; thời gian bốc hơi ≈ 2 × 10⁶⁷ năm (chỉ photon)', () => {
+  near(P.hawkingTemperature(P.M_SUN), 6.17e-8, 5e-3);
+  near(P.evaporationTime(P.M_SUN) / P.JULIAN_YEAR, 2.1e67, 0.1);
+});
+
+test('tương lai giãn nở: w = −1 → a tăng mãi; w = −1,5 → a phân kỳ ở thời gian hữu hạn (Big Rip); ΩDE < 0 → co lại', async () => {
+  const C2 = await import('../shared/js/astro/cosmology.js');
+  const lam = C2.futureHistory({ w: -1 }, 100, 2000);
+  assert.ok(lam.at(-1)[1] > 50);
+  const rip = C2.futureHistory({ w: -1.5 }, 200, 4000);
+  assert.ok(rip.at(-1)[1] >= 1e5 && rip.at(-1)[0] < 200, `rip ${rip.at(-1)}`);
+  const crunch = C2.futureHistory({ w: -1, ODE: -0.3 }, 200, 4000);
+  assert.ok(crunch.at(-1)[1] < 0.05, `crunch ${crunch.at(-1)}`);
+});
+
+test('Big Rip: w = −1,5, H0 = 70, Ωm = 0,3 → còn khoảng 22 tỷ năm (Caldwell và cộng sự 2003)', async () => {
+  const C2 = await import('../shared/js/astro/cosmology.js');
+  near(C2.bigRipTime(-1.5, 70, 0.3), 22.3, 1e-2);
+  assert.equal(C2.bigRipTime(-1), Infinity);
+});

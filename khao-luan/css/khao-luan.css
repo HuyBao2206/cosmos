@@ -1,0 +1,75 @@
+/* Khảo luận vũ trụ — accent tím tinh vân (--accent = --nebula qua data-section="khao-luan").
+   Dùng chung kiểu thẻ (.kc-*) và minh hoạ (.vz-*) với Thấu hiểu: trang nạp thêm ../thau-hieu/css/thau-hieu.css. */
+
+/* ================= DÒNG CHẢY CỦA CHẮC CHẮN (hero) ================= */
+.kl-hero { position: relative; padding-top: calc(var(--nav-h) + clamp(1.2rem, 4vh, 3rem)); }
+.kl-intro { max-width: 44rem; }
+.kl-intro h1 { font-size: clamp(2.6rem, 5.2vw, 4.8rem); margin: .4rem 0 .8rem; }
+.kl-intro h1 em { color: var(--accent); }
+.kl-intro .lead { font-size: clamp(.98rem, 1.15vw, 1.08rem); }
+.kl-river { position: relative; width: min(100% - 2 * var(--gap), 1360px); margin: clamp(1rem, 3vh, 2rem) auto 0; }
+.kl-river .rv-stage { position: relative; height: clamp(520px, 72vh, 760px); border: 1px solid var(--line); border-radius: 18px; background: radial-gradient(120% 80% at 50% 0%, rgba(183, 155, 230, .06), transparent 60%), #070810; overflow: hidden; }
+.kl-river canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.rv-controls { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .6rem 1.2rem; padding: 1rem clamp(.8rem, 2vw, 1.4rem); }
+.rv-year { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; min-width: 4ch; }
+.rv-controls input[type="range"] { width: 100%; accent-color: var(--accent); height: 30px; }
+.rv-controls .btn { min-height: 44px; }
+.rv-event { grid-column: 1 / -1; min-height: 3.2em; margin: 0; font-size: var(--fs-small); color: var(--ink-2); }
+.rv-event b { color: var(--ink); font-weight: 500; }
+.rv-event .rv-ev-year { color: var(--accent); font-variant-numeric: tabular-nums; margin-right: .4rem; }
+.kl-river-note { margin-top: .6rem; font-size: var(--fs-micro); color: var(--ink-3); max-width: 60rem; }
+.rv-tip { position: absolute; z-index: 3; max-width: 260px; padding: .6rem .8rem; border: 1px solid var(--line-strong); border-radius: 12px; background: rgba(11, 13, 22, .94); font-size: var(--fs-small); pointer-events: none; }
+.rv-tip b { display: block; font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+.rv-tip span { color: var(--ink-2); }
+@media (max-width: 600px) { .rv-controls { grid-template-columns: auto 1fr; } .rv-controls .btn { grid-column: 1 / -1; justify-self: start; } }
+
+/* ================= DANH SÁCH HỒ SƠ ================= */
+.kl-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: clamp(1rem, 2vw, 1.6rem); }
+.kl-card { position: relative; display: grid; gap: .5rem; padding: 1.4rem 1.4rem 1.3rem; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(180deg, rgba(255, 255, 255, .025), transparent); color: var(--ink); text-decoration: none; transition: border-color .25s, transform .25s; }
+.kl-card::before { content: ""; position: absolute; left: 1.4rem; top: 0; width: 42px; height: 2px; background: var(--c); box-shadow: 0 0 14px var(--c); }
+.kl-card:hover, .kl-card:focus-visible { border-color: color-mix(in srgb, var(--c) 60%, transparent); transform: translateY(-2px); }
+.kl-card-n { font-size: var(--fs-micro); letter-spacing: .18em; text-transform: uppercase; color: var(--c); margin: 0; }
+.kl-card h3 { font-size: clamp(1.4rem, 2vw, 1.7rem); margin: 0; line-height: 1.12; }
+.kl-card p { margin: 0; color: var(--ink-2); font-size: var(--fs-small); }
+.kl-card .kl-card-s { margin-top: .4rem; font-size: var(--fs-micro); letter-spacing: .08em; color: var(--ink-3); }
+.kl-card.is-draft { pointer-events: none; }
+.kl-card.is-draft h3 { color: var(--ink-3); }
+
+/* Năm mức chắc chắn */
+.kl-levels { display: grid; gap: .9rem; margin: 0 0 1.6rem; }
+.kl-levels div { display: grid; grid-template-columns: 10.5rem 1fr; gap: 1rem; align-items: baseline; }
+.kl-levels dt { display: flex; align-items: center; gap: .55rem; font-weight: 500; color: var(--lc); }
+.kl-levels dt::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--lc); box-shadow: 0 0 10px var(--lc); }
+.kl-levels dd { margin: 0; color: var(--ink-2); font-size: var(--fs-small); }
+@media (max-width: 560px) { .kl-levels div { grid-template-columns: 1fr; gap: .2rem; } }
+.certainty[data-level="refuted"] { color: #a8a294; }
+
+/* ================= HỒ SƠ (dialog dùng .kc của Thấu hiểu) ================= */
+.kq-known { width: min(100%, 46rem); margin: 0 auto clamp(2rem, 5vh, 3rem); padding: 1.2rem 1.4rem; border: 1px solid color-mix(in srgb, #9fe0b5 35%, transparent); border-radius: var(--radius); background: rgba(159, 224, 181, .04); }
+.kq-known h2 { margin-top: 0; }
+.kq-known ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .5rem; color: #ddd7ca; }
+.kq-hyps { width: min(100%, 52rem); margin: clamp(2rem, 5vh, 3rem) auto; display: grid; gap: 1rem; }
+.kq-hyp { border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem 1.3rem; background: linear-gradient(180deg, rgba(255, 255, 255, .02), transparent); }
+.kq-hyp-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .4rem 1rem; }
+.kq-hyp h3 { margin: 0; font-size: clamp(1.25rem, 1.8vw, 1.5rem); }
+.kq-hyp h3 small { font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--ink-3); font-size: .8em; margin-left: .4rem; }
+.kq-meter { display: inline-flex; align-items: center; gap: .5rem; font-size: var(--fs-micro); letter-spacing: .06em; color: var(--lc); }
+.kq-meter i { display: inline-flex; gap: 3px; }
+.kq-meter i b { width: 16px; height: 5px; border-radius: 3px; background: rgba(236, 230, 216, .12); }
+.kq-meter i b.on { background: var(--lc); box-shadow: 0 0 6px var(--lc); }
+.kq-hyp > p { margin: .7rem 0 .4rem; color: #ddd7ca; }
+.kq-fa { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem 1.4rem; margin-top: .6rem; font-size: var(--fs-small); }
+.kq-fa h4 { margin: 0 0 .3rem; font-family: var(--font-body); font-size: var(--fs-micro); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); font-weight: 500; }
+.kq-fa ul { margin: 0; padding-left: 1rem; display: grid; gap: .3rem; color: var(--ink-2); }
+.kq-for h4 { color: #9fe0b5; }
+.kq-against h4 { color: #e6a2a2; }
+@media (max-width: 640px) { .kq-fa { grid-template-columns: 1fr; } }
+.kq-next { width: min(100%, 46rem); margin: clamp(2rem, 5vh, 3rem) auto; }
+.kq-next ol { list-style: none; margin: 0; padding: 0 0 0 1rem; border-left: 1px solid var(--line-strong); display: grid; gap: .9rem; }
+.kq-next li { position: relative; display: grid; grid-template-columns: 6.5rem 1fr; gap: .8rem; }
+.kq-next li::before { content: ""; position: absolute; left: calc(-1rem - 4px); top: .5rem; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.kq-next time { color: var(--accent); font-variant-numeric: tabular-nums; font-size: var(--fs-small); }
+.kq-next li div { color: var(--ink-2); font-size: var(--fs-small); }
+.kq-next li b { color: var(--ink); font-weight: 500; }
+@media (max-width: 560px) { .kq-next li { grid-template-columns: 1fr; gap: .1rem; } }
+.kc { background: rgba(5, 6, 11, .99); }

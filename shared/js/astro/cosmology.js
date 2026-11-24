@@ -81,3 +81,32 @@ export function scaleFactorHistory(p, tMax = 40, n = 600) {
   }
   return out;
 }
+
+/** Lịch sử hệ số tỉ lệ với năng lượng tối có phương trình trạng thái w hằng (mật độ ∝ a^{−3(1+w)}).
+ *  Vũ trụ phẳng, Ωm = 0,3111, ΩDE = 1 − Ωm − Ωr. Tích phân từ hôm nay (a = 1, t = t0) về tương lai tới tMax (tỷ năm).
+ *  Dừng nếu a → ∞ (Big Rip, w < −1) hoặc dấu của tốc độ giãn đổi (co lại khi ΩDE < 0). Trả về [[t, a], …]. */
+export function futureHistory({ w = -1, ODE = null, Om = PLANCK18.Om } = {}, tMax = 200, n = 4000) {
+  const q = params({ Om });
+  const ode = ODE ?? 1 - Om - q.Or;
+  const Ok = 1 - Om - q.Or - ode;
+  const H0g = q.H0s * GYR;
+  const e2 = (a) => q.Or / a ** 4 + Om / a ** 3 + Ok / a ** 2 + ode * Math.pow(a, -3 * (1 + w));
+  let a = 1, t = ageAtA(1, { Om, OL: ode }), sign = 1;
+  const dt = (tMax - t) / n, out = [[t, a]];
+  for (let i = 0; i < n; i++) {
+    const f = (aa) => { const v = e2(aa); return v > 0 ? sign * H0g * aa * Math.sqrt(v) : 0; };
+    const k1 = f(a), k2 = f(a + dt * k1 / 2), k3 = f(a + dt * k2 / 2), k4 = f(a + dt * k3);
+    let na = a + (dt / 6) * (k1 + 2 * k2 + 2 * k3 + k4);
+    if (sign > 0 && !(e2(na) > 0)) { sign = -1; na = a; }
+    a = na; t += dt;
+    if (!(a > 0.02) || a > 1e6 || !isFinite(a)) { out.push([t, Math.max(0, Math.min(a, 1e6))]); break; }
+    out.push([t, a]);
+  }
+  return out;
+}
+/** Thời gian còn lại tới Big Rip (tỷ năm) với năng lượng ma w < −1 (Caldwell, Kamionkowski & Weinberg 2003):
+ *  t_rip − t0 ≈ (2/3) / (|1 + w| · H0 · √(1 − Ωm)). Trả Infinity nếu w ≥ −1. */
+export function bigRipTime(w, H0 = 70, Om = 0.3) {
+  if (w >= -1) return Infinity;
+  return (2 / 3) / (Math.abs(1 + w) * Math.sqrt(1 - Om)) * hubbleTimeGyr(H0);
+}

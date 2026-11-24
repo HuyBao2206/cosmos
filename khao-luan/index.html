@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="vi" class="no-js" data-root="../" data-section="khao-luan" data-updated="10/2026">
+<html lang="vi" class="no-js" data-root="../" data-section="khao-luan" data-updated="11/2026">
 <head>
   <title>Khảo luận vũ trụ · Into the Cosmos</title>
-  <meta name="description" content="Lý thuyết, giả thuyết và câu hỏi mở về vũ trụ — sắp mở cửa.">
+  <meta name="description" content="Những câu hỏi lớn còn bỏ ngỏ về vũ trụ — vật chất tối, năng lượng tối, trước Vụ Nổ Lớn, sự sống ngoài Trái Đất — với từng giả thuyết được gắn rõ mức độ chắc chắn.">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#05060b">
@@ -13,7 +13,7 @@
   <meta property="og:site_name" content="Into the Cosmos · by HUB">
   <meta property="og:locale" content="vi_VN">
   <meta property="og:title" content="Khảo luận vũ trụ · Into the Cosmos">
-  <meta property="og:description" content="Lý thuyết, giả thuyết và câu hỏi mở về vũ trụ — sắp mở cửa.">
+  <meta property="og:description" content="Dòng chảy của chắc chắn: kéo thời gian từ 1900 tới nay và xem các ý tưởng về vũ trụ đi từ suy đoán tới xác lập — hoặc bị bác bỏ.">
   <meta property="og:url" content="https://huybao2206.github.io/cosmos/khao-luan/">
   <meta property="og:image" content="https://huybao2206.github.io/cosmos/shared/img/og-image.jpg">
   <meta property="og:image:width" content="1200">
@@ -34,26 +34,49 @@
       "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/",
       "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.15.0/index.js",
       "gsap/": "https://cdn.jsdelivr.net/npm/gsap@3.15.0/",
-      "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.mjs"
+      "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.mjs",
+      "katex": "https://cdn.jsdelivr.net/npm/katex@0.19.0/dist/katex.mjs"
     }
   }
   </script>
-
+  <link rel="stylesheet" href="../thau-hieu/css/thau-hieu.css">
+  <link rel="stylesheet" href="./css/khao-luan.css">
 </head>
 <body>
-  <main id="main" class="section" style="min-height:80vh;display:grid;place-items:center">
-    <div class="wrap" style="max-width:760px">
-      <div class="soon-frame reveal">
-        <p class="eyebrow">Sắp mở cửa</p>
-        <h1 style="margin-top:1rem">Khảo luận vũ trụ</h1>
-        <p class="lead" style="margin-inline:auto">Những lý thuyết, giả thuyết và câu hỏi còn bỏ ngỏ, được phân biệt rõ: điều đã xác lập, điều được ủng hộ mạnh, điều đang tranh luận và điều còn là suy đoán.</p>
-        <p class="small muted" style="margin-top:2rem">Trong lúc chờ, bạn có thể bắt đầu từ <a href="../kham-pha/">Khám phá vũ trụ</a>.</p>
+  <main id="main">
+    <section class="kl-hero" aria-labelledby="kl-h1">
+      <div class="wrap kl-hero-ui">
+        <div class="kl-intro">
+          <p class="eyebrow">Khảo luận vũ trụ</p>
+          <h1 id="kl-h1">Dòng chảy của <em>chắc chắn</em></h1>
+          <p class="lead">Khoa học không phải một danh sách sự thật, mà là những ý tưởng di chuyển dần theo bằng chứng: có ý tưởng đi từ suy đoán tới xác lập, có ý tưởng bị bác bỏ. Kéo thanh thời gian để xem các ý tưởng lớn về vũ trụ đã đi con đường nào — và những câu hỏi nào vẫn còn bỏ ngỏ hôm nay.</p>
+        </div>
       </div>
-    </div>
+      <div class="kl-river" id="kl-river" aria-describedby="kl-river-note">
+        <noscript><p class="muted wrap">Phần này cần JavaScript.</p></noscript>
+      </div>
+      <p id="kl-river-note" class="kl-river-note wrap">Mỗi đốm sáng là một ý tưởng; vị trí ngang là mức độ chắc chắn mà cộng đồng khoa học dành cho nó tại năm đang chọn. Đây là cách tóm lược của ban biên tập dựa trên các mốc lịch sử có nguồn, không phải một phép đo.</p>
+    </section>
+
+    <section class="kl-index section" aria-labelledby="kl-index-h">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Hồ sơ câu hỏi mở</p>
+          <h2 id="kl-index-h">Tám câu hỏi chưa có lời đáp</h2>
+          <p class="lead">Mỗi hồ sơ tách rõ điều đã biết chắc khỏi các giả thuyết, gắn nhãn mức độ chắc chắn cho từng giả thuyết, và ghi những thí nghiệm, sứ mệnh có thể trả lời câu hỏi trong những năm tới.</p>
+        </header>
+        <div class="kl-list" id="kl-list"></div>
+      </div>
+    </section>
+
+    <section class="kl-scale section" aria-labelledby="kl-scale-h">
+      <div class="wrap-text">
+        <h2 id="kl-scale-h" class="th-about-h">Năm mức độ chắc chắn</h2>
+        <dl class="kl-levels" id="kl-levels"></dl>
+        <p class="muted small">Ghi chép nghiên cứu của từng hồ sơ nằm trong thư mục <code>research/</code> (các file <code>kl-*.md</code>) của mã nguồn dự án.</p>
+      </div>
+    </section>
   </main>
-  <script type="module">
-    import { initSite } from '../shared/js/site.js';
-    initSite();
-  </script>
+  <script type="module" src="./js/main.js"></script>
 </body>
 </html>

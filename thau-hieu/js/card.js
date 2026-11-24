@@ -3,6 +3,9 @@
 import { CHAPTERS, CONCEPTS, chapterById, contentFile } from '../content/chapters.js';
 import { rich, hasMath, loadKatex } from './text.js';
 import { prefersReducedMotion } from '../../shared/js/util.js';
+import { questionByLabel } from '../../khao-luan/content/questions.js';
+import { SECTIONS } from '../../shared/js/config.js';
+const KL_OPEN = SECTIONS.find((x) => x.id === 'khao-luan')?.open;
 
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const pad = (n) => String(n).padStart(2, '0');
@@ -161,7 +164,12 @@ export async function openConcept(id, origin) {
     return `<a class="kc-chip${ready ? '' : ' is-draft'}" href="#k/${rid}" style="--c:${r.chapter.color}"${ready ? '' : ' aria-disabled="true" title="Đang biên soạn"'}>${esc(r.title)}${ready ? '' : ' <small>· đang biên soạn</small>'}</a>`;
   }).join('');
   const kp = (c.khamPha || []).map((k) => `<a class="kc-chip kc-chip-out" href="../kham-pha/${k.href}">${esc(k.label)} <span aria-hidden="true">↗</span></a>`).join('');
-  const kl = (c.khaoLuan || []).map((k) => `<span class="kc-chip is-draft" title="Khảo luận vũ trụ sắp mở cửa">${esc(k.label)} <small>· Khảo luận, sắp mở</small></span>`).join('');
+  const kl = (c.khaoLuan || []).map((k) => {
+    const q = questionByLabel(k.label);
+    return q && q.status === 'ready' && KL_OPEN
+      ? `<a class="kc-chip kc-chip-out" href="../khao-luan/#q/${q.id}" style="--c:#b79be6">${esc(k.label)} <span aria-hidden="true">↗</span></a>`
+      : `<span class="kc-chip is-draft" title="Khảo luận vũ trụ sắp mở cửa">${esc(k.label)} <small>· Khảo luận, sắp mở</small></span>`;
+  }).join('');
   const linksHTML = (chips || kp || kl) ? `<section class="kc-links kc-reveal" aria-label="Liên kết">
       <h2 class="kc-h">Liên kết</h2>
       ${chips ? `<div class="kc-link-row"><p class="kc-link-l">Khái niệm liên quan</p><div class="kc-chips">${chips}</div></div>` : ''}
