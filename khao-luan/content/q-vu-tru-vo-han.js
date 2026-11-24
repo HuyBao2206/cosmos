@@ -3,7 +3,7 @@ export const UPDATED = '11/2026';
 
 export const DOSSIER = {
   kicker: 'Ta chỉ thấy được một quả cầu bán kính khoảng 46 tỷ năm ánh sáng. Bên ngoài nó, ta chỉ có thể suy luận.',
-  certainty: { level: 'debated', label: 'Không gian gần phẳng: đã xác lập · hữu hạn hay vô hạn: chưa biết, có thể không bao giờ biết' },
+  certainty: { level: 'speculative', label: 'Không gian gần phẳng: đã xác lập · hữu hạn hay vô hạn: chưa biết, có thể không bao giờ biết' },
   intro: [
     'Vũ trụ quan sát được có giới hạn: ánh sáng từ xa hơn khoảng 46 tỷ năm ánh sáng (khoảng cách đồng chuyển động) chưa kịp tới ta trong 13,8 tỷ năm (xem [[dinh-luat-hubble]]). Toàn bộ vũ trụ thì có thể lớn hơn rất nhiều — hoặc vô hạn.',
     'Manh mối duy nhất là **độ cong** của không gian. Không gian cong dương (như mặt cầu, nhưng ba chiều) thì hữu hạn và khép kín. Không gian phẳng hoặc cong âm có thể vô hạn. Độ cong được đo bằng hình học của những tam giác khổng lồ: kích thước biểu kiến của các gợn trong [[phong-vi-song|phông vi sóng]], và dao động âm baryon.',
@@ -15,7 +15,7 @@ export const DOSSIER = {
   ],
   hypotheses: [
     {
-      name: 'Phẳng và vô hạn', en: 'flat, infinite', level: 'debated',
+      name: 'Phẳng và vô hạn', en: 'flat, infinite', level: 'speculative',
       idea: 'Giả định đơn giản nhất phù hợp với số liệu: không gian phẳng và kéo dài vô hạn.',
       for: ['Khớp với độ cong đo được.', 'Lạm phát dự đoán không gian rất gần phẳng.'],
       against: ['“Vô hạn” không thể kiểm chứng: dù đo độ cong chính xác đến đâu, ta chỉ đặt được giới hạn dưới cho kích thước.', 'Không gian phẳng vẫn có thể hữu hạn nếu nó “quấn lại” thành một xuyến ba chiều (3-torus), giống mặt một chiếc phao nhưng thêm một chiều.'],

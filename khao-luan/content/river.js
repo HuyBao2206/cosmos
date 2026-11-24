@@ -72,7 +72,7 @@ export const IDEAS = [
   {
     id: 'tang-toc', name: 'Giãn nở tăng tốc (năng lượng tối)', short: 'Năng lượng tối', color: '#9fb6ff', q: 'nang-luong-toi',
     keys: [
-      [1998, 'debated', 'Hai nhóm đo siêu tân tinh Ia: vũ trụ giãn nở ngày càng nhanh.'],
+      [1998, 'strong', 'Hai nhóm đo siêu tân tinh Ia: vũ trụ giãn nở ngày càng nhanh.'],
       [2003, 'strong', 'WMAP kết hợp siêu tân tinh: vũ trụ phẳng, khoảng 70 % là năng lượng tối.'],
       [2011, 'established', 'Giải Nobel Vật lý; dao động âm baryon (phát hiện 2005) và phông vi sóng đã xác nhận độc lập.'],
     ],
@@ -80,7 +80,7 @@ export const IDEAS = [
   {
     id: 'nl-toi-bien-doi', name: 'Năng lượng tối thay đổi theo thời gian', short: 'NLT biến đổi', color: '#7fa0f0', q: 'nang-luong-toi',
     keys: [
-      [2024, 'speculative', 'DESI DR1 gợi ý năng lượng tối có thể không phải hằng số.'],
+      [2024, 'debated', 'DESI DR1 gợi ý năng lượng tối có thể không phải hằng số.'],
       [2025, 'debated', 'DESI DR2: mức 2,8–4,2σ tuỳ tổ hợp dữ liệu.'],
       [2026, 'debated', 'Hiệu chuẩn lại siêu tân tinh DES: mức ý nghĩa giảm từ 4,2σ xuống 3,2σ; các phân tích 2026 cho 2,6–3,2σ.'],
     ],
