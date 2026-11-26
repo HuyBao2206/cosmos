@@ -26,7 +26,7 @@ Cập nhật: 21/11/2026
 - [x] `/khao-luan/`: 8 hồ sơ câu hỏi mở (vật chất tối, năng lượng tối, căng thẳng Hubble, trước Vụ Nổ Lớn, số phận vũ trụ,
   vũ trụ vô hạn, bên trong hố đen, cô đơn trong vũ trụ), mỗi hồ sơ: điều đã biết, các giả thuyết kèm mức chắc chắn và lý lẽ
   hai phía, minh hoạ tương tác, "làm sao để biết" (sứ mệnh sắp tới), hiểu lầm, nguồn.
-- [x] Khoảnh khắc "chưa từng thấy": **Dòng chảy của chắc chắn** — 17 ý tưởng trôi qua 5 mức chắc chắn từ 1900 tới 2026, kéo/phát theo năm.
+- [x] ~~Dòng chảy của chắc chắn~~ (canvas động trên đầu trang) — đã gỡ 11/2026 theo yêu cầu chủ dự án vì gây giật/lag trên thiết bị.
 - [x] Minh hoạ mới: biểu đồ các phép đo H₀, số phận vũ trụ theo w, độ cong không gian, bức xạ Hawking (có test vật lý).
 - [x] Nghiên cứu ở `research/kl-*.md`; thẩm định bằng subagent biên tập viên; mở cửa trong `shared/js/config.js`;
   nhãn câu hỏi mở bên Thấu hiểu thành liên kết sang hồ sơ.

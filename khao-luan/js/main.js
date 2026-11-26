@@ -1,7 +1,6 @@
-// Khảo luận vũ trụ — điều phối: "Dòng chảy của chắc chắn", danh sách hồ sơ, năm mức chắc chắn, định tuyến #q/<id>.
+// Khảo luận vũ trụ — điều phối: danh sách hồ sơ, năm mức chắc chắn, định tuyến #q/<id>.
 import { initSite } from '../../shared/js/site.js';
 import { QUESTIONS, LEVELS, questionById } from '../content/questions.js';
-import { mountRiver } from './river.js';
 import { openDossier, closeDossier, isOpen, setCloseHandler } from './dossier.js';
 
 initSite();
@@ -13,7 +12,6 @@ $('#kl-list').innerHTML = QUESTIONS.map((q) => `<a class="kl-card${q.status === 
     <p class="kl-card-s">${q.status === 'ready' ? 'Mở hồ sơ →' : 'Đang biên soạn'}</p></a>`).join('');
 $('#kl-levels').innerHTML = LEVELS.slice().reverse().map((l) => `<div style="--lc:${l.color}"><dt>${l.label}</dt><dd>${esc(l.text)}</dd></div>`).join('');
 
-mountRiver($('#kl-river'), { onOpen: (id, origin) => go(`#q/${id}`, origin) });
 
 /* ——— Định tuyến ——— */
 let pendingOrigin = null, opened = false;

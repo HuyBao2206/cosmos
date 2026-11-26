@@ -136,13 +136,11 @@ raw.githubusercontent.com và `git clone` từ GitHub dùng được. Vì vậy:
   `thauHieu` = thẻ nền tảng). `content/q-<id>.js`: `UPDATED`, `DOSSIER` = { kicker, certainty, intro[], known[],
   hypotheses[{name, en, level, idea, for[], against[]}], viz{module (đường dẫn tương đối từ khao-luan/js/), caption}, after[],
   next[{when, name, what}], myths[], sources[] }. Chữ dùng cú pháp của Thấu hiểu; `[[id]]` trỏ sang thẻ bên /thau-hieu/.
-- `content/river.js`: dữ liệu "Dòng chảy của chắc chắn" — mỗi ý tưởng `keys: [[năm, mức, sự kiện], …]`, `q` = hồ sơ liên quan.
-  Mức tại mỗi mốc là tóm lược biên tập, phải có căn cứ trong `research/kl-*.md` (và các file research khác).
-- `js/main.js` (điều phối, định tuyến), `js/river.js` (canvas; tạm dừng khi có hồ sơ mở — `html.kc-open`), `js/dossier.js`
+- `js/main.js` (điều phối, định tuyến), `js/dossier.js`
   (dialog, dùng CSS `.kc-*` của Thấu hiểu — trang nạp `../thau-hieu/css/thau-hieu.css`), `js/viz/*.js` (h0-plot, future-fate,
   curvature, hawking); một số hồ sơ dùng lại minh hoạ của Thấu hiểu. `window.__khaoLuan.go('#q/<id>')` để kiểm thử.
 - Thẻ Thấu hiểu: nhãn trong `khaoLuan[]` tự thành liên kết sang hồ sơ khi hồ sơ `ready` và Khảo luận `open` (thau-hieu/js/card.js).
-- Thêm hồ sơ: nghiên cứu → `research/kl-<chu-de>.md`; thêm vào `QUESTIONS`; viết `content/q-<id>.js`; thêm mốc vào `river.js`;
+- Thêm hồ sơ: nghiên cứu → `research/kl-<chu-de>.md`; thêm vào `QUESTIONS`; viết `content/q-<id>.js`;
   thẩm định bằng subagent; test; chụp 1440/390. Lưu ý kiểm thử: chụp màn hình khi hồ sơ mở có thể mất 10–30 giây trong
   Chromium phần mềm (swiftshader) — đặt timeout chụp dài.
 - Dữ kiện có hạn dùng (11/2026): LZ (sự kiện 2,6σ 9/2026), DESI DR3 (chưa ra), Euclid DR1 đầy đủ (6/2027), LiteBIRD (dự kiến 2036),
